@@ -1,0 +1,2 @@
+# BedWars
+BedWars-Plugin
