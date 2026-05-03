@@ -17,6 +17,7 @@
 - [30+ Built‑in Add‑ons](#-30-built-in-add-ons)
 - [Commands & Permissions](#-commands--permissions)
 - [Full Configuration](#-full-configuration)
+- [Automatic Database Backup](#-automatic-database-backup)
 - [Database & Storage](#-database--storage)
 - [Performance Optimizations](#-performance-optimizations)
 - [PlaceholderAPI Integration](#-placeholderapi-integration)
@@ -151,6 +152,7 @@ No dependency hell. All 30+ add‑ons share the same configuration system, datab
 - **Party system** (Parties plugin or internal)
 - **Chat** formatting, `/shout` command, live scoreboard
 - **Token economy** (no Vault) + **level/XP** system
+- **Automatic database backup** – no data loss, ever
 
 ---
 
@@ -271,6 +273,14 @@ Every value is editable in `plugins/BedWars/`. Nothing is hard‑coded.
 
 ---
 
+## Automatic Database Backup
+
+Never lose your players’ progress. BedWars Ultimate includes an **automatic database backup system** that periodically exports your entire database to a secure location—fully configurable interval and path. In case of hardware failure or accidental corruption, a complete restore is just one copy away.
+
+This applies to MongoDB and SQLite alike. Backups run asynchronously so there’s zero impact on gameplay.
+
+---
+
 ## Database & Storage
 
 - **MongoDB** – Primary, fully asynchronous. Stores stats, layouts, levels, ranked data.
@@ -350,7 +360,10 @@ The complete API is documented inside the `api` package.
 ### How to buy
 - **Discord:** `Nerotek01`
 - **Bale (Iranian users):** `Nerotek`
-- **Price:** **€25.00** (one‑time payment, lifetime license)
+- **Price:** **€25.00** (one‑time payment, **permanent license**)
+
+### License
+**Permanent license. Valid for all your servers** – whether you run a single server or an entire BungeeCord network. No recurring fees, no hidden costs. One purchase covers everything.
 
 ### What you get
 - The full plugin JAR
