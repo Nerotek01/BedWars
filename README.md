@@ -260,6 +260,17 @@ The complete API is documented inside the `api` package.
 
 ---
 
+## Public API
+
+Easily extend the plugin with your own code:
+
+java
+BedWars api = BedWars.getAPI();
+IArena arena = api.getArenaByName("myarena");
+BedWars.joinQueue(player);
+Map<String, Object> ranked = BedWars.getRankedStats(player);
+api.getBedWarsCommand().addSubCommand(new MyCustomCommand());
+
 ## Installation
 
 1. Stop the server.
