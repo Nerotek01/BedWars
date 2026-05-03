@@ -1,14 +1,15 @@
-# BedWars · Ultimate Edition
+# BedWars
 
-> The ultimate BedWars experience, engineered exclusively for Minecraft 1.8.8.  
-> No compromises. No bloat. A single plugin that replaces 15 others while delivering rock‑solid 20 TPS under 2000+ concurrent players.  
-> **Fully configurable. Fully supported. Fully tested.** Your server deserves more than a stitched‑together setup – it deserves a solution that just works, at any scale, with zero drama.
+> The stable, actively maintained version. Always improving, never breaking.  
+> The definitive BedWars plugin for Minecraft 1.8.8 Spigot / Paper.  
+> Engineered for networks that demand extreme performance, uncompromising features, and 24/7 stability.  
+> **Battle‑tested with 2000+ concurrent players. 100% configurable down to the smallest mechanic.**
 
 ---
 
 ## Table of Contents
 
-- [Why BedWars Ultimate?](#-why-bedwars-ultimate)
+- [Why BedWars?](#-why-bedwars)
 - [Competitive Comparison (In‑Depth)](#-competitive-comparison-in-depth)
 - [Why Exclusively 1.8.8?](#-why-exclusively-188)
 - [Technical Deep Dive: Performance Engineering](#-technical-deep-dive-performance-engineering)
@@ -23,26 +24,25 @@
 - [PlaceholderAPI Integration](#-placeholderapi-integration)
 - [BungeeCord & Auto‑Scale](#-bungeecord--auto-scale)
 - [Public API](#-public-api)
-- [Installation (Zero Dependencies)](#-installation-zero-dependencies)
 - [Support & Purchasing](#-support--purchasing)
 - [Roadmap](#-roadmap)
 
 ---
 
-## Why BedWars Ultimate?
+## Why BedWars?
 
 After running large BedWars networks for years, one fact became undeniable: **every existing plugin forces a compromise.**  
 Some deliver features but collapse under load. Others stay light but require you to stitch together 15 add‑ons just to make the game playable. Support is often a forum post that goes unanswered for days.
 
-**BedWars Ultimate ends these compromises.** It is a single, unified solution built for massive scale. Every feature—from ranked matchmaking to item deposit—lives inside one JAR. Every line of code exists because a real server owner demanded it. No filler. No bloat. Just pure, battle‑hardened performance.
+**BedWars ends these compromises.** It is a single, unified solution built for massive scale. Every feature—from ranked matchmaking to item deposit—lives inside one JAR. Every line of code exists because a real server owner demanded it. No filler. No bloat. Just pure, battle‑hardened performance.
 
 ---
 
 ## Competitive Comparison (In‑Depth)
 
-When you evaluate a BedWars plugin, you are really asking four questions: what can it do, how fast does it run, who helps me when it breaks, and will it still work a year from now? Here is how BedWars Ultimate answers those questions against every major alternative on the market.
+When you evaluate a BedWars plugin, you are really asking four questions: what can it do, how fast does it run, who helps me when it breaks, and will it still work a year from now? Here is how BedWars answers those questions against every major alternative on the market.
 
-| Criteria | **BedWars Ultimate** | BedWars1058 | MBedwars | ScreamingBedWars | BedWarsProxy | Other "Premium" |
+| Criteria | **BedWars** | BedWars1058 | MBedwars | ScreamingBedWars | BedWarsProxy | Other "Premium" |
 |----------|-----------------|-------------|----------|------------------|--------------|-----------------|
 | **Built‑in add‑ons** | 30+ (deposit, gen split, voidless, ranked…) | Requires separate JARs | ~10 | Limited | Minimal | Usually 5‑10, often paid extras |
 | **Ranked system** | Fully native – ELO, WebSocket, tournaments | Not available | Third‑party | Not available | Not available | Rarely native |
@@ -59,7 +59,7 @@ When you evaluate a BedWars plugin, you are really asking four questions: what c
 | **API** | Full public Java API | Limited | Moderate | Minimal | Moderate | Varies |
 | **License** | Permanent, all servers | Per‑server | Per‑server | Per‑server | Per‑server | Often recurring |
 
-**The Bottom Line:** Other plugins make you choose. BedWars Ultimate is the only solution where you get everything in one purchase, backed by direct developer access at any hour – with a license that covers every server you own.
+**The Bottom Line:** Other plugins make you choose. BedWars is the only solution where you get everything in one purchase, backed by direct developer access at any hour – with a license that covers every server you own.
 
 ---
 
@@ -278,7 +278,7 @@ Every value is editable in `plugins/BedWars/`. Nothing is hard‑coded.
 
 ## Automatic Database Backup
 
-Never lose your players’ progress. BedWars Ultimate includes an **automatic database backup system** that periodically exports your entire database to a secure location—fully configurable interval and path. In case of hardware failure or accidental corruption, a complete restore is just one copy away.
+Never lose your players’ progress. BedWars includes an **automatic database backup system** that periodically exports your entire database to a secure location—fully configurable interval and path. In case of hardware failure or accidental corruption, a complete restore is just one copy away.
 
 This applies to MongoDB and SQLite alike. Backups run asynchronously so there’s zero impact on gameplay.
 
@@ -344,28 +344,14 @@ The complete API is documented inside the `api` package.
 
 ---
 
-## Installation (Zero Dependencies)
-
-**BedWars Ultimate has no external dependencies besides PlaceholderAPI. No Vault, no Citizens, no economy plugins, no party plugins – everything is built‑in and ready to run immediately.**  
-Even the internal party system and token economy work out of the box without any extra setup.
-
-1. Place `BedWars.jar` into your server’s `plugins/` folder.
-2. Make sure **PlaceholderAPI** is installed (the plugin will not start without it; this is the only requirement).
-3. Start the server. All configuration files and the dedicated PAPI expansion are created automatically.
-4. Open `config.yml`, enter your MongoDB credentials (or leave SQLite for testing) and choose your server type.
-5. Use `/bw setup` – an interactive wizard will guide you through creating your first arena in under a minute.
-6. That’s it. You’re ready to play. No additional downloads, no dependency hell.
-
----
-
 ## Support & Purchasing
 
-**BedWars Ultimate** is a premium plugin sold exclusively by the developer.
+**BedWars** is a premium plugin sold exclusively by the developer.
 
 ### How to buy
 - **Discord:** `Nerotek01`
 - **Bale (Iranian users):** `Nerotek`
-- **Price:** **€25.00** (one‑time payment, **permanent license**)
+- **Price:** **€34.99** (one‑time payment, **permanent license**)
 
 ### License
 **Permanent license. Valid for all your servers** – whether you run a single server or an entire BungeeCord network. No recurring fees, no hidden costs. One purchase covers everything, forever.
@@ -391,4 +377,4 @@ When your server has a problem at peak time, you speak directly to the person wh
 
 ---
 
-**BedWars Ultimate** — The last BedWars plugin you will ever need to buy.
+**BedWars** — The last BedWars plugin you will ever need to buy.
