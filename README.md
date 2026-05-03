@@ -2,7 +2,8 @@
 
 > The most advanced, performance‑focused BedWars plugin for Minecraft 1.8.8 Spigot / Paper.  
 > Built for large networks and demanding servers that refuse to compromise on quality.  
-> **Tested and stable with over 2000 players online simultaneously.**
+> **Tested and stable with over 2000 players online simultaneously.**  
+> **100% configurable – every mechanic, message, and add‑on can be adjusted to fit your server perfectly.**
 
 ---
 
@@ -12,7 +13,7 @@
 - [Feature Overview](#-feature-overview)
 - [Ranked System (Full)](#-ranked-system-full)
 - [Add‑ons](#-add‑ons)
-- [Commands & Permissions](#-commands--permissions)
+- [Commands & Permissions (Complete Reference)](#-commands--permissions-complete-reference)
 - [Configuration (100% Customizable)](#-configuration-100-customizable)
 - [Database & Storage](#-database--storage)
 - [Performance Optimizations](#-performance-optimizations)
@@ -45,7 +46,7 @@ Most BedWars plugins either lack features, perform poorly under load, or demand 
 | **Customizability** | **100% configurable** – every mechanic, message, and add‑on | Limited or hard‑coded settings |
 | **Scalability** | **Proven at 2000+ concurrent players** without TPS drop | Often untested at such scale |
 
-When you choose BedWars Ultimate, you choose a plugin that doesn’t just work—it excels, even when your server is packed full.
+When you choose BedWars Ultimate, you choose a plugin that doesn't just work—it excels, even when your server is packed full.
 
 ---
 
@@ -133,7 +134,7 @@ No extra plugins, no messy dependencies. The plugin is **100% modular** – you 
 
 ---
 
-## Commands & Permissions
+## Commands & Permissions (Complete Reference)
 
 Main command: `/bw` (alias `/bedwars`)
 
@@ -141,27 +142,97 @@ Main command: `/bw` (alias `/bedwars`)
 
 | Command | Purpose | Permission |
 |---------|---------|------------|
-| `/bw join <arena>` | Join a specific arena | `bw.player` |
-| `/bw leave` | Leave current game | `bw.player` |
-| `/bw rejoin` | Rejoin last game | `bw.player` |
-| `/bw shout` | Global game chat | `bw.player` |
-| `/bw spectate <player>` | Spectate another player | `bw.spectate` |
-| `/bw map` | Vote for next map | `bw.player` |
-| `/bw stats [player]` | View statistics | `bw.player` |
-| `/bw compass` | Open tracker compass menu | `bw.player` |
+| `/bw join <map/group/random>` | Join a game by map name, arena group, or randomly | `bw.player` |
+| `/bw join ranked` | Join the ranked queue | `bw.player` |
+| `/bw join forcejoin <player> [arena]` | Force a player into a specific arena (admin only) | `bw.admin` |
+| `/bw leave` | Leave the current game | `bw.player` |
+| `/bw rejoin` | Rejoin the last game if still in progress | `bw.player` |
+| `/bw shout <message>` | Send a message to all players in the game | `bw.player` |
+| `/bw spectate <player>` | Spectate a specific player | `bw.spectate` |
+| `/bw map` | Vote for the next map | `bw.player` |
+| `/bw stats [player]` | View your own or another player's statistics | `bw.player` |
+| `/bw compass` | Open the enemy tracker compass menu | `bw.player` |
+| `/bw gui [group]` | Open the map selector GUI | `bw.player` |
+| `/bw ranked` | Open the ranked menu (inside tournament arenas) | `bw.player` |
+| `/bw quickbuy` | Customize your quick‑buy slots | `bw.player` |
+| `/bw tokens [player]` | Check token balance (yours or another player's) | `bw.player` |
+| `/bw level <set/add/remove> <player> <amount>` | Manage player levels (admin only) | `bw.admin` |
+| `/bw hotbar menu` | Open the hotbar manager GUI | `bw.player` |
 | `/map` | Shortcut to map voting | `bw.player` |
-| `/leave` | Leave game (if not overridden) | `bw.player` |
+| `/leave` | Leave the current game (if not overridden by another plugin) | `bw.player` |
+| `/shout <message>` | Shortcut for shout chat | `bw.player` |
+| `/spectate <player>` | Shortcut to spectate a player | `bw.spectate` |
+| `/stats` | Shortcut to view your stats | `bw.player` |
+| `/statistics` | Admin statistics view | `bw.admin` |
 
-### Admin Commands
+### Admin Commands (Setup & Management)
 
 | Command | Purpose | Permission |
 |---------|---------|------------|
-| `/bw setup` | Interactive arena creation | `bw.admin` |
-| `/bw lobby` | Set lobby spawn point | `bw.admin` |
-| `/bw process` | Debug / management tasks | `bw.admin` |
-| `/statistics` | Admin stats view | `bw.admin` |
+| `/bw setup` | Interactive arena creation wizard | `bw.admin` |
+| `/bw lobby` | Set the main lobby spawn point | `bw.admin` |
+| `/bw setlobby` | Set the lobby world and spawn location | `bw.admin` |
+| `/bw setuparena <name>` | Setup a new arena | `bw.admin` |
+| `/bw enablearena <name>` | Enable a disabled arena | `bw.admin` |
+| `/bw disablearena <name>` | Disable an arena | `bw.admin` |
+| `/bw clonearena <source> <target>` | Clone an existing arena configuration | `bw.admin` |
+| `/bw arenagroup <arena> <group>` | Set the group of an arena | `bw.admin` |
+| `/bw build` | Toggle build mode for arena setup | `bw.admin` |
+| `/bw setwaitingspawn` | Set the waiting lobby spawn for an arena | `bw.admin` |
+| `/bw setspectspawn` | Set the spectator spawn point | `bw.admin` |
+| `/bw createteam <name> <color>` | Create a new team in the current setup | `bw.admin` |
+| `/bw waitingpos <team>` | Set the waiting position for a team | `bw.admin` |
+| `/bw removeteam <name>` | Remove a team from the arena | `bw.admin` |
+| `/bw setmaxinteam <amount>` | Set maximum players per team | `bw.admin` |
+| `/bw setmaxbuildheight <height>` | Set the maximum build height | `bw.admin` |
+| `/bw setspawn <team>` | Set the team spawn point | `bw.admin` |
+| `/bw setbed <team>` | Set the team bed location | `bw.admin` |
+| `/bw setshop <team>` | Set the team shop location | `bw.admin` |
+| `/bw setupgrade <team> <upgrade>` | Set an upgrade station location | `bw.admin` |
+| `/bw addgenerator <type> <tier>` | Add a resource generator | `bw.admin` |
+| `/bw removegenerator` | Remove a generator (while looking at it) | `bw.admin` |
+| `/bw autocreateteams <solo/doubles/triples/quads>` | Auto‑create teams with default colors | `bw.admin` |
+| `/bw settype <type>` | Set the arena game type | `bw.admin` |
+| `/bw setkilldrops <team>` | Set the kill drops collection point | `bw.admin` |
+| `/bw save` | Save the current arena configuration | `bw.admin` |
+| `/bw teleporter <team>` | Set a teleporter location | `bw.admin` |
+| `/bw start` | Force start the current arena | `bw.admin` |
+| `/bw start debug` | Debug force start | `bw.admin` |
+| `/bw tph` | Teleportation helper during games (admin only) | `bw.admin` |
+| `/bw upgradesmenu` | Open the team upgrades menu (while in game) | `bw.admin` |
+| `/bw reload` | Reload plugin configuration | `bw.admin` |
+| `/bw reload confirm` | Confirm reload (if pending) | `bw.admin` |
+| `/bw reload cancel` | Cancel reload (if pending) | `bw.admin` |
+| `/bw npc` | Manage Citizens NPCs (if Citizens is installed) | `bw.admin` |
+| `/bw leaderboard` | Manage leaderboard holograms | `bw.admin` |
+| `/bw ranked tournament start <arena>` | Start a ranked tournament in a specific arena | `bedwars.ranked.tournament.start` |
+| `/bw ranked tournament cancel <arena>` | Cancel an active tournament | `bedwars.ranked.tournament.start` |
+| `/bw ranked forcejoin <player> [arena]` | Force a player into ranked | `bedwars.ranked.tournament.start` |
 
-All permissions are autogenerated and can be managed via any permissions plugin.
+### Permissions Overview
+
+| Permission Node | Access Level |
+|-----------------|-------------|
+| `bw.player` | All player commands |
+| `bw.spectate` | Spectate command access |
+| `bw.admin` | All admin and setup commands |
+| `bedwars.admin` | Alternative admin permission |
+| `bw.*` | Wildcard for all plugin permissions |
+| `bedwars.ranked.debug` | Ranked debug features access |
+| `bedwars.ranked.tournament.start` | Tournament management commands |
+
+All permissions can be managed through any permissions plugin (LuckPerms, PermissionsEx, etc.).
+
+### Tab Completion
+
+The plugin provides intelligent tab completion for nearly all commands:
+
+- **Arena names** are suggested when using `/bw join`, `/bw enablearena`, etc.
+- **Player names** are auto‑completed for `/bw spectate`, `/bw stats`, and forcejoin operations
+- **Arena groups** are suggested for `/bw join group` and `/bw gui`
+- **Ranked commands** offer context‑sensitive completions for tournaments, forcejoin, etc.
+- **Online players** are listed for all player‑targeting commands
+- **Reload** command shows confirm/cancel when a reload is pending
 
 ---
 
