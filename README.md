@@ -19,7 +19,7 @@
 - [Commands & Permissions](#-commands--permissions)
 - [Full Configuration](#-full-configuration)
 - [Automatic Database Backup](#-automatic-database-backup)
-- [Database & Storage](#-database--storage)
+- [Database & Storage (Advanced Architecture)](#-database--storage-advanced-architecture)
 - [Performance Optimizations](#-performance-optimizations)
 - [PlaceholderAPI Integration](#-placeholderapi-integration)
 - [BungeeCord & Auto‑Scale](#-bungeecord--auto-scale)
@@ -52,7 +52,7 @@ When you evaluate a BedWars plugin, you are really asking four questions: what c
 | **Setup complexity** | Interactive `/bw setup` wizard | Manual config | Manual config | Manual | Moderate | Mostly manual |
 | **Out‑of‑box experience** | Works instantly after setup | Needs add‑ons | Needs add‑ons | Sparse | Bare | Requires multiple purchases |
 | **Dependencies** | Only PlaceholderAPI | Vault, economy, party… | Vault, economy… | Vault, economy… | Vault, economy… | Often 5+ |
-| **Support** | 24/7 direct Discord access | Community Discord | Community tickets | Community | Community | Ticket‑based, slow |
+| **Support** | 24/7 direct Discord/Bale access | Community Discord | Community tickets | Community | Community | Ticket‑based, slow |
 | **Map reset speed** | Instant (SlimeWorldManager) | Slow file copy | Slow file copy | Slow file copy | File copy | Slow |
 | **Custom Quick Buy** | Per‑player, persistent | Not available | Not available | Not available | Not available | Rare |
 | **Economy** | Built‑in token system | Vault required | Vault required | Vault required | Vault required | Vault required |
@@ -284,13 +284,98 @@ This applies to MongoDB and SQLite alike. Backups run asynchronously so there’
 
 ---
 
-## Database & Storage
+## Database & Storage (Advanced Architecture)
 
-- **MongoDB** – Primary, fully asynchronous. Stores stats, layouts, levels, ranked data.
-- **Redis** – Real‑time cross‑server sync and leaderboards.
-- **SQLite** – Zero‑config fallback (testing only).
+BedWars treats data persistence as a first‑class component, not an afterthought. The system is engineered to deliver **maximum reliability and zero main‑thread interference**, whether you run on a small test server with SQLite or a 2000‑player BungeeCord network with MongoDB and Redis. Below are the concrete architectural choices that make this possible.
 
-A unified `DatabaseProvider` ensures that switching engines requires no code changes.
+### 1. Dual‑Engine Design with Unified Interface
+The abstract `Database` interface is implemented by two completely independent engines: `MongoDB` and `SQLite`. A `DatabaseProvider` selects the active engine at startup based on your configuration. The entire plugin talks to `DatabaseProvider`, so switching from MongoDB to SQLite requires changing one line in `config.yml` and nothing else.
+
+### 2. SQLite – Connection Pooling and Write Isolation
+For SQLite, the naive approach of one global connection leads to `SQLITE_BUSY` errors and serialised writes that block the server. We solved this with a **dedicated write connection** and a **pool of 4 read connections**.
+
+    private final BlockingQueue<Connection> readPool = new LinkedBlockingQueue<>(4);
+    private Connection writeConnection; // dedicated write connection
+
+Read operations borrow a connection from the pool, execute, and return it, ensuring multiple parallel reads never compete. The write connection is used exclusively for all inserts/updates, avoiding write‑contention on the pool.
+
+### 3. WAL Mode and PRAGMA Tuning (SQLite)
+Immediately after opening a connection, we apply a set of proven SQLite PRAGMAs that dramatically improve performance and reliability:
+
+    stmt.execute("PRAGMA journal_mode = WAL");
+    stmt.execute("PRAGMA synchronous = NORMAL");
+    stmt.execute("PRAGMA cache_size = -4000");
+    stmt.execute("PRAGMA foreign_keys = ON");
+    stmt.execute("PRAGMA busy_timeout = 5000");
+
+- **WAL (Write‑Ahead Logging)** allows concurrent reads and writes, as opposed to the default rollback journal which locks the entire database.
+- **synchronous = NORMAL** provides a safe middle‑ground between full durability and speed.
+- **cache_size = -4000** allocates 4MB of memory cache, reducing disk I/O.
+- **busy_timeout = 5000** tells SQLite to wait up to 5 seconds for a lock instead of instantly throwing `SQLITE_BUSY`.
+
+### 4. Single‑Threaded Write Executor (SQLite)
+SQLite does not support parallel writes, but it *does* support a single writer many readers model. We enforce this with a single‑threaded executor that serialises all write operations:
+
+    private final ExecutorService writeExecutor = Executors.newSingleThreadExecutor();
+
+All SQL `INSERT`, `UPDATE`, `DELETE`, and DDL statements run on this executor. This guarantees that at most one write is active, while reads happen concurrently via the pool. The result: zero `SQLITE_BUSY` exceptions under heavy load.
+
+### 5. Batch Economy Saving (SQLite)
+To avoid overwhelming the write executor with per‑transaction coin updates, the economy system accumulates changes in a `pendingEconomyChanges` map and flushes them in bulk every 20 ticks (1 second) using a `BukkitRunnable`. This alone reduces write pressure by orders of magnitude.
+
+    new BukkitRunnable() {
+        public void run() {
+            Map<UUID, Double> batch = new HashMap<>(pendingEconomyChanges);
+            pendingEconomyChanges.clear();
+            writeExecutor.submit(() -> {
+                // batch INSERT OR REPLACE into player_economy
+            });
+        }
+    }.runTaskTimer(plugin, 20L, 20L);
+
+### 6. Asynchronous MongoDB with Connection Pooling
+The MongoDB layer uses the official async driver behind a fixed thread pool (`Executors.newFixedThreadPool`), ensuring that even complex aggregations never touch the main server thread. All operations—stats fetching, quick‑buy updates, language preferences—run inside `asyncExecutor.submit(...)`.
+
+    asyncExecutor.submit(() -> {
+        playersCollection.updateOne(query, update, new UpdateOptions().upsert(true));
+        redisManager.del("player_data:" + uuid);
+    });
+
+### 7. Intelligent Caching Layer
+Both engines maintain in‑memory `ConcurrentHashMap` caches for frequently accessed data: stats existence, quick‑buy layouts, economy balances, and hotbar configurations. A cache hit avoids a database round‑trip entirely. Caches are invalidated per‑player on write or on plugin reload, ensuring data freshness without stale reads.
+
+    private final Map<UUID, Boolean> statsCache = new ConcurrentHashMap<>();
+    private final Map<UUID, Map<Integer, String>> quickBuyDataCache = new ConcurrentHashMap<>();
+    private final Map<UUID, Double> economyCache = new ConcurrentHashMap<>();
+
+### 8. Redis for Cross‑Server Data (Optional)
+When Redis is available, it sits between the plugin and the durable database. Frequently read data like player levels and language preferences are cached in Redis with TTL (e.g. 300 seconds). Writes invalidate the Redis key, so the next read re‑fetches from MongoDB/SQLite and re‑populates the cache. This allows multiple servers in a BungeeCord network to share a single source of truth without repeated heavy queries.
+
+    redisManager.set("level_data:" + uuid, level + "," + xp + "," + name + "," + nextCost, 300);
+    // on write: redisManager.del("level_data:" + uuid);
+
+### 9. Automatic Rollback on Failure (SQLite)
+Every write operation that uses a transaction (like `saveStats`) wraps itself in a try‑catch that calls `writeConnection.rollback()` on any `SQLException`. Combined with `busy_timeout`, this guarantees that a temporary lock contention or a malformed query does not leave the database in an inconsistent state.
+
+    try {
+        writeConnection.setAutoCommit(false);
+        // ... multiple inserts/updates ...
+        writeConnection.commit();
+    } catch (SQLException e) {
+        writeConnection.rollback();
+    } finally {
+        writeConnection.setAutoCommit(true);
+    }
+
+### 10. Graceful Shutdown
+When the plugin disables, all caches are cleared, read connections are closed, the write connection is closed, and the write executor is shut down. No dangling connections, no orphaned threads.
+
+    public void close() {
+        statsCache.clear();
+        // close all read connections from pool
+        // close writeConnection
+        writeExecutor.shutdown();
+    }
 
 ---
 
@@ -351,7 +436,7 @@ The complete API is documented inside the `api` package.
 ### How to buy
 - **Discord:** `Nerotek01`
 - **Bale (Iranian users):** `Nerotek`
-- **Price:** **€34.99** (one‑time payment, **permanent license**)
+- **Price:** **€25.00** (one‑time payment, **permanent license**)
 
 ### License
 **Permanent license. Valid for all your servers** – whether you run a single server or an entire BungeeCord network. No recurring fees, no hidden costs. One purchase covers everything, forever.
