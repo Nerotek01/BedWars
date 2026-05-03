@@ -91,9 +91,9 @@ Other plugins check every generator every tick—160+ useless operations per tic
 ### 2. Asynchronous Database Layer with Non‑Blocking I/O
 Synchronous database calls freeze the server for 50‑200ms per player join. Every MongoDB, Redis, and SQLite operation is executed off the main thread via `CompletableFuture` chains and a unified `DatabaseProvider` abstraction. The game loop never waits on I/O.
 
-    ```CompletableFuture.supplyAsync(() -> database.fetchStats(uuid))
+    CompletableFuture.supplyAsync(() -> database.fetchStats(uuid))
         .thenAccept(stats -> Bukkit.getScheduler().runTask(plugin, () -> applyStats(player, stats)));
-```
+
 ### 3. Lazy Chunk Loading
 Instead of force‑loading all arena chunks at start—a massive I/O spike—a `ChunkLoad` listener streams in chunks on‑demand as players move. The load is distributed smoothly across gameplay instead of concentrated in a single stutter.
 
