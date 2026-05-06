@@ -1,20 +1,18 @@
 <p align="center">
   <img src="https://img.shields.io/badge/version-latest%20stable-blue?style=for-the-badge" alt="Version">
   <img src="https://img.shields.io/badge/license-permanent%20all--servers-success?style=for-the-badge" alt="License">
-  <a href="https://discord.gg/your-invite"><img src="https://img.shields.io/badge/support-24%2F7%20discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
+  <a href="https://discord.gg/YOUR_REAL_INVITE_CODE"><img src="https://img.shields.io/badge/support-24%2F7%20discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
   <a href="https://debug.nerotek.net"><img src="https://img.shields.io/badge/demo-debug.nerotek.net-orange?style=for-the-badge" alt="Demo Server"></a>
 </p>
 
-<!-- BANNER IMAGE PLACEHOLDER: replace the src below with your actual banner -->
-<p align="center">
-  <img src="https://via.placeholder.com/960x200/0d1117/ffffff?text=BedWars+–+The+Definitive+BedWars+Plugin" alt="BedWars Banner" style="max-width:100%;">
-</p>
+<h1 align="center">BedWars</h1>
+<p align="center"><strong>The last BedWars plugin you will ever need to purchase.</strong></p>
 
 # BedWars
 
-**The stable, actively maintained, production‑grade BedWars plugin for Minecraft 1.8.8.**  
-Built exclusively for Spigot and Paper. No compromises, no filler — just uncompromising performance, a complete feature set, and 24/7 reliability.  
-Tested and proven with more than 2 000 concurrent players across a single network. Every mechanic, every config value, and every optimisation exists because real server owners demanded it.
+**Production‑grade BedWars for Minecraft 1.8.8 (Spigot / Paper).**  
+Engineered for networks that demand extreme performance, uncompromising features, and 24/7 stability.  
+Battle‑tested with more than 2 000 concurrent players across a single network. Every mechanic, every configuration value, and every optimisation exists because real server owners demanded it.
 
 ---
 
@@ -35,6 +33,7 @@ Tested and proven with more than 2 000 concurrent players across a single networ
 - [PlaceholderAPI Integration](#placeholderapi-integration)
 - [BungeeCord, Proxy Plugin & Auto‑Scale](#bungeecord-proxy-plugin--auto-scale)
 - [Public API](#public-api)
+- [Frequently Asked Questions](#frequently-asked-questions)
 - [Support & Purchasing](#support--purchasing)
 - [Roadmap](#roadmap)
 
@@ -121,9 +120,9 @@ If future versions are supported, they will be delivered as separate, equally op
 
 ## Performance Engineering at a Glance
 
-BedWars treats performance as a core feature, not an afterthought. The following architectural decisions ensure stable 20 TPS even under heavy load.
+BedWars treats performance as a core feature. The following architectural decisions ensure stable 20 TPS even under heavy load.
 
-- **Generator Scheduling instead of Tick‑Polling** – all generators are batch‑processed on a configurable scheduler. The main thread is freed from per‑tick iteration, recovering measurable TPS.
+- **Generator Scheduling instead of Tick‑Polling** – all generators are batch‑processed on a configurable scheduler. The main thread is freed from per‑tick iteration.
 - **Fully Asynchronous Database Layer** – every database interaction (MongoDB, Redis, SQLite) runs off the main thread using `CompletableFuture` chains and a dedicated thread pool. The game loop never waits on I/O.
 - **Lazy Chunk Loading** – arena chunks are loaded on‑demand as players move, distributing the I/O load smoothly and preventing massive spikes at game start.
 - **Instant Map Resets** – the plugin automatically detects and uses SlimeWorldManager for in‑memory resets. If SWM is absent, an optimised internal adapter is used. Resets complete in milliseconds with zero disk I/O.
@@ -350,6 +349,49 @@ The complete API, including events, hooks, and Javadoc coverage, is documented i
 
 ---
 
+## Frequently Asked Questions
+
+### Pre‑purchase Questions
+
+**Q: Is this a single plugin or do I need multiple downloads?**
+A: BedWars ships as a single JAR containing 30+ built‑in add‑ons. You also receive the companion BedWarsProxy plugin for your BungeeCord/Velocity proxy — all included in the same purchase.
+
+**Q: Does it support versions newer than 1.8.8?**
+A: Currently, BedWars is exclusively engineered for 1.8.8. This single‑version focus allows deep NMS optimisations that are impossible to maintain in a cross‑version codebase. If future versions are supported, they will be provided as separate, equally optimised branches.
+
+**Q: Do I need Vault or an economy plugin?**
+A: No. BedWars uses a fully internal token economy. Vault is not required. The only external dependency is PlaceholderAPI.
+
+**Q: How does the license work?**
+A: One payment of €25.00 grants you a permanent license that covers every server you own. There are no recurring fees, no per‑server charges, and no hidden costs.
+
+**Q: Can I test the plugin before buying?**
+A: Yes. Connect to `debug.nerotek.net` to experience the full plugin on a live network with no registration.
+
+### Technical Questions
+
+**Q: Does BedWars work on a shared server with other minigames?**
+A: Yes. The plugin supports Multi‑Arena mode, allowing it to coexist with other plugins on the same Spigot instance.
+
+**Q: Can I switch between SQLite and MongoDB later?**
+A: Absolutely. Changing one line in `config.yml` switches the database engine. All data is automatically migrated on the next restart.
+
+**Q: How does automatic scaling work?**
+A: The included BedWarsProxy communicates with your game servers over a socket. When player demand increases, it can signal your infrastructure to spin up new game servers; when demand drops, idle servers can be shut down. This requires minimal external scripting.
+
+**Q: What happens if my database gets corrupted?**
+A: BedWars performs automatic, asynchronous database backups on a configurable schedule. A complete restore is one file away.
+
+### Support
+
+**Q: How do I get help if something breaks?**
+A: You have 24/7 direct access to the developer via Discord (`Nerotek01`) or Bale (`Nerotek`). There are no tickets, no forums, and no canned replies.
+
+**Q: Are updates free?**
+A: All updates for the current major version are included with your permanent license.
+
+---
+
 ## Support & Purchasing
 
 **BedWars** is a premium plugin sold exclusively by the developer.
@@ -384,8 +426,6 @@ When an issue arises on your live network, you do not file tickets and hope for 
 - **Expanded API** – additional events, hooks, and comprehensive Javadoc documentation.
 
 ---
-
-**BedWars** — the last BedWars plugin you will ever need to purchase.
 
 <p align="center">
   <a href="https://debug.nerotek.net"><strong>Connect to the demo: debug.nerotek.net</strong></a>
