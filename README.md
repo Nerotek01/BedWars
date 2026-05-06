@@ -67,7 +67,7 @@ Performance is treated as a first‑class feature. Generators are batch‑proces
 Unlike alternatives that bolt on a third‑party ELO plugin, BedWars includes a full ranked system natively. It connects to a central ranked service via WebSocket, manages automated matchmaking, tracks ELO ratings across seasons, supports tournament‑mode NPCs, and provides a full set of PlaceholderAPI placeholders for lobby displays. This is not a simplified add‑on — it is a complete competitive infrastructure.
 
 ### Zero Recurring Costs, True Unlimited License
-One payment of €25.00 grants you a permanent license that covers **all servers you own** — whether you run a single lobby or a 50‑server BungeeCord network. There are no monthly fees, no per‑server add‑ons, and no hidden charges. You receive all future updates for the current major version free of charge.
+One payment of €35.00 grants you a permanent license that covers **all servers you own** — whether you run a single lobby or a 50‑server BungeeCord network. There are no monthly fees, no per‑server add‑ons, and no hidden charges. You receive all future updates for the current major version free of charge.
 
 ### Direct Access to the Developer
 When your server has an issue at peak time, you do not file a ticket and wait. You speak directly to the person who wrote the code. Support is available **24/7** through Discord or Bale, and every report is treated with the urgency that a live production network demands.
@@ -107,11 +107,8 @@ The table below evaluates BedWars against all major BedWars plugins on the marke
 Targeting a single version is an intentional engineering choice that guarantees stability and maximum speed.
 
 1. **Performance that newer versions cannot match.** The 1.8.8 server tick loop is leaner, the entity count is lower, and the block model is simpler. This allows BedWars to employ low‑level NMS optimisations — custom explosion handlers, packet interception, and chunk loading hooks — written directly against the server internals. These optimisations are impossible to maintain in a cross‑version codebase.
-
 2. **No compromises in NMS integration.** The NMS layer interacts with `net.minecraft.server` classes directly. Custom entities are registered, TNT physics are overridden, and version‑specific command handlers are injected without the overhead of a generic compatibility layer. Supporting multiple versions would mean removing these precise, performance‑critical hooks.
-
 3. **Stability through predictability.** One version means one test environment. Every feature is verified on clean 1.8.8 Spigot and Paper builds. There are no surprises from API changes or edge cases introduced by newer mechanics.
-
 4. **The competitive PvP standard.** The largest BedWars networks, including Hypixel, built their foundations on 1.8.8. The combat mechanics, knockback calculations, and block‑hitting behaviour that competitive players expect are tied to this version. BedWars is built for the version those players demand.
 
 If future versions are supported, they will be delivered as separate, equally optimised branches — never as a bloated, one‑size‑fits‑all JAR.
@@ -363,7 +360,7 @@ A: Currently, BedWars is exclusively engineered for 1.8.8. This single‑version
 A: No. BedWars uses a fully internal token economy. Vault is not required. The only external dependency is PlaceholderAPI.
 
 **Q: How does the license work?**
-A: One payment of €25.00 grants you a permanent license that covers every server you own. There are no recurring fees, no per‑server charges, and no hidden costs.
+A: One payment of €35.00 grants you a permanent license that covers every server you own. There are no recurring fees, no per‑server charges, and no hidden costs.
 
 **Q: Can I test the plugin before buying?**
 A: Yes. Connect to `debug.nerotek.net` to experience the full plugin on a live network with no registration.
@@ -399,7 +396,7 @@ A: All updates for the current major version are included with your permanent li
 ### How to Purchase
 - **Discord:** `Nerotek01`
 - **Bale (Iranian users):** `Nerotek`
-- **Price:** **€25.00** — one‑time payment, permanent license.
+- **Price:** **€35.00** — one‑time payment, permanent license.
 
 ### License
 **Permanent, all‑servers license.** Your purchase covers every server you own — from a single lobby to a 50‑server BungeeCord network. There are no recurring fees, no per‑server add‑ons, and no hidden costs.
