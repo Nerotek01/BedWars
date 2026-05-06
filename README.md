@@ -1,192 +1,201 @@
+<p align="center">
+  <img src="https://img.shields.io/badge/version-latest%20stable-blue?style=for-the-badge" alt="Version">
+  <img src="https://img.shields.io/badge/license-permanent%20all--servers-success?style=for-the-badge" alt="License">
+  <a href="https://discord.gg/your-invite"><img src="https://img.shields.io/badge/support-24%2F7%20discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
+  <a href="https://debug.nerotek.net"><img src="https://img.shields.io/badge/demo-debug.nerotek.net-orange?style=for-the-badge" alt="Demo Server"></a>
+</p>
+
+<!-- BANNER IMAGE PLACEHOLDER: replace the src below with your actual banner -->
+<p align="center">
+  <img src="https://via.placeholder.com/960x200/0d1117/ffffff?text=BedWars+–+The+Definitive+BedWars+Plugin" alt="BedWars Banner" style="max-width:100%;">
+</p>
+
 # BedWars
 
-> The stable, actively maintained version. Always improving, never breaking.  
-> The definitive BedWars plugin for Minecraft 1.8.8 Spigot / Paper.  
-> Engineered for networks that demand extreme performance, uncompromising features, and 24/7 stability.  
-> **Battle‑tested with 2000+ concurrent players. 100% configurable down to the smallest mechanic.**
+**The stable, actively maintained, production‑grade BedWars plugin for Minecraft 1.8.8.**  
+Built exclusively for Spigot and Paper. No compromises, no filler — just uncompromising performance, a complete feature set, and 24/7 reliability.  
+Tested and proven with more than 2 000 concurrent players across a single network. Every mechanic, every config value, and every optimisation exists because real server owners demanded it.
 
 ---
 
 ## Table of Contents
 
-- [Why BedWars?](#-why-bedwars)
-- [Competitive Comparison (In‑Depth)](#-competitive-comparison-in-depth)
-- [Why Exclusively 1.8.8?](#-why-exclusively-188)
-- [Technical Deep Dive: Performance Engineering](#-technical-deep-dive-performance-engineering)
-- [Core Features](#-core-features)
-- [Ranked System (Full)](#-ranked-system-full)
-- [30+ Built‑in Add‑ons](#-30-built-in-add-ons)
-- [Commands & Permissions](#-commands--permissions)
-- [Full Configuration](#-full-configuration)
-- [Automatic Database Backup](#-automatic-database-backup)
-- [Database & Storage (Advanced Architecture)](#-database--storage-advanced-architecture)
-- [Performance Optimizations](#-performance-optimizations)
-- [PlaceholderAPI Integration](#-placeholderapi-integration)
-- [BungeeCord & Auto‑Scale](#-bungeecord--auto-scale)
-- [Public API](#-public-api)
-- [Support & Purchasing](#-support--purchasing)
-- [Roadmap](#-roadmap)
+- [Test Server – Try Before You Buy](#test-server--try-before-you-buy)
+- [Why BedWars?](#why-bedwars)
+- [Competitive Comparison](#competitive-comparison)
+- [Why Exclusively 1.8.8?](#why-exclusively-188)
+- [Performance Engineering at a Glance](#performance-engineering-at-a-glance)
+- [Core Features – Expanded](#core-features--expanded)
+- [Ranked System (Full)](#ranked-system-full)
+- [30+ Built‑in Add‑ons](#30-built-in-add-ons)
+- [Commands & Permissions](#commands--permissions)
+- [Full Configuration](#full-configuration)
+- [Automatic Database Backup](#automatic-database-backup)
+- [Database & Storage](#database--storage)
+- [PlaceholderAPI Integration](#placeholderapi-integration)
+- [BungeeCord, Proxy Plugin & Auto‑Scale](#bungeecord-proxy-plugin--auto-scale)
+- [Public API](#public-api)
+- [Support & Purchasing](#support--purchasing)
+- [Roadmap](#roadmap)
+
+---
+
+## Test Server – Try Before You Buy
+
+A live, fully functional demo network is available so you can evaluate BedWars before making any commitment.
+
+    IP: debug.nerotek.net
+
+The test server runs the latest stable build with every add‑on enabled. You can experience ranked matchmaking, the full shop, generators, team upgrades, and every other mechanic exactly as your players would.  
+**No registration, no whitelist — connect and play immediately.**
 
 ---
 
 ## Why BedWars?
 
-After running large BedWars networks for years, one fact became undeniable: **every existing plugin forces a compromise.**  
-Some deliver features but collapse under load. Others stay light but require you to stitch together 15 add‑ons just to make the game playable. Support is often a forum post that goes unanswered for days.
+BedWars is not a collection of loosely coupled plugins held together by third‑party dependencies. It is a single, monolithic solution engineered from the ground up for networks that cannot afford downtime, performance regressions, or incomplete gameplay.
 
-**BedWars ends these compromises.** It is a single, unified solution built for massive scale. Every feature—from ranked matchmaking to item deposit—lives inside one JAR. Every line of code exists because a real server owner demanded it. No filler. No bloat. Just pure, battle‑hardened performance.
+### The Only Plugin That Truly Unifies Everything
+Every feature you need — from deposit chests and generator splitting to a fully‑fledged competitive ranked system — lives inside **one JAR**. You never install extra add‑ons, you never pay for separate modules, and you are never left debugging version incompatibilities between half a dozen plugins. BedWars ships with **30+ built‑in add‑ons** that share the same configuration system, database layer, and event bus. When you enable an add‑on it works instantly; when you disable it, it consumes zero CPU.
+
+### Built for Networks, Not Just Single Servers
+BedWars was designed for large, multi‑server deployments from day one. It includes its own **BedWarsProxy** companion plugin that runs on BungeeCord or Velocity. The proxy plugin handles lobby connections, global queues, matchmaking, and automatic server scaling without external scripts. The game servers and the proxy communicate over a stable, low‑latency socket layer. This architecture has been battle‑tested with **2 000+ concurrent players** while maintaining a solid 20 TPS on every game server.
+
+### Extreme Performance, Not an Afterthought
+Performance is treated as a first‑class feature. Generators are batch‑processed on a configurable scheduler instead of being polled every tick. All database operations run asynchronously on dedicated thread pools, so the main server thread is never blocked by I/O. Map resets happen in milliseconds via SlimeWorldManager — or via an optimised internal fallback. Listeners are registered only for enabled features, and the scoreboard updates only when data actually changes. The result is a plugin that can handle hundreds of players per server without budging from 19.5+ TPS.
+
+### True Competitive Play with Native Ranked
+Unlike alternatives that bolt on a third‑party ELO plugin, BedWars includes a full ranked system natively. It connects to a central ranked service via WebSocket, manages automated matchmaking, tracks ELO ratings across seasons, supports tournament‑mode NPCs, and provides a full set of PlaceholderAPI placeholders for lobby displays. This is not a simplified add‑on — it is a complete competitive infrastructure.
+
+### Zero Recurring Costs, True Unlimited License
+One payment of €25.00 grants you a permanent license that covers **all servers you own** — whether you run a single lobby or a 50‑server BungeeCord network. There are no monthly fees, no per‑server add‑ons, and no hidden charges. You receive all future updates for the current major version free of charge.
+
+### Direct Access to the Developer
+When your server has an issue at peak time, you do not file a ticket and wait. You speak directly to the person who wrote the code. Support is available **24/7** through Discord or Bale, and every report is treated with the urgency that a live production network demands.
+
+### Setup That Respects Your Time
+The interactive `/bw setup` wizard guides you through arena creation step by step. PlaceholderAPI is the only external dependency. There is no forced economy plugin, no hard requirement for a party plugin, and no convoluted installation process. After the wizard finishes, your server is ready for players.
 
 ---
 
-## Competitive Comparison (In‑Depth)
+## Competitive Comparison
 
-When you evaluate a BedWars plugin, you are really asking four questions: what can it do, how fast does it run, who helps me when it breaks, and will it still work a year from now? Here is how BedWars answers those questions against every major alternative on the market.
+The table below evaluates BedWars against all major BedWars plugins on the market. The evaluation covers feature completeness, performance under load, infrastructure capabilities, and long‑term cost.
 
-| Criteria | **BedWars** | BedWars1058 | MBedwars | ScreamingBedWars | BedWarsProxy | Other "Premium" |
-|----------|-----------------|-------------|----------|------------------|--------------|-----------------|
-| **Built‑in add‑ons** | 30+ (deposit, gen split, voidless, ranked…) | Requires separate JARs | ~10 | Limited | Minimal | Usually 5‑10, often paid extras |
-| **Ranked system** | Fully native – ELO, WebSocket, tournaments | Not available | Third‑party | Not available | Not available | Rarely native |
-| **Database** | MongoDB + Redis + SQLite fallback | MySQL / SQLite | MySQL / SQLite | Flat file / MySQL | MySQL | MySQL only |
-| **TPS under 200+ players** | Stable 19.5+ TPS | Degrades | Degrades | Frequent drops | Stable (simpler) | Often drops below 17 |
-| **Auto‑scale / BungeeCord** | Native, proven at 2000+ | Basic support | Basic support | Buggy | Core feature | Varies, often unstable |
-| **Setup complexity** | Interactive `/bw setup` wizard | Manual config | Manual config | Manual | Moderate | Mostly manual |
-| **Out‑of‑box experience** | Works instantly after setup | Needs add‑ons | Needs add‑ons | Sparse | Bare | Requires multiple purchases |
-| **Dependencies** | Only PlaceholderAPI | Vault, economy, party… | Vault, economy… | Vault, economy… | Vault, economy… | Often 5+ |
-| **Support** | 24/7 direct Discord/Bale access | Community Discord | Community tickets | Community | Community | Ticket‑based, slow |
-| **Map reset speed** | Instant (SlimeWorldManager) | Slow file copy | Slow file copy | Slow file copy | File copy | Slow |
-| **Custom Quick Buy** | Per‑player, persistent | Not available | Not available | Not available | Not available | Rare |
-| **Economy** | Built‑in token system | Vault required | Vault required | Vault required | Vault required | Vault required |
-| **API** | Full public Java API | Limited | Moderate | Minimal | Moderate | Varies |
-| **License** | Permanent, all servers | Per‑server | Per‑server | Per‑server | Per‑server | Often recurring |
+| Criteria | **BedWars** | BedWars1058 | MBedwars | ScreamingBedWars | BedWarsProxy (standalone) | Other "Premium" |
+|----------|-------------|-------------|----------|------------------|---------------------------|-----------------|
+| **Built‑in add‑ons** | 30+ (deposit, gen split, voidless, ranked, etc.) | Requires separate JARs | ~10 | Limited | Minimal (just proxy) | Usually 5‑10, many paid separately |
+| **Native ranked system** | Full ELO, WebSocket, tournaments | Not available | Third‑party | Not available | Not available | Rarely native |
+| **Proxy plugin included** | Yes – BedWarsProxy ships with the purchase | Not included | Not included | Not included | Standalone; requires another game plugin | Not included |
+| **Database engines** | MongoDB + Redis + SQLite (auto‑fallback) | MySQL / SQLite | MySQL / SQLite | Flat file / MySQL | MySQL | Usually MySQL only |
+| **TPS under 200+ players** | Stable 19.5+ TPS | Degrades noticeably | Degrades | Frequent drops | Stable (simpler logic) | Often drops below 17 |
+| **Auto‑scale / BungeeCord** | Native, proven at 2000+ concurrent | Basic support | Basic support | Unstable | Core role, but no game logic | Varies, often unstable |
+| **Setup complexity** | Fully interactive `/bw setup` wizard | Manual configuration | Manual configuration | Manual | Moderate | Mostly manual |
+| **Out‑of‑box experience** | Complete game after wizard | Requires multiple add‑ons | Requires multiple add‑ons | Sparse | Needs a separate game plugin | Often requires several purchases |
+| **External dependencies** | Only PlaceholderAPI | Vault, economy, party, etc. | Vault, economy, etc. | Vault, economy, etc. | Usually Vault + game plugin | Often 5+ |
+| **Map reset speed** | Instant (SlimeWorldManager) | Slow file copy | Slow file copy | Slow file copy | Not applicable | Slow |
+| **Custom Quick Buy** | Persistent, per‑player, built‑in | Not available | Not available | Not available | Not applicable | Rarely available |
+| **Economy system** | Built‑in token economy, no Vault | Vault required | Vault required | Vault required | Not applicable | Vault required |
+| **Public API** | Full Java API, well‑documented | Limited | Moderate | Minimal | Not applicable | Varies |
+| **License model** | Permanent, all servers | Per‑server | Per‑server | Per‑server | Per‑server | Often recurring or per‑server |
 
-**The Bottom Line:** Other plugins make you choose. BedWars is the only solution where you get everything in one purchase, backed by direct developer access at any hour – with a license that covers every server you own.
+**Key takeaway:** BedWars is the only option that delivers the full package — game logic, ranked system, proxy integration, and professional support — in a single purchase that covers every server you run.
 
 ---
 
 ## Why Exclusively 1.8.8?
 
-Targeting a single version is a **deliberate engineering decision** that guarantees unmatched stability and speed.
+Targeting a single version is an intentional engineering choice that guarantees stability and maximum speed.
 
-1. **Performance impossible on modern versions.** The 1.8.8 server tick loop is lighter, entities are fewer, and the block model is simpler. Targeting one version enables **low‑level NMS optimizations**—custom explosion handlers, packet interception, chunk loading hooks—that are written directly against the Minecraft server internals, making the plugin faster than any cross‑version alternative.
+1. **Performance that newer versions cannot match.** The 1.8.8 server tick loop is leaner, the entity count is lower, and the block model is simpler. This allows BedWars to employ low‑level NMS optimisations — custom explosion handlers, packet interception, and chunk loading hooks — written directly against the server internals. These optimisations are impossible to maintain in a cross‑version codebase.
 
-2. **No compromises in NMS integration.** Our NMS layer talks directly to `net.minecraft.server` classes. We register custom entities, override TNT physics, and inject version‑specific command handlers without the overhead of a generic compatibility layer. Supporting multiple versions would mean stripping out these precise, version‑locked optimizations.
+2. **No compromises in NMS integration.** The NMS layer interacts with `net.minecraft.server` classes directly. Custom entities are registered, TNT physics are overridden, and version‑specific command handlers are injected without the overhead of a generic compatibility layer. Supporting multiple versions would mean removing these precise, performance‑critical hooks.
 
-3. **Stability through predictability.** One supported version means one test environment. Every feature is verified on a clean 1.8.8 Spigot and Paper build. There are no surprises from API changes or edge cases introduced by newer mechanics. The result is a plugin whose behaviour is known, trusted, and battle‑hardened.
+3. **Stability through predictability.** One version means one test environment. Every feature is verified on clean 1.8.8 Spigot and Paper builds. There are no surprises from API changes or edge cases introduced by newer mechanics.
 
-4. **The industry standard for competitive PvP.** The largest BedWars networks—including Hypixel—built their foundations on 1.8.8. The combat mechanics, block‑hitting, and knockback calculations your players love are tied to this version. We build for the version competitive players demand.
+4. **The competitive PvP standard.** The largest BedWars networks, including Hypixel, built their foundations on 1.8.8. The combat mechanics, knockback calculations, and block‑hitting behaviour that competitive players expect are tied to this version. BedWars is built for the version those players demand.
 
-If support for newer versions is added in the future, it will be done as separate, equally optimized branches—never as a single, bloated JAR that serves everyone poorly.
-
----
-
-## Technical Deep Dive: Performance Engineering
-
-Average plugins are built to work. This one is built to work **at scale**.
-
-### 1. Generator Scheduling instead of Tick‑Polling
-Other plugins check every generator every tick—160+ useless operations per tick on a typical server. We batch‑process all generators on a configurable scheduler (default 120 ticks). The main thread is freed from constant iteration, directly recovering measurable TPS.
-
-    Bukkit.getScheduler().runTaskTimer(this, new OneTick(), 120, 1);
-
-### 2. Asynchronous Database Layer with Non‑Blocking I/O
-Synchronous database calls freeze the server for 50‑200ms per player join. Every MongoDB, Redis, and SQLite operation is executed off the main thread via `CompletableFuture` chains and a unified `DatabaseProvider` abstraction. The game loop never waits on I/O.
-
-    CompletableFuture.supplyAsync(() -> database.fetchStats(uuid))
-        .thenAccept(stats -> Bukkit.getScheduler().runTask(plugin, () -> applyStats(player, stats)));
-
-### 3. Lazy Chunk Loading
-Instead of force‑loading all arena chunks at start—a massive I/O spike—a `ChunkLoad` listener streams in chunks on‑demand as players move. The load is distributed smoothly across gameplay instead of concentrated in a single stutter.
-
-### 4. Instant Map Resets via SlimeWorldManager
-File‑copy resets are slow and block the main thread for seconds. Our automatic SWM adapter (which detects your installed version) resets arenas from in‑memory `.slime` blobs in milliseconds with zero disk I/O. If SWM is not installed, an optimized internal adapter is used.
-
-    if (major >= 2 && minor >= 2 && release >= 1) {
-        adapterPath = "...SlimeAdapter";
-    } else if (major > 2 || (major == 2 && minor >= 10)) {
-        adapterPath = "...SlimePaperAdapter";
-    }
-
-### 5. Conditional Event Listener Registration
-Other plugins register all listeners permanently, even for disabled features. Our listeners are registered **only** when their add‑on is enabled, and completely unregistered when disabled. Disabled features consume zero CPU cycles.
-
-    if (AddonsConfig.get().isEnabled("voidless")) {
-        Bukkit.getPluginManager().registerEvents(new Voidless(this), this);
-    }
-
-### 6. Change‑Driven Scoreboard Updates
-Instead of rebuilding and resending the scoreboard every 1‑2 ticks (thousands of redundant packets), the `SidebarService` caches state and pushes updates only when a data change is detected. Idle periods produce zero scoreboard traffic.
-
-### 7. Optimized TNT Physics
-We overrode vanilla TNT ray‑traced explosion calculations—notoriously expensive—with a custom NMS handler. It applies configurable blast resistance for end stone and glass and limits the ray‑trace radius, making explosions cheap and predictable.
-
-    nms.registerTntWhitelist(
-        (float) config.getDouble(ConfigPath.GENERAL_TNT_PROTECTION_END_STONE_BLAST),
-        (float) config.getDouble(ConfigPath.GENERAL_TNT_PROTECTION_GLASS_BLAST)
-    );
-
-### 8. Adapter‑Pattern Party System
-Instead of hardcoding support for one party plugin, we use a `Party` interface with `PartiesAdapter`, `Internal`, and `NoParty` implementations. Adding new party support requires one new class and zero changes to existing code.
-
-    if (partiesPlugin != null && partiesPlugin.isEnabled()) {
-        setParty(new PartiesAdapter());
-    } else {
-        setParty(new Internal());
-    }
-
-### 9. Memory‑Safe Concurrent Collections
-All arena‑scoped data uses `ConcurrentHashMap` with explicit lifecycle cleanup in `onDisable()`. Temporary player‑to‑arena mappings are cleared when games end, preventing memory leaks and allowing servers to run for weeks without restart.
-
-    public static final ConcurrentHashMap<IArena, ConcurrentHashMap<UUID, ITeam>> trackingArenaMap = new ConcurrentHashMap<>();
-
-### 10. Unified Monolithic Add‑on Architecture
-No dependency hell. All 30+ add‑ons share the same configuration system, database layer, and event bus. One plugin, one version, one point of support. Version mismatches can never occur.
+If future versions are supported, they will be delivered as separate, equally optimised branches — never as a bloated, one‑size‑fits‑all JAR.
 
 ---
 
-## Core Features
+## Performance Engineering at a Glance
 
-- **Game modes:** Solo, Doubles, Triples, Quads (configurable per arena)
-- **Complete mechanics:** Beds, generators, team upgrades, special items, shop
-- **Spectator mode:** Speed control, night vision, auto‑teleport
-- **Rejoin** after disconnect; **AFK auto‑kick**
-- **Invisibility** management with footsteps
-- **World border** enforcement, **configurable TNT** protection
-- **Server modes:** Multi‑Arena, BungeeCord, Auto‑Scale, Shared
-- **Party system** (Parties plugin or internal)
-- **Chat** formatting, `/shout` command, live scoreboard
-- **Token economy** (no Vault) + **level/XP** system
-- **Automatic database backup** – no data loss, ever
+BedWars treats performance as a core feature, not an afterthought. The following architectural decisions ensure stable 20 TPS even under heavy load.
+
+- **Generator Scheduling instead of Tick‑Polling** – all generators are batch‑processed on a configurable scheduler. The main thread is freed from per‑tick iteration, recovering measurable TPS.
+- **Fully Asynchronous Database Layer** – every database interaction (MongoDB, Redis, SQLite) runs off the main thread using `CompletableFuture` chains and a dedicated thread pool. The game loop never waits on I/O.
+- **Lazy Chunk Loading** – arena chunks are loaded on‑demand as players move, distributing the I/O load smoothly and preventing massive spikes at game start.
+- **Instant Map Resets** – the plugin automatically detects and uses SlimeWorldManager for in‑memory resets. If SWM is absent, an optimised internal adapter is used. Resets complete in milliseconds with zero disk I/O.
+- **Conditional Listener Registration** – listeners are registered only when their add‑on is enabled, and completely unregistered when disabled. Features that are turned off consume no CPU cycles.
+- **Change‑Driven Scoreboard** – the scoreboard is rebuilt and sent to clients only when underlying data changes. Idle periods produce zero scoreboard traffic.
+- **Custom TNT Physics** – vanilla ray‑traced explosion calculations are replaced with a lightweight, configurable handler that respects blast resistance for end stone and glass.
+- **Memory‑Safe Concurrent Collections** – all arena data uses `ConcurrentHashMap` with explicit lifecycle cleanup, allowing servers to run for weeks without memory leaks or restarts.
+
+---
+
+## Core Features – Expanded
+
+### Complete BedWars Mechanics
+Every core mechanic is implemented in full detail: destructible beds, resource generators with configurable timers and tiers, team‑shared upgrades (sharpness, protection, haste, etc.), a fully customisable item shop, and special items such as fireballs, golems, and silverfish. All mechanics are configurable through YAML with no hard‑coded values.
+
+### Flexible Game Modes
+Each arena can be configured for Solo, Doubles, Triples, or Quads. Mode‑specific behaviour — team sizes, shop content, generator rates — is handled automatically. Multiple arenas can run different modes simultaneously on the same server.
+
+### Server Modes for Any Network Topology
+- **Multi‑Arena** – several arenas on one server, managed by an internal queue.
+- **BungeeCord** – one arena per server, connected to the lobby via the dedicated BedWarsProxy plugin.
+- **Auto‑Scale** – the proxy signals your infrastructure to start or stop game servers based on player demand, with zero manual intervention.
+- **Shared** – a single arena instance shared across multiple servers (advanced setup).
+
+### Spectator System
+After elimination, players enter spectator mode with controls for fly speed, night vision toggle, and auto‑teleport to active players. Spectators can freely observe the ongoing match without interfering.
+
+### Rejoin and AFK Management
+Players who disconnect during a match can rejoin their team and recover their inventory and position. Players who remain AFK for a configurable period are automatically removed, freeing the slot for others.
+
+### Comprehensive Party Support
+The plugin includes an internal party system and also supports external party plugins through an adapter interface. Parties can join games together and are always placed on the same team. Adding support for a new party plugin requires only a single adapter class.
+
+### Chat, Shout, and Communication
+A dedicated `/shout` command allows players to send messages visible to everyone in the arena. Chat formatting is fully configurable, and team‑only chat is the default during matches.
+
+### Built‑in Token Economy
+A complete token and experience system operates without any external economy plugin. Tokens are earned through kills, bed destruction, and wins. XP contributes to a player level system with configurable rewards. Both tokens and levels are stored persistently in the database.
+
+### Automatic Database Backups
+The plugin exports a full database backup on a configurable schedule. Backups run asynchronously and are stored in a specified path. In case of hardware failure or accidental corruption, a complete restore is one file away.
 
 ---
 
 ## Ranked System (Full)
 
-The ranked mode transforms BedWars into a competitive, elo‑based season‑driven experience.
+The native ranked mode transforms BedWars into a competitive, ELO‑driven environment.
 
-- **WebSocket API** – connects to a central ranked server to fetch queues, elo, and match results.
-- **Automated matchmaking** – players join a ranked queue; the system creates games when enough players are ready.
-- **ELO rating** – win/lose against equally‑skilled players; seasons reset periodically (optional).
-- **Tournament NPCs** – seasonal NPCs in the lobby display rules, top players, and allow queue entry.
-- **In‑game restrictions** – separate shop and upgrade restrictions for ranked (e.g., disabling certain items).
-- **Player Profile Management** – every player has a ranked profile with detailed statistics (wins, losses, kills, elo history).
-- **Leaderboard** – holographic leaderboard updated in real‑time via Redis.
-- **PlaceholderAPI expansion** – use `%bw_ranked_elo%`, `%bw_ranked_wins%`, etc. anywhere.
-- **Admin utilities** – through `APIUtils` and internal managers, inspect, modify, and debug ranked data.
+- **WebSocket API** – connects to a central ranked service to retrieve queues, ratings, and match results.
+- **Automated Matchmaking** – players enter a ranked queue; the system automatically creates a game when enough similarly‑rated players are ready.
+- **ELO Rating** – every ranked match affects player ratings. Seasons can be configured to reset ratings periodically.
+- **Tournament NPCs** – seasonal NPCs in the lobby display rules, leaderboards, and allow one‑click queue entry.
+- **Gameplay Restrictions** – ranked games can enforce a separate shop configuration and upgrade tree, preventing items that would undermine competitive integrity.
+- **Player Profiles** – each player has a ranked profile with wins, losses, kills, ELO history, and season statistics.
+- **Holographic Leaderboard** – the top players are displayed on a real‑time updating holographic leaderboard, synchronised via Redis.
+- **PlaceholderAPI Placeholders** – use `%bw_ranked_elo%`, `%bw_ranked_wins%`, and many others anywhere in your lobby or scoreboard.
+- **Admin Tools** – inspect, modify, and debug ranked data through the internal `APIUtils` and management commands.
 
-The ranked system requires a valid API token and access to a Ranked‑service backend. Contact us for setup assistance.
+The ranked system requires a valid API token and access to the Ranked service backend. Setup assistance is provided with every purchase.
 
 ---
 
 ## 30+ Built‑in Add‑ons
 
-Every add‑on is self‑contained and toggleable in `addons.yml`. Enabled ones run at full power; disabled ones consume zero performance.
+All add‑ons are self‑contained and toggled in `addons.yml`. When enabled they run at full capacity; when disabled they consume zero performance.
 
 | Add‑on | Function |
 |--------|----------|
 | **Ranked** | Full competitive matchmaking, ELO, WebSocket, tournaments |
 | **Play Again** | One‑click re‑queue after match end |
-| **Team Selector** | GUI team picker before game starts |
-| **Spectator Options** | Speed, night vision, auto‑teleport controls |
+| **Team Selector** | GUI team picker before game start |
+| **Spectator Options** | Fly speed, night vision, auto‑teleport controls |
 | **Compass** | Enemy tracker compass with configuration menu |
 | **Quick Buy** | Persistent per‑player shop hotbar slots |
 | **Arena Start Message** | Title/subtitle announcement at match start |
@@ -221,14 +230,14 @@ Main command: `/bw` (aliases `/bedwars`)
 | `/bw join ranked` | Enter ranked queue | `bw.player` |
 | `/bw leave` | Leave current game | `bw.player` |
 | `/bw rejoin` | Rejoin last game | `bw.player` |
-| `/bw shout (message)` | Global game chat | `bw.player` |
+| `/bw shout (message)` | Global arena chat | `bw.player` |
 | `/bw spectate (player)` | Spectate a player | `bw.spectate` |
 | `/bw map` | Vote for next map | `bw.player` |
 | `/bw stats (player)` | View statistics | `bw.player` |
 | `/bw compass` | Tracker compass menu | `bw.player` |
 | `/bw gui (group)` | Map selector GUI | `bw.player` |
 | `/bw ranked` | Ranked menu (tournament arenas) | `bw.player` |
-| `/bw quickbuy` | Customize quick‑buy slots | `bw.player` |
+| `/bw quickbuy` | Customise quick‑buy slots | `bw.player` |
 | `/bw tokens (player)` | Token balance | `bw.player` |
 | `/bw hotbar menu` | Hotbar manager GUI | `bw.player` |
 
@@ -260,164 +269,76 @@ Main command: `/bw` (aliases `/bedwars`)
 
 ## Full Configuration
 
-Every value is editable in `plugins/BedWars/`. Nothing is hard‑coded.
+Every value is editable in the `plugins/BedWars/` directory. Nothing is hard‑coded.
 
 | File | Purpose |
 |------|---------|
 | `config.yml` | Server type, database, lobby, game rules |
-| `generators.yml` | Generator timing & resources |
+| `generators.yml` | Generator timing and resources |
 | `shop.yml` | Shop categories, prices, quick‑buy defaults |
 | `addons.yml` | Enable/disable each add‑on |
-| `messages_en.yml` | All plugin messages (multi‑language) |
+| `messages_en.yml` | All plugin messages (multi‑language ready) |
 | `levels.yml` | XP required per level |
 | `money.yml` | Token earnings per action |
 | `ranked.yml` | Ranked API credentials |
-| `Arenas/*.yml` | One config file per arena |
+| `Arenas/*.yml` | One configuration file per arena |
 
 ---
 
 ## Automatic Database Backup
 
-Never lose your players’ progress. BedWars includes an **automatic database backup system** that periodically exports your entire database to a secure location—fully configurable interval and path. In case of hardware failure or accidental corruption, a complete restore is just one copy away.
+BedWars includes an automatic database backup system that periodically exports your entire database to a secure location. The backup interval and output path are fully configurable.
 
-This applies to MongoDB and SQLite alike. Backups run asynchronously so there’s zero impact on gameplay.
-
----
-
-## Database & Storage (Advanced Architecture)
-
-BedWars treats data persistence as a first‑class component, not an afterthought. The system is engineered to deliver **maximum reliability and zero main‑thread interference**, whether you run on a small test server with SQLite or a 2000‑player BungeeCord network with MongoDB and Redis. Below are the concrete architectural choices that make this possible.
-
-### 1. Dual‑Engine Design with Unified Interface
-The abstract `Database` interface is implemented by two completely independent engines: `MongoDB` and `SQLite`. A `DatabaseProvider` selects the active engine at startup based on your configuration. The entire plugin talks to `DatabaseProvider`, so switching from MongoDB to SQLite requires changing one line in `config.yml` and nothing else.
-
-### 2. SQLite – Connection Pooling and Write Isolation
-For SQLite, the naive approach of one global connection leads to `SQLITE_BUSY` errors and serialised writes that block the server. We solved this with a **dedicated write connection** and a **pool of 4 read connections**.
-
-    private final BlockingQueue<Connection> readPool = new LinkedBlockingQueue<>(4);
-    private Connection writeConnection; // dedicated write connection
-
-Read operations borrow a connection from the pool, execute, and return it, ensuring multiple parallel reads never compete. The write connection is used exclusively for all inserts/updates, avoiding write‑contention on the pool.
-
-### 3. WAL Mode and PRAGMA Tuning (SQLite)
-Immediately after opening a connection, we apply a set of proven SQLite PRAGMAs that dramatically improve performance and reliability:
-
-    stmt.execute("PRAGMA journal_mode = WAL");
-    stmt.execute("PRAGMA synchronous = NORMAL");
-    stmt.execute("PRAGMA cache_size = -4000");
-    stmt.execute("PRAGMA foreign_keys = ON");
-    stmt.execute("PRAGMA busy_timeout = 5000");
-
-- **WAL (Write‑Ahead Logging)** allows concurrent reads and writes, as opposed to the default rollback journal which locks the entire database.
-- **synchronous = NORMAL** provides a safe middle‑ground between full durability and speed.
-- **cache_size = -4000** allocates 4MB of memory cache, reducing disk I/O.
-- **busy_timeout = 5000** tells SQLite to wait up to 5 seconds for a lock instead of instantly throwing `SQLITE_BUSY`.
-
-### 4. Single‑Threaded Write Executor (SQLite)
-SQLite does not support parallel writes, but it *does* support a single writer many readers model. We enforce this with a single‑threaded executor that serialises all write operations:
-
-    private final ExecutorService writeExecutor = Executors.newSingleThreadExecutor();
-
-All SQL `INSERT`, `UPDATE`, `DELETE`, and DDL statements run on this executor. This guarantees that at most one write is active, while reads happen concurrently via the pool. The result: zero `SQLITE_BUSY` exceptions under heavy load.
-
-### 5. Batch Economy Saving (SQLite)
-To avoid overwhelming the write executor with per‑transaction coin updates, the economy system accumulates changes in a `pendingEconomyChanges` map and flushes them in bulk every 20 ticks (1 second) using a `BukkitRunnable`. This alone reduces write pressure by orders of magnitude.
-
-    new BukkitRunnable() {
-        public void run() {
-            Map<UUID, Double> batch = new HashMap<>(pendingEconomyChanges);
-            pendingEconomyChanges.clear();
-            writeExecutor.submit(() -> {
-                // batch INSERT OR REPLACE into player_economy
-            });
-        }
-    }.runTaskTimer(plugin, 20L, 20L);
-
-### 6. Asynchronous MongoDB with Connection Pooling
-The MongoDB layer uses the official async driver behind a fixed thread pool (`Executors.newFixedThreadPool`), ensuring that even complex aggregations never touch the main server thread. All operations—stats fetching, quick‑buy updates, language preferences—run inside `asyncExecutor.submit(...)`.
-
-    asyncExecutor.submit(() -> {
-        playersCollection.updateOne(query, update, new UpdateOptions().upsert(true));
-        redisManager.del("player_data:" + uuid);
-    });
-
-### 7. Intelligent Caching Layer
-Both engines maintain in‑memory `ConcurrentHashMap` caches for frequently accessed data: stats existence, quick‑buy layouts, economy balances, and hotbar configurations. A cache hit avoids a database round‑trip entirely. Caches are invalidated per‑player on write or on plugin reload, ensuring data freshness without stale reads.
-
-    private final Map<UUID, Boolean> statsCache = new ConcurrentHashMap<>();
-    private final Map<UUID, Map<Integer, String>> quickBuyDataCache = new ConcurrentHashMap<>();
-    private final Map<UUID, Double> economyCache = new ConcurrentHashMap<>();
-
-### 8. Redis for Cross‑Server Data (Optional)
-When Redis is available, it sits between the plugin and the durable database. Frequently read data like player levels and language preferences are cached in Redis with TTL (e.g. 300 seconds). Writes invalidate the Redis key, so the next read re‑fetches from MongoDB/SQLite and re‑populates the cache. This allows multiple servers in a BungeeCord network to share a single source of truth without repeated heavy queries.
-
-    redisManager.set("level_data:" + uuid, level + "," + xp + "," + name + "," + nextCost, 300);
-    // on write: redisManager.del("level_data:" + uuid);
-
-### 9. Automatic Rollback on Failure (SQLite)
-Every write operation that uses a transaction (like `saveStats`) wraps itself in a try‑catch that calls `writeConnection.rollback()` on any `SQLException`. Combined with `busy_timeout`, this guarantees that a temporary lock contention or a malformed query does not leave the database in an inconsistent state.
-
-    try {
-        writeConnection.setAutoCommit(false);
-        // ... multiple inserts/updates ...
-        writeConnection.commit();
-    } catch (SQLException e) {
-        writeConnection.rollback();
-    } finally {
-        writeConnection.setAutoCommit(true);
-    }
-
-### 10. Graceful Shutdown
-When the plugin disables, all caches are cleared, read connections are closed, the write connection is closed, and the write executor is shut down. No dangling connections, no orphaned threads.
-
-    public void close() {
-        statsCache.clear();
-        // close all read connections from pool
-        // close writeConnection
-        writeExecutor.shutdown();
-    }
+This applies to MongoDB and SQLite alike. Backups run asynchronously, ensuring zero impact on gameplay. In the event of hardware failure or accidental data corruption, a complete restore is one file away.
 
 ---
 
-## Performance Optimizations
+## Database & Storage
 
-Performance is a core feature, not an afterthought.
+BedWars treats data persistence as a first‑class component.
 
-- Batched generator updates at configurable intervals
-- All database I/O executed asynchronously
-- Lazy chunk loading on player join
-- Instant map resets (SlimeWorldManager) or optimized internal method
-- Listeners registered only for enabled features
-- Scoreboard updated only on data change
-- Custom, lightweight TNT explosion logic
-
-**Proven result:** 2000+ concurrent players across a Bungee network with stable 20 TPS.
+- **Dual‑Engine Architecture** – a unified `Database` interface is implemented by both MongoDB and SQLite engines. Switching between them requires changing one line in `config.yml`.
+- **SQLite Connection Pooling** – a dedicated write connection and a pool of four read connections eliminate `SQLITE_BUSY` errors while allowing concurrent reads.
+- **WAL Mode and PRAGMA Tuning** – write‑ahead logging, normal synchronous mode, 4 MB memory cache, and a 5‑second busy timeout are applied to every SQLite connection for maximum performance.
+- **Single‑Threaded Write Executor** – all SQLite write operations are serialised on a single thread to prevent write contention, while reads occur concurrently through the pool.
+- **Batch Economy Saving** – token changes are accumulated and flushed in bulk every 20 ticks, reducing write pressure by orders of magnitude.
+- **Asynchronous MongoDB** – the official async driver runs behind a dedicated thread pool; even complex aggregations never touch the main thread.
+- **Multi‑Level Caching** – in‑memory `ConcurrentHashMap` caches for stats, quick‑buy layouts, economy balances, and hotbar configurations avoid database round‑trips for frequently accessed data.
+- **Redis Integration (Optional)** – Redis is used for cross‑server data sharing, storing player levels and preferences with TTL. Writes invalidate the Redis key, ensuring consistency across a BungeeCord network.
+- **Automatic Rollback on Failure** – SQLite transactions are rolled back on any exception, guaranteeing data consistency.
+- **Graceful Shutdown** – all caches are cleared, connections are closed, and thread pools are shut down when the plugin disables.
 
 ---
 
 ## PlaceholderAPI Integration
 
-Automatic PAPI expansion with placeholders like:
+BedWars registers an automatic PlaceholderAPI expansion. Available placeholders include:
 
 `%bw_level%` `%bw_kills%` `%bw_deaths%` `%bw_wins%` `%bw_beds_broken%` `%bw_tokens%` `%bw_current_arena%` `%bw_team_color%` `%bw_game_state%` `%bw_ranked_elo%` `%bw_ranked_wins%`
 
-Fully compatible with any PlaceholderAPI‑based plugin.
+These work with any PlaceholderAPI‑compatible plugin.
 
 ---
 
-## BungeeCord & Auto‑Scale
+## BungeeCord, Proxy Plugin & Auto‑Scale
 
-Native support for multi‑server networks.
+BedWars is designed for multi‑server networks from the ground up. The purchase includes **BedWarsProxy**, a dedicated companion plugin that runs on your BungeeCord or Velocity instance.
 
-- **BungeeCord mode:** One arena per server, connected to the lobby via socket.
-- **Auto‑Scale:** The lobby signals your infrastructure to spin up new game servers as demand rises.
-- Built‑in `ArenaSocket` and `SendTask` manage all synchronization; minimal external scripting required.
+**What BedWarsProxy handles:**
+- Lobby queue management and player distribution across game servers.
+- Global communication between the lobby and all game servers via a fast, socket‑based protocol.
+- Automatic server scaling: when player demand increases, the proxy can signal your infrastructure to spin up new game servers; when demand drops, idle servers can be shut down.
+- Matchmaking for ranked and casual games, ensuring parties stay together and players are placed in appropriate arenas.
+
+All synchronisation is built into the plugin. You do not need external scripts, complicated orchestrators, or multiple third‑party plugins to achieve a fully automated, elastic BedWars network.
+
+Refer to the documentation for configuration details on `ArenaSocket` and the auto‑scale integration.
 
 ---
 
 ## Public API
 
-Easily extend the plugin with your own code:
+BedWars exposes a full Java API for developers who need to extend its functionality.
 
     BedWars api = BedWars.getAPI();
     IArena arena = api.getArenaByName("myarena");
@@ -425,7 +346,7 @@ Easily extend the plugin with your own code:
     Map<String, Object> ranked = BedWars.getRankedStats(player);
     api.getBedWarsCommand().addSubCommand(new MyCustomCommand());
 
-The complete API is documented inside the `api` package.
+The complete API, including events, hooks, and Javadoc coverage, is documented inside the `api` package.
 
 ---
 
@@ -433,33 +354,39 @@ The complete API is documented inside the `api` package.
 
 **BedWars** is a premium plugin sold exclusively by the developer.
 
-### How to buy
+### How to Purchase
 - **Discord:** `Nerotek01`
 - **Bale (Iranian users):** `Nerotek`
-- **Price:** **€25.00** (one‑time payment, **permanent license**)
+- **Price:** **€25.00** — one‑time payment, permanent license.
 
 ### License
-**Permanent license. Valid for all your servers** – whether you run a single server or an entire BungeeCord network. No recurring fees, no hidden costs. One purchase covers everything, forever.
+**Permanent, all‑servers license.** Your purchase covers every server you own — from a single lobby to a 50‑server BungeeCord network. There are no recurring fees, no per‑server add‑ons, and no hidden costs.
 
-### What you get
-- The full plugin JAR
-- All 30+ integrated add‑ons
-- Ranked system backend access and API token
-- Free updates for the current major version
-- **24/7 priority support** via Discord or Bale
+### What You Receive
+- The complete BedWars game plugin JAR.
+- The BedWarsProxy companion plugin.
+- All 30+ add‑ons, fully integrated and ready to use.
+- Ranked system backend access and API token.
+- Free updates for the current major version.
+- **24/7 priority support** via Discord or Bale.
 
-### Support promise
-When your server has a problem at peak time, you speak directly to the person who wrote the code. No waiting, no forums, no canned replies. Your uptime is our reputation.
+### Support Promise
+When an issue arises on your live network, you do not file tickets and hope for a reply. You speak directly with the developer — the person who wrote every line of code. Your uptime is our reputation.
 
 ---
 
 ## Roadmap
 
-- **Private Games** – Invite‑only matches with host controls (kick, map select, team size)
-- **Cosmetics** – Kill effects, victory dances, projectile trails, bed destruction effects, island toppers with rarity system
-- **Continuous optimizations** – Further async offloading, profiling for 3000+ concurrent players
-- **Expanded API** – More events, hooks, and full Javadoc coverage
+- **Private Games** – invite‑only matches with full host controls (kick, map selection, team size).
+- **Cosmetics System** – kill effects, victory dances, projectile trails, bed destruction effects, island toppers, all with a rarity framework.
+- **Replay System** – automatic recording of entire matches, storing player movements, bed breaks, kills, and key events for later review, analysis, or rule‑violation reporting.
+- **Continuous Performance Upgrades** – further async offloading, profiling for 3000+ concurrent players.
+- **Expanded API** – additional events, hooks, and comprehensive Javadoc documentation.
 
 ---
 
-**BedWars** — The last BedWars plugin you will ever need to buy.
+**BedWars** — the last BedWars plugin you will ever need to purchase.
+
+<p align="center">
+  <a href="https://debug.nerotek.net"><strong>Connect to the demo: debug.nerotek.net</strong></a>
+</p>
