@@ -25,7 +25,7 @@ Battle‑tested with more than 2 000 concurrent players across a single network.
 - [Performance Engineering at a Glance](#performance-engineering-at-a-glance)
 - [Core Features – Expanded](#core-features--expanded)
 - [Ranked System (Full)](#ranked-system-full)
-- [30+ Built‑in Add‑ons](#30-built-in-add-ons)
+- [33+ Built‑in Add‑ons](#33-built-in-add-ons)
 - [Commands & Permissions](#commands--permissions)
 - [Full Configuration](#full-configuration)
 - [Automatic Database Backup](#automatic-database-backup)
@@ -55,7 +55,7 @@ The test server runs the latest stable build with every add‑on enabled. You ca
 BedWars is not a collection of loosely coupled plugins held together by third‑party dependencies. It is a single, monolithic solution engineered from the ground up for networks that cannot afford downtime, performance regressions, or incomplete gameplay.
 
 ### The Only Plugin That Truly Unifies Everything
-Every feature you need — from deposit chests and generator splitting to a fully‑fledged competitive ranked system — lives inside **one JAR**. You never install extra add‑ons, you never pay for separate modules, and you are never left debugging version incompatibilities between half a dozen plugins. BedWars ships with **30+ built‑in add‑ons** that share the same configuration system, database layer, and event bus. When you enable an add‑on it works instantly; when you disable it, it consumes zero CPU.
+Every feature you need — from deposit chests and generator splitting, to a fully‑fledged competitive ranked system, to a complete cosmetics suite, match replay engine, and anti‑AFK management — lives inside **one JAR**. You never install extra add‑ons, you never pay for separate modules, and you are never left debugging version incompatibilities between half a dozen plugins. BedWars ships with **33+ built‑in add‑ons** that share the same configuration system, database layer, and event bus. When you enable an add‑on it works instantly; when you disable it, it consumes zero CPU.
 
 ### Built for Networks, Not Just Single Servers
 BedWars was designed for large, multi‑server deployments from day one. It includes its own **BedWarsProxy** companion plugin that runs on BungeeCord or Velocity. The proxy plugin handles lobby connections, global queues, matchmaking, and automatic server scaling without external scripts. The game servers and the proxy communicate over a stable, low‑latency socket layer. This architecture has been battle‑tested with **2 000+ concurrent players** while maintaining a solid 20 TPS on every game server.
@@ -83,7 +83,7 @@ The table below evaluates BedWars against all major BedWars plugins on the marke
 
 | Criteria | **BedWars** | BedWars1058 | MBedwars | ScreamingBedWars | BedWarsProxy (standalone) | Other "Premium" |
 |----------|-------------|-------------|----------|------------------|---------------------------|-----------------|
-| **Built‑in add‑ons** | 30+ (deposit, gen split, voidless, ranked, etc.) | Requires separate JARs | ~10 | Limited | Minimal (just proxy) | Usually 5‑10, many paid separately |
+| **Built‑in add‑ons** | 33+ (deposit, gen split, voidless, ranked, cosmetics, replay, anti‑AFK, etc.) | Requires separate JARs | ~10 | Limited | Minimal (just proxy) | Usually 5‑10, many paid separately |
 | **Native ranked system** | Full ELO, WebSocket, tournaments | Not available | Third‑party | Not available | Not available | Rarely native |
 | **Proxy plugin included** | Yes – BedWarsProxy ships with the purchase | Not included | Not included | Not included | Standalone; requires another game plugin | Not included |
 | **Database engines** | MongoDB + Redis + SQLite (auto‑fallback) | MySQL / SQLite | MySQL / SQLite | Flat file / MySQL | MySQL | Usually MySQL only |
@@ -148,7 +148,7 @@ Each arena can be configured for Solo, Doubles, Triples, or Quads. Mode‑specif
 After elimination, players enter spectator mode with controls for fly speed, night vision toggle, and auto‑teleport to active players. Spectators can freely observe the ongoing match without interfering.
 
 ### Rejoin and AFK Management
-Players who disconnect during a match can rejoin their team and recover their inventory and position. Players who remain AFK for a configurable period are automatically removed, freeing the slot for others.
+Players who disconnect during a match can rejoin their team and recover their inventory and position. Players who remain AFK for a configurable period are automatically removed, freeing the slot for others. The built‑in Anti AFK add‑on provides fine‑grained control over detection and punishment.
 
 ### Comprehensive Party Support
 The plugin includes an internal party system and also supports external party plugins through an adapter interface. Parties can join games together and are always placed on the same team. Adding support for a new party plugin requires only a single adapter class.
@@ -182,7 +182,7 @@ The ranked system requires a valid API token and access to the Ranked service ba
 
 ---
 
-## 30+ Built‑in Add‑ons
+## 33+ Built‑in Add‑ons
 
 All add‑ons are self‑contained and toggled in `addons.yml`. When enabled they run at full capacity; when disabled they consume zero performance.
 
@@ -212,6 +212,9 @@ All add‑ons are self‑contained and toggled in `addons.yml`. When enabled the
 | **Level Bar** | XP bar repurposed to show player level |
 | **Sponge** | Sponge water removal mechanics |
 | **Token Economy** | Internal currency system – no Vault dependency |
+| **Cosmetics** | Kill effects, victory dances, projectile trails, bed destruction effects, island toppers, rarity framework |
+| **Replay** | Automatic match recording: tracks movements, bed breaks, kills; full playback for review or reports |
+| **Anti AFK** | Detects idle players and automatically removes them from the arena, with configurable thresholds and warnings |
 
 ---
 
@@ -351,7 +354,7 @@ The complete API, including events, hooks, and Javadoc coverage, is documented i
 ### Pre‑purchase Questions
 
 **Q: Is this a single plugin or do I need multiple downloads?**
-A: BedWars ships as a single JAR containing 30+ built‑in add‑ons. You also receive the companion BedWarsProxy plugin for your BungeeCord/Velocity proxy — all included in the same purchase.
+A: BedWars ships as a single JAR containing 33+ built‑in add‑ons. You also receive the companion BedWarsProxy plugin for your BungeeCord/Velocity proxy — all included in the same purchase.
 
 **Q: Does it support versions newer than 1.8.8?**
 A: Currently, BedWars is exclusively engineered for 1.8.8. This single‑version focus allows deep NMS optimisations that are impossible to maintain in a cross‑version codebase. If future versions are supported, they will be provided as separate, equally optimised branches.
@@ -404,7 +407,7 @@ A: All updates for the current major version are included with your permanent li
 ### What You Receive
 - The complete BedWars game plugin JAR.
 - The BedWarsProxy companion plugin.
-- All 30+ add‑ons, fully integrated and ready to use.
+- All 33+ add‑ons, fully integrated and ready to use.
 - Ranked system backend access and API token.
 - Free updates for the current major version.
 - **24/7 priority support** via Discord or Bale.
@@ -417,8 +420,6 @@ When an issue arises on your live network, you do not file tickets and hope for 
 ## Roadmap
 
 - **Private Games** – invite‑only matches with full host controls (kick, map selection, team size).
-- **Cosmetics System** – kill effects, victory dances, projectile trails, bed destruction effects, island toppers, all with a rarity framework.
-- **Replay System** – automatic recording of entire matches, storing player movements, bed breaks, kills, and key events for later review, analysis, or rule‑violation reporting.
 - **Continuous Performance Upgrades** – further async offloading, profiling for 3000+ concurrent players.
 - **Expanded API** – additional events, hooks, and comprehensive Javadoc documentation.
 
