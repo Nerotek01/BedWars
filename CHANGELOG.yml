@@ -1,6 +1,19 @@
-version: "2.1.9"
+version: "2.2.0"
 date: "2026-07-31"
 changes:
+  - version: "2.2.0"
+    date: "2026-07-31"
+    type: "minor"
+    summary: "Fix critical config key case-sensitivity, hotbar pickup, debug NPE, and replay border config"
+    items:
+      - "Fix maxInTeam=0 by reading lowercase config keys (maxinteam) with camelCase fallback in Arena constructor, CmdStart, SetMaxInTeam, SetType, and CreateTeam"
+      - "Fix minPlayers and allowSpectate to also use lowercase keys with fallbacks"
+      - "Fix ReplayPlayer world-border config to read world-border.size/enabled with worldBorderSize/worldBorderEnabled fallback"
+      - "Fix /bw debug NPE caused by ConcurrentHashMap.put with null value (arenaDebugPlayers)"
+      - "Fix /bw debug canSee to allow OPs in lobby (not just in arena) so the command is visible"
+      - "Revert hotbar pickup for null-category items to default Bukkit behavior (goes to hotbar slots 0-8)"
+      - "Audit all setup commands for case-sensitive config key writes (SetMaxInTeam, SetType, CreateTeam now write lowercase keys)"
+
   - version: "2.1.9"
     date: "2026-07-31"
     type: "patch"
@@ -12,6 +25,7 @@ changes:
       - "Debug shows player movement, damage, deaths, interactions, and teleports in chat only"
       - "Debug does not spam console, only visible to debug-enabled players in the same arena"
       - "Silence per-clone cleanup logs to a single summary line on startup"
+
   - version: "2.1.8"
     date: "2026-07-31"
     type: "patch"
@@ -21,6 +35,7 @@ changes:
       - "Fix /bw join map tab-complete not calling getTabComplete(String[]) in MainCommand"
       - "Add explicit join tab-complete handler in MainCommand to route to CmdJoin.getTabComplete(String[])"
       - "Fix getEffectivePartySize to return at least 1 even when partySize returns 0"
+
   - version: "2.1.7"
     date: "2026-07-31"
     type: "patch"
@@ -31,6 +46,7 @@ changes:
       - "Color-code quest rewards: aqua for Bed Wars Experience, gold for Bed Wars Coins, dark green for Tokens"
       - "Add BEDWARS_TOKEN and TOKEN reward type support"
       - "Update challenge reward display to match new color scheme"
+
   - version: "2.1.6"
     date: "2026-07-31"
     type: "patch"
@@ -40,6 +56,7 @@ changes:
       - "Restore admin bypass in canBypassRankedRestriction for OPs and admins"
       - "Add ranked fallback in handleRandomJoin to prevent total lockout when only ranked arenas exist"
       - "Fix BedWarsAdapter.onArenaJoin to allow OPs and admins through the event listener"
+
   - version: "2.1.5"
     date: "2026-07-31"
     type: "patch"
@@ -48,6 +65,7 @@ changes:
       - "Exclude clone arenas from all tab-completion commands"
       - "Restrict /bw join forcejoin all world argument to only suggest the lobby world"
       - "Filter clone config files from /bw enablearena, /bw disablearena, /bw clonearena tab-completion"
+
   - version: "2.1.4"
     date: "2026-07-31"
     type: "patch"
@@ -57,6 +75,7 @@ changes:
       - "Add aggressive clone cleanup on server shutdown (deletes all clones including those with active players)"
       - "Add migration of existing arena config locations to block-level precision"
       - "Make /bw arenagroup help messages interactive with hover and click"
+
   - version: "2.1.3"
     date: "2026-07-31"
     type: "patch"
@@ -64,6 +83,7 @@ changes:
     items:
       - "Fix third VerifyError by adding all JDK jmods as ProGuard libraryjars"
       - "ProGuard can now resolve javax.management class hierarchy for multi-catch handlers"
+
   - version: "2.1.2"
     date: "2026-07-31"
     type: "patch"
@@ -75,6 +95,7 @@ changes:
       - "Fix ArenaStartAnnouncer NPE on null group or prefix"
       - "Fix WorldBorderListener stale per-player cache on arena leave"
       - "Fix RankedQueueManager never removing quitters from queue"
+
   - version: "2.1.1"
     date: "2026-07-31"
     type: "patch"
@@ -87,6 +108,7 @@ changes:
       - "Optimize DamageDeathMove to only reset AFK state when chunk changes"
       - "Optimize BaseListener to use distanceSquared instead of distance"
       - "Optimize BwTabList to replace stream collection with manual HashSet"
+
   - version: "2.1.0"
     date: "2026-07-31"
     type: "minor"
@@ -100,6 +122,7 @@ changes:
       - "Fix hotbar item pickup routing to upper inventory instead of hotbar slots"
       - "Fix /bw start command feedback for already-playing state"
       - "Fix deposit for non-stackable items like swords and tools"
+
   - version: "2.0.0"
     date: "2026-07-30"
     type: "major"
