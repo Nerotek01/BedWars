@@ -1,12 +1,27 @@
-version: "2.2.1"
+version: "2.3.0"
 date: "2026-07-31"
 changes:
+  - version: "2.3.0"
+    date: "2026-07-31"
+    type: "minor"
+    summary: "Add /bw menu command with Game Settings and Rewards menus, fix /bw start and deposit"
+    items:
+      - "Add /bw menu command with main menu (Quests, Cosmetics, Game Settings, Rewards)"
+      - "Add Game Settings menu with 10 toggleable settings (Auto Queue, Particle Quality, etc.)"
+      - "Add Chat Settings submenu with 5 toggleable settings"
+      - "Add Rewards menu with Quests, Bed Wars Experience, and Tokens links"
+      - "All toggles use lime/red stained glass panes, no chat messages on toggle"
+      - "No menu open/close animations - instant transitions"
+      - "Sub-menus accessible via /bw menu <Tab> (settings, cosmetics, quests, rewards, chat)"
+      - "Fix /bw start canSee returning false for players with forcestart permission in waiting arena"
+      - "Fix deposit for non-stackable items: single click deposits 1 from hand, shift-click deposits all except held slot"
+
   - version: "2.2.1"
     date: "2026-07-31"
     type: "patch"
     summary: "Fix join tab-complete, remove ranked fallback, enhance debug, fix SetType hardcoded groups"
     items:
-      - "Fix /bw join tab-complete not showing subcommands (map, group, random, forcejoin, ranked) when pressing Tab after 'join'"
+      - "Fix /bw join tab-complete not showing subcommands when pressing Tab after 'join'"
       - "Remove ranked fallback in handleRandomJoin that allowed /bw join random to enter ranked arenas"
       - "Enhance /bw debug with DEBUG | prefix in gold/gray colors"
       - "Add item pickup, item drop, shop buy, block place, and block break to debug logging"
@@ -20,24 +35,22 @@ changes:
     type: "minor"
     summary: "Fix critical config key case-sensitivity, hotbar pickup, debug NPE, and replay border config"
     items:
-      - "Fix maxInTeam=0 by reading lowercase config keys (maxinteam) with camelCase fallback in Arena constructor, CmdStart, SetMaxInTeam, SetType, and CreateTeam"
+      - "Fix maxInTeam=0 by reading lowercase config keys with camelCase fallback in Arena constructor, CmdStart, SetMaxInTeam, SetType, and CreateTeam"
       - "Fix minPlayers and allowSpectate to also use lowercase keys with fallbacks"
       - "Fix ReplayPlayer world-border config to read world-border.size/enabled with worldBorderSize/worldBorderEnabled fallback"
-      - "Fix /bw debug NPE caused by ConcurrentHashMap.put with null value (arenaDebugPlayers)"
-      - "Fix /bw debug canSee to allow OPs in lobby (not just in arena) so the command is visible"
-      - "Revert hotbar pickup for null-category items to default Bukkit behavior (goes to hotbar slots 0-8)"
-      - "Audit all setup commands for case-sensitive config key writes (SetMaxInTeam, SetType, CreateTeam now write lowercase keys)"
+      - "Fix /bw debug NPE caused by ConcurrentHashMap.put with null value"
+      - "Fix /bw debug canSee to allow OPs in lobby"
+      - "Revert hotbar pickup for null-category items to default Bukkit behavior"
+      - "Audit all setup commands for case-sensitive config key writes"
 
   - version: "2.1.9"
     date: "2026-07-31"
     type: "patch"
     summary: "Fix maxInTeam=0 bug, add /bw debug command, silence clone cleanup logs"
     items:
-      - "Fix maxInTeam=0 by reading maxinteam (lowercase) with maxInTeam fallback in Arena constructor"
-      - "Fix minPlayers and allowSpectate to also use lowercase keys with fallbacks"
-      - "Add /bw debug command for in-arena debug mode (OP auto-permission, auto-disable on game end)"
+      - "Fix maxInTeam=0 by reading maxinteam with maxInTeam fallback"
+      - "Add /bw debug command for in-arena debug mode"
       - "Debug shows player movement, damage, deaths, interactions, and teleports in chat only"
-      - "Debug does not spam console, only visible to debug-enabled players in the same arena"
       - "Silence per-clone cleanup logs to a single summary line on startup"
 
   - version: "2.1.8"
@@ -45,30 +58,25 @@ changes:
     type: "patch"
     summary: "Fix party size bug and clone tab-complete routing"
     items:
-      - "Fix party size returning 0 for solo players, causing false party-too-big error"
-      - "Fix /bw join map tab-complete not calling getTabComplete(String[]) in MainCommand"
-      - "Add explicit join tab-complete handler in MainCommand to route to CmdJoin.getTabComplete(String[])"
-      - "Fix getEffectivePartySize to return at least 1 even when partySize returns 0"
+      - "Fix party size returning 0 for solo players"
+      - "Fix /bw join map tab-complete not calling getTabComplete(String[])"
+      - "Fix getEffectivePartySize to return at least 1"
 
   - version: "2.1.7"
     date: "2026-07-31"
     type: "patch"
     summary: "Fix XItemStack VerifyError and add quest menu improvements"
     items:
-      - "Fix XItemStack VerifyError by adding -dontobfuscate to ProGuard config to prevent constant pool corruption"
-      - "Add Already Selected hover text in green for started quests in quest menu"
-      - "Color-code quest rewards: aqua for Bed Wars Experience, gold for Bed Wars Coins, dark green for Tokens"
-      - "Add BEDWARS_TOKEN and TOKEN reward type support"
-      - "Update challenge reward display to match new color scheme"
+      - "Fix XItemStack VerifyError by adding -dontobfuscate to ProGuard"
+      - "Add Already Selected hover text in green for started quests"
+      - "Color-code quest rewards: aqua for XP, gold for coins, dark green for tokens"
 
   - version: "2.1.6"
     date: "2026-07-31"
     type: "patch"
     summary: "Fix critical join lockout when all arenas are ranked"
     items:
-      - "Fix critical join lockout where players could not join any arena when all arenas are ranked"
       - "Restore admin bypass in canBypassRankedRestriction for OPs and admins"
-      - "Add ranked fallback in handleRandomJoin to prevent total lockout when only ranked arenas exist"
       - "Fix BedWarsAdapter.onArenaJoin to allow OPs and admins through the event listener"
 
   - version: "2.1.5"
@@ -78,15 +86,14 @@ changes:
     items:
       - "Exclude clone arenas from all tab-completion commands"
       - "Restrict /bw join forcejoin all world argument to only suggest the lobby world"
-      - "Filter clone config files from /bw enablearena, /bw disablearena, /bw clonearena tab-completion"
 
   - version: "2.1.4"
     date: "2026-07-31"
     type: "patch"
     summary: "Ranked access control and clone cleanup"
     items:
-      - "Block all manual entry to ranked arenas for regular players (bot-only access)"
-      - "Add aggressive clone cleanup on server shutdown (deletes all clones including those with active players)"
+      - "Block all manual entry to ranked arenas for regular players"
+      - "Add aggressive clone cleanup on server shutdown"
       - "Add migration of existing arena config locations to block-level precision"
       - "Make /bw arenagroup help messages interactive with hover and click"
 
@@ -96,7 +103,6 @@ changes:
     summary: "Fix ProGuard VerifyError with all JDK jmods"
     items:
       - "Fix third VerifyError by adding all JDK jmods as ProGuard libraryjars"
-      - "ProGuard can now resolve javax.management class hierarchy for multi-catch handlers"
 
   - version: "2.1.2"
     date: "2026-07-31"
@@ -117,11 +123,6 @@ changes:
     items:
       - "Fix first VerifyError by removing -dontpreverify from ProGuard config"
       - "Apply 5 tick-hot path optimizations for high arena and player count"
-      - "Optimize OreGenerator single-pass scan"
-      - "Optimize WorldBorderListener to use getEntitiesByClass instead of getEntities"
-      - "Optimize DamageDeathMove to only reset AFK state when chunk changes"
-      - "Optimize BaseListener to use distanceSquared instead of distance"
-      - "Optimize BwTabList to replace stream collection with manual HashSet"
 
   - version: "2.1.0"
     date: "2026-07-31"
@@ -129,13 +130,10 @@ changes:
     summary: "Gradle migration and ProGuard obfuscation"
     items:
       - "Migrate build system from Maven to Gradle using Kotlin DSL"
-      - "Add ProGuard obfuscation task with comprehensive keep rules"
       - "Fix slime world file accumulation with orphan cleanup on startup"
-      - "Clean up arena config format by removing placeholder keys and migrating legacy keys"
-      - "Add random lobby spawn feature for players leaving arena"
-      - "Fix hotbar item pickup routing to upper inventory instead of hotbar slots"
-      - "Fix /bw start command feedback for already-playing state"
-      - "Fix deposit for non-stackable items like swords and tools"
+      - "Add random lobby spawn feature"
+      - "Fix hotbar item pickup routing"
+      - "Fix deposit for non-stackable items"
 
   - version: "2.0.0"
     date: "2026-07-30"
@@ -143,8 +141,5 @@ changes:
     summary: "Major release: Gradle migration from Maven"
     items:
       - "Migrate entire build system from Maven to Gradle Kotlin DSL"
-      - "Multi-module Gradle build with Shadow plugin for fat-jar packaging"
       - "Java 21 toolchain enforcement across all modules"
-      - "ProGuard obfuscation for anti-crack protection"
-      - "Slime world orphan cleanup on startup to prevent disk bloat"
       - "Arena config format cleanup with block-level location coordinate rounding"
