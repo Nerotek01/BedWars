@@ -1,6 +1,20 @@
-version: "2.2.0"
+version: "2.2.1"
 date: "2026-07-31"
 changes:
+  - version: "2.2.1"
+    date: "2026-07-31"
+    type: "patch"
+    summary: "Fix join tab-complete, remove ranked fallback, enhance debug, fix SetType hardcoded groups"
+    items:
+      - "Fix /bw join tab-complete not showing subcommands (map, group, random, forcejoin, ranked) when pressing Tab after 'join'"
+      - "Remove ranked fallback in handleRandomJoin that allowed /bw join random to enter ranked arenas"
+      - "Enhance /bw debug with DEBUG | prefix in gold/gray colors"
+      - "Add item pickup, item drop, shop buy, block place, and block break to debug logging"
+      - "Fix /bw debug showInList to true for OP tab-completion visibility"
+      - "Add disableForPlayer to auto-disable debug when player leaves arena"
+      - "Fix SetType to read team size from config 'group-team-sizes' instead of hardcoding Solo/Doubles/3v3/4v4"
+      - "Fix debug auto-disable when arena game ends and player returns to lobby"
+
   - version: "2.2.0"
     date: "2026-07-31"
     type: "minor"
