@@ -1,6 +1,21 @@
-version: "2.4.0"
-date: "2026-07-31"
+version: "2.5.0"
+date: "2026-08-01"
 changes:
+  - version: "2.5.0"
+    date: "2026-08-01"
+    type: "minor"
+    summary: "Replay fixes: teleporter color, speed-down rewind, title clear, scoreboard null, team order"
+    items:
+      - "Change Replay Teleporter item color from dark gray to green for better visibility"
+      - "Speed Down hotbar item now rewinds time instead of cycling playback speed"
+      - "Add speed-down-rewind-ms config option (default: 5000ms = 5 seconds backward)"
+      - "Temporary title clears when skip is blocked by cooldown preventing stale feedback"
+      - "Scoreboard arena_id and build_id placeholders no longer display null"
+      - "Team tab list ordering uses TeamColor ordinal for consistent ordering"
+      - "/bw debug tab completion returns empty list instead of invalid option"
+      - "Replay menu Server line shows arena name with match ID"
+      - "ReplayConfig version bumped to 2 with automatic migration"
+
   - version: "2.4.0"
     date: "2026-07-31"
     type: "minor"
