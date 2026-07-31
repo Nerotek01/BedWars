@@ -263,7 +263,7 @@ cd Bed-Wars
 ./gradlew :bedwars_plugin:shadowJar
 ```
 
-The compiled JAR will be at bedwars_plugin/build/libs/BedWars-2.1.6.jar (unobfuscated) or BedWars-2.1.6-obf.jar (ProGuard-obfuscated, for distribution).
+The compiled JAR will be at bedwars_plugin/build/libs/BedWars-2.1.7.jar (unobfuscated) or BedWars-2.1.7-obf.jar (ProGuard-obfuscated, for distribution).
 
 ## Project Structure
 The project is a multi-module Gradle build using Kotlin DSL:
@@ -282,7 +282,7 @@ Build configuration lives in:
 - bedwars_plugin/build.gradle.kts: Shadow plugin configuration, relocations, and resource filtering for plugin.yml version substitution
 
 ## Version
-Current version: 2.1.6
+Current version: 2.1.7
 
 ## Author
 Exclusively developed and maintained by Nerotek01.
