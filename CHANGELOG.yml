@@ -1,104 +1,45 @@
-version: "2.3.2"
+version: "2.4.0"
 date: "2026-07-31"
 changes:
+  - version: "2.4.0"
+    date: "2026-07-31"
+    type: "minor"
+    summary: "Remove Rewards menu, fix deposit to only allow swords with 2+"
+    items:
+      - "Remove Rewards menu completely (temporarily disabled)"
+      - "Remove rewards from CmdMenu tab-completion and switch cases"
+      - "Fix deposit: only swords can be deposited, all other non-stackable items blocked"
+      - "Swords require at least 2 in inventory to deposit (single sword protected)"
+      - "Shift-click deposits all matching swords except held slot"
+      - "Single click deposits 1 sword only if player has 2+ of that type"
+
   - version: "2.3.2"
     date: "2026-07-31"
     type: "patch"
-    summary: "Precise menu rebuild with exact layout matching screenshots"
+    summary: "Precise menu rebuild matching screenshots"
     items:
-      - "Main Menu (27 slots): Quests (paper), My Cosmetics (iron bars), Game Settings (redstone torch), Close (barrier)"
-      - "My Cosmetics click runs /bw cosmetics menu instead of /bw cosmetics"
-      - "Game Settings (54 slots): 10 toggles with exact slot positions, Categories/Settings headers, Particle Quality multi-option"
-      - "Chat Settings (54 slots): 9 settings including Profanity Filters with On/Off cycling and Message Sounds"
-      - "Rewards (27 slots): Quests, Bed Wars Experience, Tokens with back button"
-      - "All menu titles use dark gray color code"
-      - "All click text uses yellow bold formatting"
-      - "Lime/red glass panes for enabled/disabled states"
-      - "Multi-option toggles show all options with > marker and option-specific colors"
-      - "No animations, no chat spam, instant transitions"
-
-  - version: "2.3.1"
-    date: "2026-07-31"
-    type: "patch"
-    summary: "Initial menu rebuild"
-    items:
-      - "Rebuild menu system with main menu, game settings, chat settings, rewards"
-      - "Fix Material.EXP_BOTTLE for 1.8.8 compatibility"
+      - "Main Menu (27 slots) with exact layout and dark gray title"
+      - "Game Settings (54 slots) with 10 toggles and multi-option Particle Quality"
+      - "Chat Settings (54 slots) with 9 settings"
+      - "All toggles use lime/red glass panes, yellow bold click text"
 
   - version: "2.3.0"
     date: "2026-07-31"
     type: "minor"
     summary: "Add /bw menu command, fix /bw start and deposit"
     items:
-      - "Add /bw menu command with sub-menu tab-completion"
-      - "Fix /bw start canSee for forcestart permission holders"
+      - "Add /bw menu with sub-menu tab-completion"
+      - "Fix /bw start canSee"
       - "Fix deposit for non-stackable items"
-
-  - version: "2.2.1"
-    date: "2026-07-31"
-    type: "patch"
-    summary: "Fix join tab-complete, enhance debug, fix SetType"
-    items:
-      - "Fix /bw join tab-complete showing subcommands"
-      - "Enhance /bw debug with more event handlers"
-      - "Fix SetType to read team size from config"
 
   - version: "2.2.0"
     date: "2026-07-31"
     type: "minor"
     summary: "Fix config key case-sensitivity and hotbar"
     items:
-      - "Fix maxInTeam=0 with lowercase config key fallback"
+      - "Fix maxInTeam=0 with lowercase fallback"
       - "Fix /bw debug NPE"
-      - "Revert hotbar pickup to default Bukkit behavior"
-
-  - version: "2.1.9"
-    date: "2026-07-31"
-    type: "patch"
-    summary: "Fix maxInTeam, add /bw debug, silence cleanup"
-    items:
-      - "Fix maxInTeam=0 bug"
-      - "Add /bw debug command"
-      - "Silence clone cleanup logs"
-
-  - version: "2.1.8"
-    date: "2026-07-31"
-    type: "patch"
-    summary: "Fix party size and tab-complete routing"
-    items:
-      - "Fix party size returning 0"
-      - "Fix /bw join tab-complete routing"
-
-  - version: "2.1.7"
-    date: "2026-07-31"
-    type: "patch"
-    summary: "Fix VerifyError and quest menu"
-    items:
-      - "Fix XItemStack VerifyError"
-      - "Add Already Selected hover and color-coded rewards"
-
-  - version: "2.1.6"
-    date: "2026-07-31"
-    type: "patch"
-    summary: "Fix join lockout"
-    items:
-      - "Restore admin bypass for ranked arenas"
-      - "Fix BedWarsAdapter event listener for OPs"
-
-  - version: "2.1.5"
-    date: "2026-07-31"
-    type: "patch"
-    summary: "Exclude clones from tab-completion"
-    items:
-      - "Filter clone arenas from all tab-completion"
-
-  - version: "2.1.4"
-    date: "2026-07-31"
-    type: "patch"
-    summary: "Ranked access and clone cleanup"
-    items:
-      - "Block manual ranked arena entry"
-      - "Aggressive clone cleanup on shutdown"
+      - "Revert hotbar to default Bukkit behavior"
 
   - version: "2.1.0"
     date: "2026-07-31"
@@ -114,6 +55,6 @@ changes:
     type: "major"
     summary: "Gradle migration from Maven"
     items:
-      - "Multi-module Gradle build"
+      - "Multi-module Gradle build with Shadow plugin"
       - "Java 21 toolchain"
       - "Arena config cleanup"
