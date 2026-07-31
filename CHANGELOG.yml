@@ -1,203 +1,113 @@
-version: "2.1.8"
-
+version: "2.1.9"
 date: "2026-07-31"
-
 changes:
-
+  - version: "2.1.9"
+    date: "2026-07-31"
+    type: "patch"
+    summary: "Fix maxInTeam=0 bug, add /bw debug command, silence clone cleanup logs"
+    items:
+      - "Fix maxInTeam=0 by reading maxinteam (lowercase) with maxInTeam fallback in Arena constructor"
+      - "Fix minPlayers and allowSpectate to also use lowercase keys with fallbacks"
+      - "Add /bw debug command for in-arena debug mode (OP auto-permission, auto-disable on game end)"
+      - "Debug shows player movement, damage, deaths, interactions, and teleports in chat only"
+      - "Debug does not spam console, only visible to debug-enabled players in the same arena"
+      - "Silence per-clone cleanup logs to a single summary line on startup"
   - version: "2.1.8"
-
     date: "2026-07-31"
-
     type: "patch"
-
-    summary: "Fix party size bug, clone tab-complete, and join lockout for non-OP players"
-
+    summary: "Fix party size bug and clone tab-complete routing"
     items:
-
       - "Fix party size returning 0 for solo players, causing false party-too-big error"
-
       - "Fix /bw join map tab-complete not calling getTabComplete(String[]) in MainCommand"
-
       - "Add explicit join tab-complete handler in MainCommand to route to CmdJoin.getTabComplete(String[])"
-
       - "Fix getEffectivePartySize to return at least 1 even when partySize returns 0"
-
   - version: "2.1.7"
-
     date: "2026-07-31"
-
     type: "patch"
-
     summary: "Fix XItemStack VerifyError and add quest menu improvements"
-
     items:
-
       - "Fix XItemStack VerifyError by adding -dontobfuscate to ProGuard config to prevent constant pool corruption"
-
       - "Add Already Selected hover text in green for started quests in quest menu"
-
       - "Color-code quest rewards: aqua for Bed Wars Experience, gold for Bed Wars Coins, dark green for Tokens"
-
       - "Add BEDWARS_TOKEN and TOKEN reward type support"
-
       - "Update challenge reward display to match new color scheme"
-
   - version: "2.1.6"
-
     date: "2026-07-31"
-
     type: "patch"
-
     summary: "Fix critical join lockout when all arenas are ranked"
-
     items:
-
       - "Fix critical join lockout where players could not join any arena when all arenas are ranked"
-
       - "Restore admin bypass in canBypassRankedRestriction for OPs and admins"
-
       - "Add ranked fallback in handleRandomJoin to prevent total lockout when only ranked arenas exist"
-
       - "Fix BedWarsAdapter.onArenaJoin to allow OPs and admins through the event listener"
-
   - version: "2.1.5"
-
     date: "2026-07-31"
-
     type: "patch"
-
     summary: "Fix tab-completion to exclude clone arenas"
-
     items:
-
       - "Exclude clone arenas from all tab-completion commands"
-
       - "Restrict /bw join forcejoin all world argument to only suggest the lobby world"
-
       - "Filter clone config files from /bw enablearena, /bw disablearena, /bw clonearena tab-completion"
-
   - version: "2.1.4"
-
     date: "2026-07-31"
-
     type: "patch"
-
     summary: "Ranked access control and clone cleanup"
-
     items:
-
       - "Block all manual entry to ranked arenas for regular players (bot-only access)"
-
       - "Add aggressive clone cleanup on server shutdown (deletes all clones including those with active players)"
-
       - "Add migration of existing arena config locations to block-level precision"
-
       - "Make /bw arenagroup help messages interactive with hover and click"
-
   - version: "2.1.3"
-
     date: "2026-07-31"
-
     type: "patch"
-
     summary: "Fix ProGuard VerifyError with all JDK jmods"
-
     items:
-
       - "Fix third VerifyError by adding all JDK jmods as ProGuard libraryjars"
-
       - "ProGuard can now resolve javax.management class hierarchy for multi-catch handlers"
-
   - version: "2.1.2"
-
     date: "2026-07-31"
-
     type: "patch"
-
     summary: "ProGuard library preservation and addon bug fixes"
-
     items:
-
       - "Fix second VerifyError by preserving all third-party library bytecode"
-
       - "Fix InvisibilityFootsteps cross-world crash"
-
       - "Fix Voidless NPE on null group"
-
       - "Fix ArenaStartAnnouncer NPE on null group or prefix"
-
       - "Fix WorldBorderListener stale per-player cache on arena leave"
-
       - "Fix RankedQueueManager never removing quitters from queue"
-
   - version: "2.1.1"
-
     date: "2026-07-31"
-
     type: "patch"
-
     summary: "ProGuard StackMapTable fix and performance optimizations"
-
     items:
-
       - "Fix first VerifyError by removing -dontpreverify from ProGuard config"
-
       - "Apply 5 tick-hot path optimizations for high arena and player count"
-
       - "Optimize OreGenerator single-pass scan"
-
       - "Optimize WorldBorderListener to use getEntitiesByClass instead of getEntities"
-
       - "Optimize DamageDeathMove to only reset AFK state when chunk changes"
-
       - "Optimize BaseListener to use distanceSquared instead of distance"
-
       - "Optimize BwTabList to replace stream collection with manual HashSet"
-
   - version: "2.1.0"
-
     date: "2026-07-31"
-
     type: "minor"
-
     summary: "Gradle migration and ProGuard obfuscation"
-
     items:
-
       - "Migrate build system from Maven to Gradle using Kotlin DSL"
-
       - "Add ProGuard obfuscation task with comprehensive keep rules"
-
       - "Fix slime world file accumulation with orphan cleanup on startup"
-
       - "Clean up arena config format by removing placeholder keys and migrating legacy keys"
-
       - "Add random lobby spawn feature for players leaving arena"
-
       - "Fix hotbar item pickup routing to upper inventory instead of hotbar slots"
-
       - "Fix /bw start command feedback for already-playing state"
-
       - "Fix deposit for non-stackable items like swords and tools"
-
   - version: "2.0.0"
-
     date: "2026-07-30"
-
     type: "major"
-
     summary: "Major release: Gradle migration from Maven"
-
     items:
-
       - "Migrate entire build system from Maven to Gradle Kotlin DSL"
-
       - "Multi-module Gradle build with Shadow plugin for fat-jar packaging"
-
       - "Java 21 toolchain enforcement across all modules"
-
       - "ProGuard obfuscation for anti-crack protection"
-
       - "Slime world orphan cleanup on startup to prevent disk bloat"
-
       - "Arena config format cleanup with block-level location coordinate rounding"
