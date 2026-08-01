@@ -1,6 +1,20 @@
-version: "2.5.5"
+version: "2.5.6"
 date: "2026-08-01"
 changes:
+  - version: "2.5.6"
+    date: "2026-08-01"
+    type: "patch"
+    summary: "Barrier visibility fix for ALL players, ranked random join fix, team selector preservation, replay TNT creeper safety, backward rotation fix, equipment clear fix, map persistence fallback, hologram permanent entity fix"
+    items:
+      - "Border: Fix barrier blocks not visible to ALL players - always place hidden BARRIER item in slot 8 even if occupied (save and restore displaced item), prevent moving/dropping the barrier item via inventory click/drag/drop event handlers"
+      - "Random Join: Fix /bw randomjoin placing players in ranked arenas when ranked addon is disabled - isRankedArena() now checks group prefix regardless of addon status"
+      - "Team Selector: Fix BedWarsTeam.sendDefaultInventory() clearing BedWars custom-data items (team selector, border visibility) when clean=true - now preserves and restores them after placing default items"
+      - "Replay TNT: Add safety check in onCreatureSpawn to prevent TNTPrimed from being recorded with Creeper type ID (Bukkit 1.8 getTypeId conflict); redirect to onEntitySpawn handler"
+      - "Replay Fake Player: Fix backward body rotation - use consistent 180° yaw flip instead of unreliable atan2 movement direction calculation; fixes body not rotating when head faces backward"
+      - "Replay Inventory/Armor: Fix equipment clear on rewind - send air ItemStack instead of null in PacketPlayOutEntityEquipment; some 1.8 clients don't handle null equipment packets correctly"
+      - "Replay Map Persistence: Add fallback to read arena YAML config file for world name when SlimeLoader can't find the source world; fixes 34 missing worlds on reload"
+      - "Replay NPC/Hologram: Fix hologram ArmorStands not marked as permanent - only mark invisible ArmorStands (hologram text) as permanent, not health bars; prevents shop/hologram entities from being culled by distance"
+
   - version: "2.5.5"
     date: "2026-08-01"
     type: "patch"
