@@ -1,6 +1,21 @@
-version: "2.5.0"
+version: "2.5.1"
 date: "2026-08-01"
 changes:
+  - version: "2.5.1"
+    date: "2026-08-01"
+    type: "patch"
+    summary: "Remove /bw menu GUI, fix /bw start from lobby, fix replay teleporter title, fix speed-down, fix lobby border"
+    items:
+      - "Remove /bw menu GUI and all related classes entirely (MenuManager gutted)"
+      - "CmdMenu now shows removal message; use /bw cosmetics and /bw quests directly"
+      - "Fix /bw start no longer shows 'Unknown command' or 'anonymous command' from lobby"
+      - "Fix /bw start in lobby always shows 'cannot be used in lobby' instead of 'no permission'"
+      - "Fix replay teleporter menu title changed from green to dark gray (item name stays green)"
+      - "Fix Speed Down now cycles speed in reverse (4x → 2x → 1x → restart) mirroring Speed Up"
+      - "Fix lobby border uses circular distance check matching arena world border"
+      - "Fix lobby border applies to all players in lobby world (removed arena player exclusion)"
+      - "Fix lobby border falls back to world spawn location when lobbyLoc is null"
+
   - version: "2.5.0"
     date: "2026-08-01"
     type: "minor"
