@@ -1,6 +1,16 @@
-version: "2.5.6"
-date: "2026-08-01"
+version: "2.5.7"
+date: "2026-08-02"
 changes:
+  - version: "2.5.7"
+    date: "2026-08-02"
+    type: "patch"
+    summary: "Build fix compilation errors, replay DataWatcher API fix, replay equipment air item fix, replay map persistence IOException fix"
+    items:
+      - "Build: Fix compilation error - add missing IArena import in ReplayRecorder.java"
+      - "Replay Equipment: Fix Items.a reference error - use CraftItemStack.asNMSCopy(AIR) instead of NMS Items.a for air ItemStack in equipment clear packets"
+      - "Replay Hologram: Fix DataWatcher.get(0) compilation error - iterate dw.c() WatchableObject list to find index 0 flags byte instead of using non-existent get() method in NMS 1.8.3"
+      - "Replay Map Persistence: Fix uncaught IOException in worldExists check - wrap loader.worldExists call in try/catch block in YAML config fallback path"
+
   - version: "2.5.6"
     date: "2026-08-01"
     type: "patch"
