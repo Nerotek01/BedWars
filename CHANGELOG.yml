@@ -1,6 +1,20 @@
-version: "2.5.2"
+version: "2.5.3"
 date: "2026-08-01"
 changes:
+  - version: "2.5.3"
+    date: "2026-08-01"
+    type: "patch"
+    summary: "Fix replay block cleanup on restart, fake player movement on backward skip, display names, viewer block interaction"
+    items:
+      - "Fix block cleanup on first replay restart (snapshot original states before batch task to prevent premature data loss)"
+      - "Remove block reversion count message from viewer chat during replay restart"
+      - "Fix fake player movement corruption when using 10-second backward skip (use rebuildInterpolationStateUpTo for correct delta-encoding accumulation)"
+      - "Fix fake player name tag turning white or incorrect after backward time skip"
+      - "Fix fake player name tag not updating during reverse playback in tick loop"
+      - "Prevent replay viewers from placing blocks while watching replays"
+      - "Prevent replay viewers from picking up items while watching replays"
+      - "Prevent replay viewers from using creative inventory while watching replays"
+
   - version: "2.5.2"
     date: "2026-08-01"
     type: "patch"
