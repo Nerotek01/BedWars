@@ -26,13 +26,16 @@ Battle-tested with more than 2,000 concurrent players across a single network. E
 - [Performance Engineering at a Glance](#performance-engineering-at-a-glance)
 - [Core Features – Expanded](#core-features--expanded)
 - [Ranked System (Full)](#ranked-system-full)
-- [33+ Built-in Add-ons](#33-built-in-add-ons)
+- [Private Games](#private-games)
+- [Practice Arenas](#practice-arenas)
+- [36+ Built-in Add-ons](#36-built-in-add-ons)
 - [Replay System – Unmatched Performance and Fidelity](#replay-system--unmatched-performance-and-fidelity)
 - [Commands & Permissions](#commands--permissions)
 - [Full Configuration](#full-configuration)
 - [Automatic Database Backup](#automatic-database-backup)
 - [Database & Storage](#database--storage)
 - [PlaceholderAPI Integration](#placeholderapi-integration)
+- [Optional Integrations](#optional-integrations)
 - [BungeeCord, Proxy Plugin & Auto-Scale](#bungeecord-proxy-plugin--auto-scale)
 - [Public API](#public-api)
 - [Frequently Asked Questions](#frequently-asked-questions)
@@ -58,7 +61,7 @@ The test server runs the latest stable build with every add-on enabled. You can 
 BedWars is not a collection of loosely coupled plugins held together by third-party dependencies. It is a single, monolithic solution engineered from the ground up for networks that cannot afford downtime, performance regressions, or incomplete gameplay.
 
 ### The Only Plugin That Truly Unifies Everything
-Every feature you need — from deposit chests and generator splitting, to a fully-fledged competitive ranked system, to a complete cosmetics suite, match replay engine, and anti-AFK management — lives inside **one JAR**. You never install extra add-ons, you never pay for separate modules, and you are never left debugging version incompatibilities between half a dozen plugins. BedWars ships with **33+ built-in add-ons** that share the same configuration system, database layer, and event bus. When you enable an add-on it works instantly; when you disable it, it consumes zero CPU.
+Every feature you need — from deposit chests and generator splitting, to a fully-fledged competitive ranked system, to a complete cosmetics suite, match replay engine, private games, dedicated practice arenas, and anti-AFK management — lives inside **one JAR**. You never install extra add-ons, you never pay for separate modules, and you are never left debugging version incompatibilities between half a dozen plugins. BedWars ships with **36+ built-in add-ons** that share the same configuration system, database layer, and event bus. When you enable an add-on it works instantly; when you disable it, it consumes zero CPU.
 
 ### Built for Networks, Not Just Single Servers
 BedWars was designed for large, multi-server deployments from day one. It includes its own **BedWarsProxy** companion plugin that runs on BungeeCord or Velocity. The proxy plugin handles lobby connections, global queues, matchmaking, and automatic server scaling without external scripts. The game servers and the proxy communicate over a stable, low-latency socket layer. This architecture has been battle-tested with **2,000+ concurrent players** while maintaining a solid 20 TPS on every game server.
@@ -84,7 +87,7 @@ The interactive `/bw setup` wizard guides you through arena creation step by ste
 
 | Criteria | **BedWars** | BedWars1058 | MBedwars | ScreamingBedWars | BedWarsProxy (standalone) | Other "Premium" |
 |----------|-------------|-------------|----------|------------------|---------------------------|-----------------|
-| **Built-in add-ons** | 33+ (deposit, gen split, voidless, ranked, quests, cosmetics, replay, anti-AFK, etc.) | Requires separate JARs | ~10 | Limited | Minimal (just proxy) | Usually 5-10, many paid separately |
+| **Built-in add-ons** | 36+ (deposit, gen split, voidless, ranked, quests, cosmetics, replay, anti-AFK, private games, practice, etc.) | Requires separate JARs | ~10 | Limited | Minimal (just proxy) | Usually 5-10, many paid separately |
 | **Native ranked system** | Full ELO, WebSocket, tournaments | Not available | Third-party | Not available | Not available | Rarely native |
 | **Proxy plugin included** | Yes – BedWarsProxy ships with the purchase | Not included | Not included | Not included | Standalone; requires another game plugin | Not included |
 | **Database engines** | MongoDB + Redis + SQLite (auto-fallback) | MySQL / SQLite | MySQL / SQLite | Flat file / MySQL | MySQL | Usually MySQL only |
@@ -134,7 +137,7 @@ BedWars treats performance as a core feature. The following architectural decisi
 ## Core Features – Expanded
 
 ### Complete BedWars Mechanics
-Every core mechanic is implemented in full detail: destructible beds, resource generators with configurable timers and tiers, team-shared upgrades (sharpness, protection, haste, etc.), a fully customisable item shop, and special items such as fireballs, golems, and silverfish. All mechanics are configurable through YAML with no hard-coded values.
+Every core mechanic is implemented in full detail: destructible beds, resource generators with configurable timers and tiers, team-shared upgrades (sharpness, protection, haste, heal pool, base traps, dragon buffs, and more), a fully customisable item shop, and special items such as fireballs, dream defenders (iron golems), bed bugs (silverfish), pop-up towers that build themselves, and bridge eggs. Scheduled match events — diamond and emerald generator tier-ups, the bed destruction countdown, and the ender dragon sudden-death phase — are all configurable. All mechanics are configurable through YAML with no hard-coded values.
 
 ### Flexible Game Modes
 Each arena can be configured for Solo, Doubles, Triples, or Quads. Mode-specific behaviour — team sizes, shop content, generator rates — is handled automatically. Multiple arenas can run different modes simultaneously on the same server.
@@ -146,19 +149,25 @@ Each arena can be configured for Solo, Doubles, Triples, or Quads. Mode-specific
 - **Shared** – a single arena instance shared across multiple servers (advanced setup).
 
 ### Spectator System
-After elimination, players enter spectator mode with controls for fly speed, night vision toggle, and auto-teleport to active players. Spectators can freely observe the ongoing match without interfering.
+After elimination, players enter spectator mode with controls for fly speed, night vision toggle, and auto-teleport to active players. A dedicated **Teleporter GUI** lets spectators jump between alive players instantly, and spectators never interfere with the ongoing match.
 
 ### Rejoin and AFK Management
 Players who disconnect during a match can rejoin their team and recover their inventory and position. Players who remain AFK for a configurable period are automatically removed, freeing the slot for others. The built-in Anti AFK add-on provides fine-grained control over detection and punishment.
 
 ### Comprehensive Party Support
-The plugin includes an internal party system and also supports external party plugins through an adapter interface. Parties can join games together and are always placed on the same team. Adding support for a new party plugin requires only a single adapter class.
+The plugin includes a full internal party system — invite, accept, decline, kick, disband, party warp, and party home, with configurable cooldowns and party polls for voting on the next game. Parties always join games together and are always placed on the same team. External party plugins such as AlessioDP Parties are supported through an adapter interface; adding support for a new party plugin requires only a single adapter class.
 
 ### Chat, Shout, and Communication
 A dedicated `/bw shout` command allows players to send messages visible to everyone in the arena. Chat formatting is fully configurable, and team-only chat is the default during matches.
 
 ### Built-in Token Economy
-A complete token and experience system operates without any external economy plugin. Tokens are earned through kills, bed destruction, and wins. XP contributes to a player level system with configurable rewards. Both tokens and levels are stored persistently in the database.
+A complete token and experience system operates without any external economy plugin. Tokens are earned through kills, bed destruction, wins, and even per-minute playtime. XP contributes to a player level system with configurable rewards. Both tokens and levels are stored persistently in the database.
+
+### Leave Delay & Arena Command Control
+The Leave Delay add-on gives every player a Return-to-Lobby item: right-clicking it starts a short, cancellable countdown during which the player becomes invisible, and right-clicking again cancels the teleport. The Blocked Commands system lets you lock down commands inside arenas with global, per-arena, and per-group blocklists, plus a bypass permission for staff.
+
+### Per-Player Language Selection
+All plugin messages are fully multi-language, and each player can individually select their own language. Messages, quest text, and add-on content resolve per player — not per server — which makes the plugin instantly usable for international communities.
 
 ---
 
@@ -180,7 +189,34 @@ The ranked system requires a valid API token and access to the Ranked service ba
 
 ---
 
-## 33+ Built-in Add-ons
+## Private Games
+
+Private Games lets any party owner spin up a **custom, invite-only match** on its own cloned arena — no admin intervention required. The host controls every rule of the game through a clean in-game menu (`/pg`), and the private game state is persisted in MongoDB so matches survive restarts.
+
+- **Instant custom matches** – the host picks a map, sets the team size, and starts; the arena is cloned and prepared automatically.
+- **12+ gameplay modifiers** – game speed, one-hit-one-kill, custom max health, low gravity, bed insta-break, respawn time, event timers, max team upgrades, no-diamonds / no-emeralds modes, map break, and separate gamemode and generator tuning.
+- **Full host controls** – invite players, kick troublemakers, force-start, and dissolve the game at will.
+- **Zero setup** – works out of the box on any existing arena; no extra maps to configure.
+
+---
+
+## Practice Arenas
+
+A complete, standalone practice environment for players who want to train real BedWars skills without waiting in queues. Accessed via `/bw practice` (or the `/bwp` alias), the practice add-on runs dedicated practice arenas with three disciplines:
+
+- **Bridging** – configurable bridging styles, block types, angles, and elevations, with per-run timing and stats.
+- **MLG** – water bucket and clutch practice with adjustable difficulty, heights, sizes, and positions.
+- **Fireball & TNT jumping** – directional jump training with configurable TNT placement, angles, and item types.
+- **Per-player statistics** – every session is tracked, stored, and displayed in dedicated practice stat menus.
+- **Practice spectators** – other players can watch practice sessions live.
+- **Schematic engine** – practice maps are loaded from schematics, so they reset instantly and run alongside your main arenas.
+
+### Invis Practice
+A separate, ranked-style **1v1 invisibility practice queue** clones a real BedWars arena and matches two players against each other with invisibility mechanics — exactly like competitive ranked play. Queue countdown, match duration, and arena cloning are all fully configurable, and players can join straight from a potion item in the ranked menu.
+
+---
+
+## 36+ Built-in Add-ons
 
 All add-ons are self-contained and toggled in `addons.yml`. When enabled they run at full capacity; when disabled they consume zero performance.
 
@@ -200,7 +236,7 @@ All add-ons are self-contained and toggled in `addons.yml`. When enabled they ru
 | **Hotbar Manager** | Auto-arranges tools and blocks in the hotbar |
 | **Stats Menu** | Interactive GUI for personal and global stats |
 | **Map Selector** | Visual map voting system |
-| **Leaderboard** | Holographic top-player display in lobby |
+| **Leaderboard** | Holographic top-player display in lobby with daily, weekly, and all-time timeframes |
 | **Water Height Limit** | Prevents water placement above configured Y level |
 | **Adventure Mode** | Forces adventure mode in arenas |
 | **Anti Drop** | Prevents item dropping (whitelist supported) |
@@ -211,9 +247,17 @@ All add-ons are self-contained and toggled in `addons.yml`. When enabled they ru
 | **Level Bar** | XP bar repurposed to show player level |
 | **Sponge** | Sponge water removal mechanics |
 | **Token Economy** | Internal currency system – no Vault dependency |
-| **Cosmetics** | Kill effects, victory dances, projectile trails, bed destruction effects, island toppers, rarity framework |
+| **Cosmetics** | Kill messages, final kill effects, victory dances, projectile trails, bed destruction effects, death cries, sprays, glyphs, wood skins, island toppers, shopkeeper skins, rarity framework |
 | **Replay** | Automatic match recording: tracks movements, bed breaks, kills; full playback for review or reports |
 | **Anti AFK** | Detects idle players and automatically removes them from the arena, with configurable thresholds and warnings |
+| **Private Games** | Party-hosted custom matches with invite control and 12+ gameplay modifiers (`/pg`) |
+| **Practice** | Dedicated bridging, MLG, and fireball/TNT-jump practice arenas with per-player stats (`/bw practice`) |
+| **Invis Practice** | Ranked-style 1v1 invisibility practice queue on a cloned arena |
+| **Cooldown Pearl** | Configurable ender pearl cooldown with message and sound feedback |
+| **Leave Delay** | Return-to-Lobby item with a cancellable 3-second countdown |
+| **Blocked Commands** | Global, per-arena, and per-group command blocking inside arenas |
+| **Arena TP Protector** | Blocks unauthorised teleports to players inside an arena |
+| **Map Command** | `/map` displays the current arena name |
 
 ---
 
@@ -261,11 +305,21 @@ Main command: `/bw` (aliases `/bedwars`)
 | `/bw stats (player)` | View statistics | `bw.player` |
 | `/bw compass` | Tracker compass menu | `bw.player` |
 | `/bw gui (group)` | Map selector GUI | `bw.player` |
+| `/bw map-gui` | Map selector GUI | `bw.player` |
 | `/bw ranked` | Ranked menu (tournament arenas) | `bw.player` |
 | `/bw quickbuy` | Customise quick-buy slots | `bw.player` |
 | `/bw tokens (player)` | Token balance | `bw.player` |
 | `/bw hotbar menu` | Hotbar manager GUI | `bw.player` |
 | `/bw quests` | Open quest menu — view daily, weekly, and seasonal quests with progress tracking and reward claims | `bw.player` |
+| `/bw level` | View level progression | `bw.player` |
+| `/bw spawn` | Return to the main lobby | `bw.player` |
+| `/bw teleporter` | Spectator teleporter GUI | `bw.spectate` |
+| `/bw cosmetics` | Open the cosmetics menu | `bw.player` |
+| `/bw upgradesmenu` | Preview team upgrades menu | `bw.player` |
+| `/bw practice` (`/bwp`) | Practice arenas — join, leave, stats, and mode menu | `bw.player` |
+| `/bw invispractice` | Join the invis practice queue | `bw.player` |
+| `/bw pg` | Private games menu — create and manage custom matches | `bw.player` |
+| `/party` (`/p`, `/pc`) | Full party system — invite, accept, kick, warp, home, polls | `bw.player` |
 
 ### Admin Commands
 | Command | Purpose | Permission |
@@ -279,9 +333,18 @@ Main command: `/bw` (aliases `/bedwars`)
 | `/bw build` | Toggle build mode | `bw.admin` |
 | `/bw createteam (name) (color)` | Create a team | `bw.admin` |
 | `/bw setspawn (team)` | Team spawn point | `bw.admin` |
+| `/bw removeteam (name)` | Remove a team | `bw.admin` |
 | `/bw setbed (team)` | Team bed location | `bw.admin` |
 | `/bw setshop (team)` | Team shop location | `bw.admin` |
+| `/bw setupgrade (team)` | Team upgrades NPC location | `bw.admin` |
+| `/bw setkilldrops` | Kill drops location | `bw.admin` |
+| `/bw setmaxinteam (int)` | Max players per team | `bw.admin` |
+| `/bw setmaxbuildheight (int)` | Arena build height limit | `bw.admin` |
+| `/bw setwaitingspawn` | Waiting lobby spawn | `bw.admin` |
+| `/bw setspectspawn` | Spectator spawn | `bw.admin` |
+| `/bw settype (type)` | Arena game type | `bw.admin` |
 | `/bw addgenerator (type) (tier)` | Add resource generator | `bw.admin` |
+| `/bw removegenerator` | Remove nearest resource generator | `bw.admin` |
 | `/bw autocreateteams (mode)` | Auto-create teams | `bw.admin` |
 | `/bw save` | Save arena | `bw.admin` |
 | `/bw start` | Force start arena | `bw.admin` |
@@ -307,6 +370,10 @@ Every value is editable in the `plugins/BedWars/` directory. Nothing is hard-cod
 | `levels.yml` | XP required per level |
 | `money.yml` | Token earnings per action |
 | `ranked.yml` | Ranked API credentials |
+| `Configs/blocked-commands.yml` | Global, per-arena, and per-group blocked commands |
+| `Addons/Practice/config.yml` | Practice arena settings and stats |
+| `Addons/InvisPractice/config.yml` | Invis practice queue configuration |
+| `Addons/LeaveDelay/config.yml` | Leave delay countdown settings |
 | `Arenas/*.yml` | One configuration file per arena |
 
 ---
@@ -355,6 +422,17 @@ BedWars registers an automatic PlaceholderAPI expansion. Available placeholders 
 ```
 
 These work with any PlaceholderAPI-compatible plugin.
+
+---
+
+## Optional Integrations
+
+PlaceholderAPI is the **only required dependency**. Beyond that, BedWars detects and enhances itself automatically when these plugins are present — and runs perfectly without them:
+
+- **SlimeWorldManager** – unlocks in-memory, millisecond map resets. The Replay add-on requires SWM and gracefully auto-disables itself when it is absent, so the rest of the plugin keeps running untouched.
+- **Citizens** – enables join NPCs in your lobby and shopkeeper skin cosmetics. Version-stable skin application is handled internally on any Citizens 2.0.x.
+- **Vault** – optional economy and chat hooks for networks that prefer an external economy. The built-in token economy remains fully functional without it.
+- **Parties (AlessioDP)** – drop-in external party plugin support through the adapter layer; the internal `/party` system needs nothing at all.
 
 ---
 
@@ -414,13 +492,13 @@ The complete API, including events, hooks, and Javadoc coverage, is documented i
 ### Pre-purchase Questions
 
 **Q: Is this a single plugin or do I need multiple downloads?**
-A: BedWars ships as a single JAR containing 33+ built-in add-ons. You also receive the companion BedWarsProxy plugin for your BungeeCord/Velocity proxy — all included in the same purchase.
+A: BedWars ships as a single JAR containing 36+ built-in add-ons. You also receive the companion BedWarsProxy plugin for your BungeeCord/Velocity proxy — all included in the same purchase.
 
 **Q: Does it support versions newer than 1.8.8?**
 A: Currently, BedWars is exclusively engineered for 1.8.8. This single-version focus allows deep NMS optimisations that are impossible to maintain in a cross-version codebase. If future versions are supported, they will be provided as separate, equally optimised branches.
 
 **Q: Do I need Vault or an economy plugin?**
-A: No. BedWars uses a fully internal token economy. Vault is not required. The only external dependency is PlaceholderAPI.
+A: No. BedWars uses a fully internal token economy. Vault is not required. The only external dependency is PlaceholderAPI. Vault, Citizens, Parties, and SlimeWorldManager are all optional and simply unlock extra conveniences when present.
 
 **Q: How does the license work?**
 A: One payment of **€40.00** grants you a permanent license that covers every server you own. There are no recurring fees, no per-server charges, and no hidden costs.
@@ -429,6 +507,9 @@ A: One payment of **€40.00** grants you a permanent license that covers every 
 A: Yes. Connect to `mc.hypeland.org` to experience the full plugin on a live network with no registration.
 
 ### Technical Questions
+
+**Q: What Java version does my server need?**
+A: Java 21 or newer. Spigot 1.8.8 is fully compatible with Java 21 — you only need to update your JVM and add the documented `--add-opens` flags to your start script. The plugin will not load on Java 8 or Java 11.
 
 **Q: Does BedWars work on a shared server with other minigames?**
 A: Yes. The plugin supports Multi-Arena mode, allowing it to coexist with other plugins on the same Spigot instance.
@@ -467,7 +548,7 @@ A: All updates for the current major version are included with your permanent li
 ### What You Receive
 - The complete BedWars game plugin JAR.
 - The BedWarsProxy companion plugin.
-- All 33+ add-ons, fully integrated and ready to use.
+- All 36+ add-ons, fully integrated and ready to use.
 - Ranked system backend access and API token.
 - Free updates for the current major version.
 - **24/7 priority support** via Discord or Bale.
@@ -479,7 +560,6 @@ When an issue arises on your live network, you do not file tickets and hope for 
 
 ## Roadmap
 
-- **Private Games** – invite-only matches with full host controls (kick, map selection, team size).
 - **Continuous Performance Upgrades** – further async offloading, profiling for 3000+ concurrent players.
 - **Expanded API** – additional events, hooks, and comprehensive Javadoc documentation.
 
