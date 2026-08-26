@@ -78,11 +78,6 @@ One payment of **€40.00** grants you a permanent license that covers **all ser
 ### Direct Access to the Developer
 When your server has an issue at peak time, you do not file a ticket and wait. You speak directly to the person who wrote the code. Support is available **24/7** through Discord or Bale, and every report is treated with the urgency that a live production network demands.
 
-### Setup That Respects Your Time
-The interactive `/bw setup` wizard guides you through arena creation step by step. PlaceholderAPI is the only external dependency. There is no forced economy plugin, no hard requirement for a party plugin, and no convoluted installation process. After the wizard finishes, your server is ready for players.
-
----
-
 ## Competitive Comparison
 
 | Criteria | **BedWars** | BedWars1058 | MBedwars | ScreamingBedWars | BedWarsProxy (standalone) | Other "Premium" |
