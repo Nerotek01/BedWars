@@ -179,7 +179,7 @@ The quests menu runs three tracks — daily, weekly and seasonal — with live p
 ### Practice — the training ground
 
 <p align="center">
-  <img src="assets/img/menu_card_practice.png" alt="BedWars Practice Mode Selector with Practice Guide tooltip" width="100%">
+  <img src="assets/img/menu_card_practice.png" alt="BedWars Practice Mode Selector with Bridging tooltip" width="100%">
 </p>
 
 The Practice Mode Selector (`/bw practice`) is a real training ground, not a lobby gimmick. Three disciplines sit in the first row: **Bridging** (sandstone — "practice your bridging skills in various styles and speeds"), **MLG clutching** (water bucket — different heights and positions) and **Fireball & TNT jumping** (fire charge — directional jump training). The book in the corner is the **Practice Guide**: it explains every available mode and how to leave a session at any time. Every run is timed and stored per player, dedicated practice stat menus show the progress, maps load from schematics and reset instantly between runs, and other players can spectate sessions live. Strict queue isolation keeps practice, ranked and casual play from ever interfering with each other.
