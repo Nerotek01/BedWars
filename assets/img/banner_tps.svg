@@ -26,7 +26,7 @@
 
   <!-- pill -->
   <g class="s">
-    <rect x="68" y="46" width="372" height="42" rx="21" fill="#141414"/>
+    <rect x="68" y="46" width="412" height="42" rx="21" fill="#141414"/>
     <circle class="dot" cx="94" cy="67" r="7" fill="#7CFC7C"/>
     <text x="114" y="74" class="t700" font-size="16" letter-spacing="2.5" fill="#FFD400">LIVE &#8212; PEAK-HOUR SNAPSHOT</text>
   </g>
