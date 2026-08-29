@@ -204,6 +204,8 @@ BedWars is not only polished for players — the admin experience gets exactly t
 
 Setup opens with a single choice, and the menu makes sure you choose correctly. **Guided Setup** is the beginner's path — a step-by-step interactive guide with automatic validation and a sane basic config written for you as you go. **Staff Setup** is built for review work: staff can open existing arenas, test minor changes and identify issues, without ever holding full production power. **Developer Setup** removes every leash — full access to all settings, debug tools and bypass restrictions — and is explicitly labeled as intended for plugin developers. All three items state their access level in a **real hover tooltip before you click** (each one is captured in the card above), so nobody has to guess what a mode will unlock. One menu, every role covered — from a first-time builder to the plugin developer himself.
 
+Each mode also carries its **own limited command set**: blocked commands are denied with a clear message instead of failing silently, and `/bw setup` lists only the commands available in the active mode. Guided covers the wizard essentials (teams, spawns, beds, shop and upgrade NPCs, generators, `settype`, `save` plus guided-only `autocreateteams`), Staff is read-only with just `save`, and Developer keeps the complete classic reference — including `setspectspawn`, `setkilldrops`, `setmaxinteam`, `setmaxbuildheight` and direct generator-tier arguments.
+
 ### Holograms That Build With You
 
 <p align="center">
@@ -332,6 +334,9 @@ Smooth performance means nothing without correct behavior in the moments that ma
 ### Players Never Join a Broken Server
 At startup, connections are politely held until **every arena has finished loading**, with a built-in failsafe so a single broken map can never lock your lobby forever. Players never fall into a half-loaded world — and never even notice the process.
 
+### Global Maintenance Mode
+Live networks need a master switch, and BedWars ships one as a first-class add-on. `/bw maintenance on` (admin-only, from the lobby) stops every running arena, sends all players and spectators back to the lobby, closes practice sessions with a full inventory restore, and clears the ranked and invis-practice queues — then keeps every join path (arena, spectator, rejoin, practice and queue) blocked until you run `/bw maintenance off`. While the mode is active, everyone online sees a clear title and chat broadcast naming the administrator who pulled the switch, and a confirmation broadcast the moment systems return. Staff holding `bedwars.admin` bypass the block so your team can keep working inside arenas, and games created by the ranked Discord bot adapter are exempt — bot queueing keeps running throughout maintenance. Every title, subtitle, broadcast and sound is configurable in `Addons/Maintenance/config.yml`, and an existing Meeting-mode config from an older install migrates automatically.
+
 ### Queues That Cannot Corrupt Each Other
 A player waiting in the practice queue cannot join, spectate or interfere with ranked games, and vice versa. Every rejection comes with a clear chat message. Competitive integrity is enforced by the game itself, not by an honor system.
 
@@ -363,7 +368,7 @@ The native ranked mode transforms BedWars into a competitive, ELO-driven environ
 - **Automated matchmaking** – players enter a ranked queue; games are created automatically when enough similarly-rated players are ready.
 - **ELO rating** – every ranked match affects ratings, with seasons that can reset periodically.
 - **Tournament NPCs** – seasonal lobby NPCs display rules and leaderboards and allow one-click queue entry.
-- **Competitive restrictions** – ranked games can enforce a separate shop and upgrade tree to protect integrity.
+- **Competitive restrictions** – ranked games can enforce a separate shop and upgrade tree to protect integrity; blacklisted entries are cancelled with a clear message, a dedicated deny sound and a smart throttle in **both the shop menu and the upgrades menu**, so spam-clicking a restricted entry never floods chat.
 - **Player profiles** – wins, losses, kills, ELO history and season statistics per player.
 - **Holographic leaderboard** – a real-time top-players display synchronized across the network.
 - **Full placeholder support** – `%bedwars_ranked_elo%`, `%bedwars_ranked_wins%` and many more, everywhere placeholders work.
@@ -398,7 +403,7 @@ A complete, standalone practice environment for players who want to train real B
 - **Schematic engine** – practice maps load from schematics, reset instantly, and run alongside your main arenas.
 
 ### Invis Practice
-A separate, ranked-style **1v1 invisibility practice queue** clones a real BedWars arena and matches two players against each other with invisibility mechanics — exactly like competitive ranked play. Queue countdown, match duration and cloning are fully configurable, and players join straight from the ranked menu. Strict queue isolation keeps practice and ranked queues from ever interfering with each other.
+A separate, ranked-style **1v1 invisibility practice queue** clones a real BedWars arena and matches two players against each other with invisibility mechanics — exactly like competitive ranked play. Queue countdown, match duration and cloning are fully configurable, and players join straight from the ranked menu. Strict queue isolation keeps practice and ranked queues from ever interfering with each other — and the practice worlds themselves are strictly **queue-only**: the configured source map and its queue clones can't be entered through `/bw join map`, `/bw join random`, group join, force-join, the map selector or spectate. The practice queue is the only way in.
 
 ---
 
@@ -479,6 +484,7 @@ Every add-on below ships inside the plugin, and **every one of them is already c
 | **Cooldown Pearl** | Configurable ender pearl cooldown with message and sound feedback |
 | **Leave Delay** | Return-to-Lobby item with a cancellable countdown |
 | **Blocked Commands** | Global, per-arena and per-group command blocking inside arenas |
+| **Maintenance Mode** | Global lockdown switch: stops all arenas, sends everyone to the lobby and blocks every join path until switched off (`/bw maintenance on/off`) |
 | **Arena TP Protector** | Blocks unauthorized teleports to players inside an arena |
 | **Map Command** | `/map` displays the current arena name |
 
@@ -546,6 +552,7 @@ Main command: `/bw` (alias `/bedwars`)
 | `/bw reload` | Reload configuration | `bw.admin` |
 | `/bw npc` | Manage lobby and shop NPCs | `bw.admin` |
 | `/bw leaderboard` | Manage holographic leaderboards | `bw.admin` |
+| `/bw maintenance (on/off)` | Toggle global maintenance mode — stop all arenas and empty them, or resume normal operation (lobby only) | `bw.admin` |
 | `/bw ranked tournament start (arena)` | Start tournament | `bedwars.ranked.tournament.start` |
 | `/bw ranked tournament cancel (arena)` | Cancel tournament | `bedwars.ranked.tournament.start` |
 
