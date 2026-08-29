@@ -94,7 +94,7 @@ When your server has an issue at peak time, you do not file a ticket and wait. Y
 
 ## Inside the Game — Every Menu
 
-The fastest way to judge a BedWars plugin is to look at its menus. What follows are **nine real, unedited in-game menus** captured from a live server — exactly what your players will see on day one. Note how much is already configured: every menu below opens and works immediately after installation, because all of the important parts ship with complete default configurations.
+The fastest way to judge a BedWars plugin is to look at its menus. What follows are **twelve real, unedited in-game menus** captured from a live server — exactly what your players will see on day one. Note how much is already configured: every menu below opens and works immediately after installation, because all of the important parts ship with complete default configurations.
 
 ### Cosmetics — the customization hub
 
@@ -144,6 +144,22 @@ The map selector turns "finding a game" into two clicks. Every entry is a real m
 
 Before the cages drop, the team selector lets players choose their side with a single click — no commands to remember. Every team is presented in its color at a glance, and the tooltip tells the live truth: the team name, a colored "click to join" call to action, the **current players on the team** and its exact **capacity (0/4)**. Capacity is strictly enforced — a full team can never be overjoined, which removes an entire class of lobby arguments before they can start. The menu stays open, so players can coordinate, switch and settle teams in seconds while the lobby fills.
 
+### Play Bed Wars — the join hub
+
+<p align="center">
+  <img src="assets/img/menu_card_playgui.png" alt="BedWars Play Bed Wars join GUI with Bed Wars Solo tooltip" width="100%">
+</p>
+
+The join hub is the front door of the whole plugin (`/bw gui`). One clean menu per game group — the bed item is generated for the group you are browsing, and its tooltip carries the real group data: **"Bed Wars Solo — Fight against 8 other players!"** with the honest warning that enemy beds must be destroyed to stop respawns. One left-click on the bed joins that group's queue instantly. The sign next to it opens the group's **Map Selector** without breaking the flow, the ender pearl is a one-click **rejoin** for disconnected players, the wool block jumps straight into **Practice**, and the blaze powder opens the **Hotbar Manager**. Every entry in this menu is defined in a simple config file — names, lore, slots, sounds and commands — so the hub can be reshaped for a network without touching a single line of code.
+
+### Statistics — every number, in game
+
+<p align="center">
+  <img src="assets/img/menu_card_stats.png" alt="BedWars Statistics menu with Solo Statistics tooltip" width="100%">
+</p>
+
+The statistics menu (`/bw stats`) turns the plugin's full stat tracking into a clean in-game bookshelf. The enchanted map at the top holds the **Overall Statistics** book — games played, wins, losses, WLR, best and current winstreak, every resource collected, kills, deaths, final kills, final deaths, FKDR — plus the live **Core Mode Leaderboards** (all-time, weekly and daily ranks) directly inside the tooltip. Each paper below is a **per-group book**: Solo, Doubles, 3v3v3v3, 4v4v4v4, 1v1, 2v2 and 4v4, with the stack size matching the team size. Every value is placeholder-driven, so the numbers are always live, and the whole menu is config-driven — items, slots, names and lore are owner-editable. `/bw stats (player)` opens any player's profile in the same layout.
+
 ### Replays — every match, recorded
 
 <p align="center">
@@ -159,6 +175,14 @@ The replays menu lists every recorded match with its full metadata — game mode
 </p>
 
 The quests menu runs three tracks — daily, weekly and seasonal — with live progress counters tracked automatically as players play. The tooltip shows a real weekly quest with its live counter, its exact rewards (+5,000 Bed Wars experience, +5,000 tokens) and its reset rule, so players always know what a quest pays before committing. Rewards are paid straight into the player profile as experience and tokens, feeding the level system and the cosmetics economy at the same time. Weekly quests reset every week, which turns quest rewards into a repeatable reason for your players to come back — the cheapest retention system a network can run.
+
+### Practice — the training ground
+
+<p align="center">
+  <img src="assets/img/menu_card_practice.png" alt="BedWars Practice Mode Selector with Practice Guide tooltip" width="100%">
+</p>
+
+The Practice Mode Selector (`/bw practice`) is a real training ground, not a lobby gimmick. Three disciplines sit in the first row: **Bridging** (sandstone — "practice your bridging skills in various styles and speeds"), **MLG clutching** (water bucket — different heights and positions) and **Fireball & TNT jumping** (fire charge — directional jump training). The book in the corner is the **Practice Guide**: it explains every available mode and how to leave a session at any time. Every run is timed and stored per player, dedicated practice stat menus show the progress, maps load from schematics and reset instantly between runs, and other players can spectate sessions live. Strict queue isolation keeps practice, ranked and casual play from ever interfering with each other.
 
 ### Hotbar Manager — muscle memory, respected
 
@@ -192,7 +216,7 @@ While setup mode is active, three kinds of holograms accompany you through the w
 
 **The step guide** — keeps the whole route in front of you: the seven steps from `/bw createteam`, through setting each team's spawn point, placing every team's bed, configuring generator locations, setting the waiting-lobby spawn and the spectator spawn point, to the final `/bw save`. It also carries the two reminders that save the most headaches: **all teams need a spawn and a bed**, and **Double Shift toggles the holograms** whenever you want a completely clear view of your build.
 
-**The session panel** — sits beside you for the entire session and always tells the truth: who is editing (`Editor: _5admin` in the capture), **which arena is open** (`Arena: Paradox_ranked`), how to begin (`Type /bw setup`), and the honest notice that **changes are permanent** — no silent edits, no "why did my arena change" surprises later.
+**The session panel** — sits beside you for the entire session and always tells the truth: who is editing (the editor's name, blurred in the capture), **which arena is open** (`Arena: Paradox_ranked`), how to begin (`Type /bw setup`), and the honest notice that **changes are permanent** — no silent edits, no "why did my arena change" surprises later.
 
 And the behavior ties it all together: **the holograms follow you** — they reposition as you move through the arena, so the next instruction is always in view instead of being left back at spawn — and they are **only displayed where they matter, inside the bases** you are wiring up: walk into a team base and its relevant guidance is there, not a wall of unrelated text. Arena setup stops being documentation-versus-reality debugging and becomes a conversation with the arena itself.
 
@@ -535,20 +559,20 @@ Every value is editable in the `plugins/BedWars/` directory. Nothing is locked a
 
 | File | Purpose | Ships with default? |
 |------|---------|---------------------|
-| `config.yml` | Server type, database, lobby, game rules, performance tuning | ✅ Ready defaults |
-| `generators.yml` | Generator timing and resources | ✅ Ready defaults |
-| `shop.yml` | Shop categories, prices, quick-buy defaults | ✅ Full default shop |
-| `addons.yml` | Enable/disable each add-on | ✅ Sensible presets |
-| `messages_en.yml` | All plugin messages (multi-language ready) | ✅ Complete set |
-| `levels.yml` | XP required per level | ✅ Ready defaults |
-| `money.yml` | Token earnings per action | ✅ Ready defaults |
-| `ranked.yml` | Ranked service credentials | ✅ Assisted at setup |
-| `Configs/blocked-commands.yml` | Global, per-arena and per-group blocked commands | ✅ Safe defaults |
-| `Addons/Practice/config.yml` | Practice arena settings and stats | ✅ Ready defaults |
-| `Addons/InvisPractice/config.yml` | Invis practice queue configuration | ✅ Ready defaults |
-| `Addons/LeaveDelay/config.yml` | Leave delay countdown settings | ✅ Ready defaults |
-| `Addons/Cosmetics/` | Cosmetics menus, categories and items | ✅ All 257 items |
-| `Arenas/*.yml` | One configuration file per arena | ✅ Created by `/bw setup` |
+| `config.yml` | Server type, database, lobby, game rules, performance tuning | Yes — ready defaults |
+| `generators.yml` | Generator timing and resources | Yes — ready defaults |
+| `shop.yml` | Shop categories, prices, quick-buy defaults | Yes — full default shop |
+| `addons.yml` | Enable/disable each add-on | Yes — sensible presets |
+| `messages_en.yml` | All plugin messages (multi-language ready) | Yes — complete set |
+| `levels.yml` | XP required per level | Yes — ready defaults |
+| `money.yml` | Token earnings per action | Yes — ready defaults |
+| `ranked.yml` | Ranked service credentials | Yes — assisted at setup |
+| `Configs/blocked-commands.yml` | Global, per-arena and per-group blocked commands | Yes — safe defaults |
+| `Addons/Practice/config.yml` | Practice arena settings and stats | Yes — ready defaults |
+| `Addons/InvisPractice/config.yml` | Invis practice queue configuration | Yes — ready defaults |
+| `Addons/LeaveDelay/config.yml` | Leave delay countdown settings | Yes — ready defaults |
+| `Addons/Cosmetics/` | Cosmetics menus, categories and items | Yes — all 257 items |
+| `Arenas/*.yml` | One configuration file per arena | Yes — created by `/bw setup` |
 
 Every background batch size — from scoreboard refresh to hologram spawning — is exposed as a simple config value, so you can fine-tune the plugin for any hardware. The defaults are production-tuned already; most owners never touch them.
 
@@ -606,16 +630,26 @@ BedWars registers **three complete PlaceholderAPI expansions** — `bedwars`, `c
 | `%bedwars_stats_firstplay%` | First play date |
 | `%bedwars_stats_lastplay%` | Last play date |
 
-**Per-group statistics** — the full stat list above is also available per game group (e.g. `solos`, `doubles`, `ranked`):
+**Per-group statistics** — the full stat list above is also available per game group. Replace `<group>` with the group key (e.g. `solos`, `doubles`, `ranked`):
 
-```
-%bedwars_groupstats_<group>_wins%
-%bedwars_groupstats_<group>_kills%
-%bedwars_groupstats_<group>_finalkills%
-%bedwars_groupstats_<group>_winstreak%
-%bedwars_groupstats_<group>_wlr%
-... (every stat key from the table above)
-```
+| Placeholder | Description |
+|-------------|-------------|
+| `%bedwars_groupstats_<group>_gamesPlayed%` | Games played with the group |
+| `%bedwars_groupstats_<group>_wins%` | Wins with the group |
+| `%bedwars_groupstats_<group>_losses%` | Losses with the group |
+| `%bedwars_groupstats_<group>_kills%` | Kills |
+| `%bedwars_groupstats_<group>_deaths%` | Deaths |
+| `%bedwars_groupstats_<group>_finalKills%` | Final kills |
+| `%bedwars_groupstats_<group>_finalDeaths%` | Final deaths |
+| `%bedwars_groupstats_<group>_bedsDestroyed%` | Beds broken |
+| `%bedwars_groupstats_<group>_bedsLost%` | Beds lost |
+| `%bedwars_groupstats_<group>_winstreak%` | Current win streak |
+| `%bedwars_groupstats_<group>_wlr%` | Win/loss ratio |
+| `%bedwars_groupstats_<group>_fkdr%` | Final kill/death ratio |
+| `%bedwars_groupstats_<group>_iron%` | Iron collected in the group |
+| `%bedwars_groupstats_<group>_gold%` | Gold collected in the group |
+| `%bedwars_groupstats_<group>_diamond%` | Diamonds collected in the group |
+| `%bedwars_groupstats_<group>_emerald%` | Emeralds collected in the group |
 
 **Level, XP & economy**
 

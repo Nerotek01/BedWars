@@ -23,6 +23,27 @@
       .dot { animation:pulseDot 1.4s ease-in-out infinite; }
       .sparkline { stroke-dasharray:1400; animation:draw 2.2s 1s ease-out forwards; }
       .caret { animation:blink 1.1s infinite; }
+      /* live value cycling - each field snaps to a fresh value every 8-10s, staggered */
+      @keyframes mspt0 {0%,24.50% {opacity:1} 25.00%,99.50% {opacity:0} 100% {opacity:1}}
+      @keyframes mspt1 {0%,24.50% {opacity:0} 25.00%,49.50% {opacity:1} 50.00%,100% {opacity:0}}
+      @keyframes mspt2 {0%,49.50% {opacity:0} 50.00%,74.50% {opacity:1} 75.00%,100% {opacity:0}}
+      @keyframes mspt3 {0%,74.50% {opacity:0} 75.00%,99.50% {opacity:1} 100.00%,100% {opacity:0}}
+      @keyframes players0 {0%,24.50% {opacity:1} 25.00%,99.50% {opacity:0} 100% {opacity:1}}
+      @keyframes players1 {0%,24.50% {opacity:0} 25.00%,49.50% {opacity:1} 50.00%,100% {opacity:0}}
+      @keyframes players2 {0%,49.50% {opacity:0} 50.00%,74.50% {opacity:1} 75.00%,100% {opacity:0}}
+      @keyframes players3 {0%,74.50% {opacity:0} 75.00%,99.50% {opacity:1} 100.00%,100% {opacity:0}}
+      @keyframes arenas0 {0%,24.50% {opacity:1} 25.00%,99.50% {opacity:0} 100% {opacity:1}}
+      @keyframes arenas1 {0%,24.50% {opacity:0} 25.00%,49.50% {opacity:1} 50.00%,100% {opacity:0}}
+      @keyframes arenas2 {0%,49.50% {opacity:0} 50.00%,74.50% {opacity:1} 75.00%,100% {opacity:0}}
+      @keyframes arenas3 {0%,74.50% {opacity:0} 75.00%,99.50% {opacity:1} 100.00%,100% {opacity:0}}
+      @keyframes ram0 {0%,32.83% {opacity:1} 33.33%,99.50% {opacity:0} 100% {opacity:1}}
+      @keyframes ram1 {0%,32.83% {opacity:0} 33.33%,66.17% {opacity:1} 66.67%,100% {opacity:0}}
+      @keyframes ram2 {0%,66.17% {opacity:0} 66.67%,99.50% {opacity:1} 100.00%,100% {opacity:0}}
+      @keyframes cpu0 {0%,24.50% {opacity:1} 25.00%,99.50% {opacity:0} 100% {opacity:1}}
+      @keyframes cpu1 {0%,24.50% {opacity:0} 25.00%,49.50% {opacity:1} 50.00%,100% {opacity:0}}
+      @keyframes cpu2 {0%,49.50% {opacity:0} 50.00%,74.50% {opacity:1} 75.00%,100% {opacity:0}}
+      @keyframes cpu3 {0%,74.50% {opacity:0} 75.00%,99.50% {opacity:1} 100.00%,100% {opacity:0}}
+      .cycval { opacity:0; animation-timing-function: linear; }
     </style>
   </defs>
 
@@ -61,11 +82,11 @@
   </g>
 
   <g class="fus" style="animation-delay:0.3s"><text x="112" y="368" class="mono" font-size="19" fill="#8F8F8F">TPS &#160;1m / 5m / 15m</text><text x="470" y="368" class="mono" font-size="20"><tspan fill="#7CFC7C">20.0 / 20.0 / 20.0</tspan></text></g>
-  <g class="fus" style="animation-delay:0.4s"><text x="112" y="406" class="mono" font-size="19" fill="#8F8F8F">MSPT</text><text x="470" y="406" class="mono" font-size="20"><tspan fill="#FFFFFF">38.2 ms</tspan></text></g>
-  <g class="fus" style="animation-delay:0.5s"><text x="112" y="444" class="mono" font-size="19" fill="#8F8F8F">PLAYERS ONLINE</text><text x="470" y="444" class="mono" font-size="20"><tspan fill="#FFD400">513</tspan></text></g>
-  <g class="fus" style="animation-delay:0.6s"><text x="112" y="482" class="mono" font-size="19" fill="#8F8F8F">ARENAS</text><text x="470" y="482" class="mono" font-size="20"><tspan fill="#7CFC7C">27 active</tspan><tspan fill="#FFFFFF"> / 4 waiting / </tspan><tspan fill="#FFC400">2 restarting</tspan></text></g>
-  <g class="fus" style="animation-delay:0.7s"><text x="112" y="520" class="mono" font-size="19" fill="#8F8F8F">RAM</text><text x="470" y="520" class="mono" font-size="20"><tspan fill="#FFFFFF">9.3 / 16.0 GB</tspan></text></g>
-  <g class="fus" style="animation-delay:0.8s"><text x="112" y="558" class="mono" font-size="19" fill="#8F8F8F">CPU</text><text x="470" y="558" class="mono" font-size="20"><tspan fill="#FFFFFF">41 %</tspan></text></g>
+  <g class="fus" style="animation-delay:0.4s"><text x="112" y="406" class="mono" font-size="19" fill="#8F8F8F">MSPT</text><text x="470" y="406" class="mono" font-size="20" style="opacity:0;animation:mspt0 38s linear infinite;">38.2 ms</text><text x="470" y="406" class="mono" font-size="20" style="opacity:0;animation:mspt1 38s linear infinite;">37.6 ms</text><text x="470" y="406" class="mono" font-size="20" style="opacity:0;animation:mspt2 38s linear infinite;">39.1 ms</text><text x="470" y="406" class="mono" font-size="20" style="opacity:0;animation:mspt3 38s linear infinite;">38.7 ms</text></g>
+  <g class="fus" style="animation-delay:0.5s"><text x="112" y="444" class="mono" font-size="19" fill="#8F8F8F">PLAYERS ONLINE</text><text x="470" y="444" class="mono" font-size="20" style="opacity:0;animation:players0 36s linear infinite;">513</text><text x="470" y="444" class="mono" font-size="20" style="opacity:0;animation:players1 36s linear infinite;">527</text><text x="470" y="444" class="mono" font-size="20" style="opacity:0;animation:players2 36s linear infinite;">506</text><text x="470" y="444" class="mono" font-size="20" style="opacity:0;animation:players3 36s linear infinite;">519</text></g>
+  <g class="fus" style="animation-delay:0.6s"><text x="112" y="482" class="mono" font-size="19" fill="#8F8F8F">ARENAS</text><text x="470" y="482" class="mono" font-size="20" style="opacity:0;animation:arenas0 40s linear infinite;"><tspan fill="#7CFC7C">27 active</tspan><tspan fill="#FFFFFF"> / 4 waiting / </tspan><tspan fill="#FFC400">2 restarting</tspan></text><text x="470" y="482" class="mono" font-size="20" style="opacity:0;animation:arenas1 40s linear infinite;"><tspan fill="#7CFC7C">28 active</tspan><tspan fill="#FFFFFF"> / 3 waiting / </tspan><tspan fill="#FFC400">1 restarting</tspan></text><text x="470" y="482" class="mono" font-size="20" style="opacity:0;animation:arenas2 40s linear infinite;"><tspan fill="#7CFC7C">27 active</tspan><tspan fill="#FFFFFF"> / 5 waiting / </tspan><tspan fill="#FFC400">3 restarting</tspan></text><text x="470" y="482" class="mono" font-size="20" style="opacity:0;animation:arenas3 40s linear infinite;"><tspan fill="#7CFC7C">26 active</tspan><tspan fill="#FFFFFF"> / 4 waiting / </tspan><tspan fill="#FFC400">2 restarting</tspan></text></g>
+  <g class="fus" style="animation-delay:0.7s"><text x="112" y="520" class="mono" font-size="19" fill="#8F8F8F">RAM</text><text x="470" y="520" class="mono" font-size="20" style="opacity:0;animation:ram0 28s linear infinite;">9.3 / 16.0 GB</text><text x="470" y="520" class="mono" font-size="20" style="opacity:0;animation:ram1 28s linear infinite;">8.9 / 16.0 GB</text><text x="470" y="520" class="mono" font-size="20" style="opacity:0;animation:ram2 28s linear infinite;">9.8 / 16.0 GB</text></g>
+  <g class="fus" style="animation-delay:0.8s"><text x="112" y="558" class="mono" font-size="19" fill="#8F8F8F">CPU</text><text x="470" y="558" class="mono" font-size="20" style="opacity:0;animation:cpu0 34s linear infinite;">41 %</text><text x="470" y="558" class="mono" font-size="20" style="opacity:0;animation:cpu1 34s linear infinite;">44 %</text><text x="470" y="558" class="mono" font-size="20" style="opacity:0;animation:cpu2 34s linear infinite;">38 %</text><text x="470" y="558" class="mono" font-size="20" style="opacity:0;animation:cpu3 34s linear infinite;">46 %</text></g>
 
   <!-- sparkline -->
   <g class="fus" style="animation-delay:.9s">

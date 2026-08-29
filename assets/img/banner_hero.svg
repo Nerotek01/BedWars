@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="860" viewBox="0 0 1240 860" role="img" aria-label="BedWars - One plugin. Everything included.">
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="1080" viewBox="0 0 1240 1080" role="img" aria-label="BedWars - One plugin. Everything included.">
   <title>BedWars — One plugin. Everything included.</title>
   <defs>
     <style>
@@ -36,7 +36,7 @@
   <!-- ================= BACKGROUND (flat yellow) ================= -->
   <rect width="1240" height="860" fill="#FFD400"/>
   <circle cx="1190" cy="60" r="190" fill="#F0B400"/>
-  <circle cx="50" cy="830" r="150" fill="#F0B400"/>
+  <circle cx="50" cy="1050" r="150" fill="#F0B400"/>
   <rect x="1120" y="700" width="130" height="130" fill="#FFDD33" transform="rotate(12 1185 765)"/>
 
   <!-- floating pixel particles -->
@@ -133,6 +133,31 @@
     <text x="870" y="730" class="i500" font-size="15.5" fill="#FFD400">and holograms</text>
   </g>
 
+  <g class="pop" style="animation-delay:1.89s">
+    <rect x="68" y="784" width="368" height="176" rx="16" fill="#141414"/>
+    <rect x="98" y="818" width="15" height="15" fill="#FFD400"/>
+    <text x="126" y="832" class="t800" font-size="18" letter-spacing="0.5" fill="#FFFFFF">SETUP HOLOGRAMS</text>
+    <text x="98" y="874" class="i500" font-size="15.5" fill="#FFD400">A live checklist, a 7-step guide and a</text>
+    <text x="98" y="899" class="i500" font-size="15.5" fill="#FFD400">session panel follow you through the</text>
+    <text x="98" y="924" class="i500" font-size="15.5" fill="#FFD400">arena and narrate every setup step</text>
+  </g>
+  <g class="pop" style="animation-delay:2.03s">
+    <rect x="454" y="784" width="368" height="176" rx="16" fill="#FFFFFF" stroke="#141414" stroke-width="4"/>
+    <rect x="484" y="818" width="15" height="15" fill="#141414"/>
+    <text x="512" y="832" class="t800" font-size="21" letter-spacing="0.5" fill="#141414">PRACTICE ARENAS</text>
+    <text x="484" y="874" class="i500" font-size="15.5" fill="#4A4130">Bridging, MLG clutching and fireball-TNT</text>
+    <text x="484" y="899" class="i500" font-size="15.5" fill="#4A4130">gyms with per-player stats, schematic</text>
+    <text x="484" y="924" class="i500" font-size="15.5" fill="#4A4130">maps and instant resets between runs</text>
+  </g>
+  <g class="pop" style="animation-delay:2.17s">
+    <rect x="840" y="784" width="368" height="176" rx="16" fill="#FFFFFF" stroke="#141414" stroke-width="4"/>
+    <rect x="870" y="818" width="15" height="15" fill="#141414"/>
+    <text x="898" y="832" class="t800" font-size="21" letter-spacing="0.5" fill="#141414">PRIVATE GAMES</text>
+    <text x="870" y="874" class="i500" font-size="15.5" fill="#4A4130">Party hosts spin up invite-only matches</text>
+    <text x="870" y="899" class="i500" font-size="15.5" fill="#4A4130">on cloned arenas with 12+ gameplay</text>
+    <text x="870" y="924" class="i500" font-size="15.5" fill="#4A4130">modifiers &#8212; zero admin work needed</text>
+  </g>
+
   <!-- credit -->
-  <text x="1172" y="826" text-anchor="end" class="t600" font-size="17" fill="#141414" opacity="0.34">by Nerotek01</text>
+  <text x="1172" y="1046" text-anchor="end" class="t600" font-size="17" fill="#141414" opacity="0.34">by Nerotek01</text>
 </svg>
