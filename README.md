@@ -840,8 +840,8 @@ A: Everything happens directly in DMs. Open a DM with the developer (Discord `Ne
 **Q: What exactly is the "personal loader"?**
 A: The loader is a small launcher build prepared **specifically for you** after your payment is confirmed. It is the key that activates the full BedWars suite on your servers. Each loader is issued to one buyer — it is your license, in executable form.
 
-**Q: Which operating system does the loader run on?**
-A: **Linux only.** The loader is built for Linux servers, which is what virtually all production Minecraft servers run anyway. If your game servers are hosted on Linux — your own machine, a VPS or any standard Minecraft host — you are fully covered.
+**Q: Which operating systems does the loader support?**
+A: **Linux and Windows.** The loader ships for both — Linux servers, which is what virtually all production Minecraft servers run, and Windows machines. Whether your network runs on a Linux VPS, a standard Minecraft host or a Windows box, you are fully covered. If you are unsure about your setup, just ask in the DM and it will be checked with you.
 
 **Q: How is the loader protected?**
 A: The loader is strictly protected and bound to your purchase. It enforces real restrictions — including an **IP limit** — so it only works where it was issued to work. Bypassing or tampering with it is not possible in any practical way, and attempts are detected.
@@ -914,7 +914,7 @@ After your payment is confirmed, a **unique loader is prepared and issued for yo
 
 The loader is what makes a flat €29 price possible for everyone, so its rules are firm and applied the same way to every buyer:
 
-- **Linux only.** The loader runs on Linux game servers — the standard for production Minecraft hosting. Make sure your servers are Linux before purchasing; if you are unsure, ask in the DM and your setup will be checked with you.
+- **Linux & Windows.** The loader runs on both Linux game servers — the standard for production Minecraft hosting — and Windows machines. Whatever operating system your servers run, you are covered; if you are unsure, ask in the DM and your setup will be checked with you.
 - **Strictly protected.** Every loader is a unique, personal build with hard security restrictions — including an **IP limit** that binds it to the infrastructure it was issued for.
 - **Bypassing = permanent ban.** Any attempt to bypass, tamper with or reverse the loader's protection **permanently revokes the license. There is no way back** — no refund, no re-issue, no exceptions, even for the original buyer.
 - **Repeat attempts = blacklist.** Repeated bypass attempts can blacklist you completely: no future purchases, no replacements, no support.
@@ -928,7 +928,7 @@ The loader is what makes a flat €29 price possible for everyone, so its rules 
 - **Price:** **€29.00** — one-time payment, permanent license, all add-ons included.
 
 ### What You Receive
-- Your **personal loader** — a unique build issued only to you (Linux servers).
+- Your **personal loader** — a unique build issued only to you (Linux or Windows).
 - The complete BedWars game plugin.
 - The BedWarsProxy companion plugin.
 - **All 36+ add-ons — already paid for, nothing locked, nothing extra to buy.**
