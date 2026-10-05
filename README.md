@@ -1,7 +1,76 @@
+<p align="center">
+  <img src="https://img.shields.io/badge/STATUS-DEVELOPMENT%20SUSPENDED-8B0000?style=for-the-badge" alt="Status">
+  <img src="https://img.shields.io/badge/SUPPORT-DISCONTINUED-8B0000?style=for-the-badge" alt="Support">
+  <img src="https://img.shields.io/badge/UPDATES-PAUSED-8B0000?style=for-the-badge" alt="Updates">
+  <img src="https://img.shields.io/badge/DISTRIBUTION-PUBLIC%20JAR-555555?style=for-the-badge" alt="Distribution">
+</p>
 
-The test server runs the latest stable build with every add-on enabled. You can experience ranked matchmaking, the full shop, generators, team upgrades, replays, cosmetics, quests and every other system exactly as your players would. **No registration, no whitelist — connect and play immediately.** The shop you play on the demo is the same default shop that ships inside the download, which is exactly the point: the plugin arrives already playable, and the demo simply proves it. If a feature you care about is not visible on the demo, ask about it in DMs and you will be shown where to test it.
+---
 
-**Demo server offline?** If the test server happens to be down, just open a DM with the developer and request a test loader for the plugin. You will receive a **1-day test loader** that grants access to the **beta build of BedWars — not the release version** — so you can still evaluate the plugin directly on your own server.
+<h2 align="center"><code>PROJECT NOTICE — DEVELOPMENT SUSPENDED</code></h2>
+
+<p align="center"><em>Effective immediately, this project has been placed on indefinite hold.</em></p>
+
+---
+
+**Reason for suspension.** Active development has been halted due to limited funding, insufficient development time, and the absence of a complete development team.
+
+**Release version.** The build currently available under the **Releases** section is an **in-development (pre-release) version**, not a finalized production build. As such, a number of **minor, low-visibility features may not function as intended**. The core systems are stable, but small edge cases and secondary details were still being refined at the time development was paused.
+
+**Current terms of the project.**
+
+- Support is **no longer provided**.
+- No further updates will be released.
+- The compiled **JAR** of the latest build remains publicly available under the **Releases** section.
+- The project may be downloaded and used in its current state, as-is.
+
+**Regarding the source code.** Open-sourcing the source is **not possible** at this time due to licensing restrictions.
+
+**Resumption of development.** Should a **sponsor or development team** come forward, development will resume immediately. For sponsorship or support inquiries, please contact the developer directly.
+
+---
+
+<p align="center">
+  <img src="assets/img/banner_hero.svg" alt="BedWars — One plugin. Everything included." width="100%">
+</p>
+
+<h1 align="center">BedWars</h1>
+
+<p align="center"><strong>A complete, self-contained BedWars plugin for Minecraft 1.8.8.</strong></p>
+
+**Production-grade BedWars for Minecraft 1.8.8 (Spigot / Paper).**
+BedWars is a complete, self-contained game plugin written from scratch by a single developer — **not a fork, not a custom edit of any existing project**. The full game core, all 36+ built-in add-ons, the entire 257-cosmetic suite, the replay system and ranked access are all part of one original codebase. There is no add-on store and no paid extras — everything is contained within the single plugin.
+
+---
+
+## Table of Contents
+
+- [Why BedWars?](#why-bedwars)
+- [Inside the Game — Every Menu](#inside-the-game--every-menu)
+- [Arena Setup Mode — Holograms Included](#arena-setup-mode--holograms-included)
+- [Core Features – Expanded](#core-features--expanded)
+- [Competitive Comparison](#competitive-comparison)
+- [Why Exclusively 1.8.8?](#why-exclusively-188)
+- [Performance That Holds](#performance-that-holds)
+- [Reliability & Fair Play](#reliability--fair-play)
+- [Ranked System (Full)](#ranked-system-full)
+- [Private Games](#private-games)
+- [Practice Arenas](#practice-arenas)
+- [Replay System](#replay-system)
+- [Cosmetics — 257 and Counting](#cosmetics--257-and-counting)
+- [36+ Built-in Add-ons — All Included](#36-built-in-add-ons--all-included)
+- [Commands & Permissions](#commands--permissions)
+- [Full Configuration — With Ready Defaults](#full-configuration--with-ready-defaults)
+- [Automatic Database Backup](#automatic-database-backup)
+- [Database & Storage](#database--storage)
+- [PlaceholderAPI — Complete Reference](#placeholderapi--complete-reference)
+- [Optional Integrations](#optional-integrations)
+- [BungeeCord, Proxy Plugin & Auto-Scale](#bungeecord-proxy-plugin--auto-scale)
+- [Developer API](#developer-api)
+- [The Official Repository](#the-official-repository)
+- [Frequently Asked Questions](#frequently-asked-questions)
+- [Support & Purchasing](#support--purchasing)
+- [Roadmap](#roadmap)
 
 ---
 
@@ -505,7 +574,7 @@ Main command: `/bw` (alias `/bedwars`)
 
 **Everything in BedWars is 100% configurable.** Every item, price, message, menu title, cooldown, sound, reward and gameplay rule can be changed from the configuration files — the plugin is a complete engine, and you decide every visible detail of it. Nothing is hard-coded, nothing is locked away.
 
-Every value is editable in the `plugins/BedWars/` directory. Nothing is locked away. **More importantly: you do not have to edit any of it to go live.** All of the important sections ship with complete, working default configurations — the shop (categories, prices, quick-buy layout), generators, levels, tokens, quests and messages all come pre-configured and match what you play on the demo server. Install, start, and the server is playable; customize at your own pace from there.
+Every value is editable in the `plugins/BedWars/` directory. Nothing is locked away. **More importantly: you do not have to edit any of it to go live.** All of the important sections ship with complete, working default configurations — the shop (categories, prices, quick-buy layout), generators, levels, tokens, quests and messages all come pre-configured and match what was on the demo server. Install, start, and the server is playable; customize at your own pace from there.
 
 | File | Purpose | Ships with default? |
 |------|---------|---------------------|
@@ -830,7 +899,6 @@ If you are interested in **sponsoring this project** or joining a **development 
 ### Contacts
 - **Discord:** `Nerotek01`
 - **Bale (Iranian users):** `Nerotek`
-- **Demo server:** `mc.hypeland.org`
 
 ### Support
 Active support is **no longer provided**, as development is suspended. The community may still discuss the plugin, but no official assistance is guaranteed.
