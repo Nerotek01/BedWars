@@ -43,10 +43,6 @@
   <img src="assets/img/banner_hero.svg" alt="BedWars — One plugin. Everything included." width="100%">
 </p>
 
-<p align="center">
-  <img src="assets/img/banner_hero.svg" alt="BedWars — One plugin. Everything included." width="100%">
-</p>
-
 <h1 align="center">BedWars</h1>
 
 <p align="center"><strong>The last BedWars plugin you will ever need to purchase.</strong></p>
