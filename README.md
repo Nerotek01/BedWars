@@ -1,13 +1,4 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/version-latest%20stable-blue?style=for-the-badge" alt="Version">
-  <img src="https://img.shields.io/badge/license-permanent%20all--servers-success?style=for-the-badge" alt="License">
-  <a href="https://discord.gg/YOUR_REAL_INVITE_CODE"><img src="https://img.shields.io/badge/support-24%2F7%20discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
-  <a href="https://mc.hypeland.org"><img src="https://img.shields.io/badge/demo-mc.hypeland.org-orange?style=for-the-badge" alt="Demo Server"></a>
-</p>
-
----
-
-<p align="center">
   <img src="https://img.shields.io/badge/STATUS-DEVELOPMENT%20SUSPENDED-8B0000?style=for-the-badge" alt="Status">
   <img src="https://img.shields.io/badge/SUPPORT-DISCONTINUED-8B0000?style=for-the-badge" alt="Support">
   <img src="https://img.shields.io/badge/UPDATES-PAUSED-8B0000?style=for-the-badge" alt="Updates">
