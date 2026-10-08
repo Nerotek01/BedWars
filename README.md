@@ -54,9 +54,9 @@ BedWars is a complete, self-contained game plugin written from scratch by a sing
 
 A live, fully functional demo network is available so you can evaluate BedWars before making any commitment.
 
-'''
+---
 IP: mc.hypeland.org
-'''
+---
 
 The test server runs the latest stable build with every add-on enabled. You can experience ranked matchmaking, the full shop, generators, team upgrades, replays, cosmetics, quests and every other system exactly as your players would. **No registration, no whitelist — connect and play immediately.** The shop you play on the demo is the same default shop that ships inside the download, which is exactly the point: the plugin arrives already playable, and the demo simply proves it. If a feature you care about is not visible on the demo, ask about it in DMs and you will be shown where to test it.
 
