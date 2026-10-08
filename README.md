@@ -1,106 +1,37 @@
-<p align="center">
-  <img src="https://img.shields.io/badge/STATUS-DEVELOPMENT%20SUSPENDED-8B0000?style=for-the-badge" alt="Status">
-  <img src="https://img.shields.io/badge/SUPPORT-DISCONTINUED-8B0000?style=for-the-badge" alt="Support">
-  <img src="https://img.shields.io/badge/UPDATES-PAUSED-8B0000?style=for-the-badge" alt="Updates">
-  <img src="https://img.shields.io/badge/DISTRIBUTION-PUBLIC%20JAR-555555?style=for-the-badge" alt="Distribution">
-</p>
 
----
+The test server runs the latest stable build with every add-on enabled. You can experience ranked matchmaking, the full shop, generators, team upgrades, replays, cosmetics, quests and every other system exactly as your players would. **No registration, no whitelist — connect and play immediately.** The shop you play on the demo is the same default shop that ships inside the download, which is exactly the point: the plugin arrives already playable, and the demo simply proves it. If a feature you care about is not visible on the demo, ask about it in DMs and you will be shown where to test it.
 
-<h2 align="center"><code>PROJECT NOTICE — DEVELOPMENT SUSPENDED</code></h2>
-
-<p align="center"><em>Effective immediately, this project has been placed on indefinite hold.</em></p>
-
----
-
-**Reason for suspension.** Active development has been halted due to limited funding, insufficient development time, and the absence of a complete development team.
-
-**Release version.** The build currently available under the **Releases** section is an **in-development (pre-release) version**, not a finalized production build. As such, a number of **minor, low-visibility features may not function as intended**. The core systems are stable, but small edge cases and secondary details were still being refined at the time development was paused.
-
-**Current terms of the project.**
-
-- Support is **no longer provided**.
-- No further updates will be released.
-- The compiled **JAR** of the latest build remains publicly available under the **Releases** section.
-- The project may be downloaded and used in its current state, as-is.
-
-**Regarding the source code.** Open-sourcing the source is **not possible** at this time due to licensing restrictions.
-
-**Resumption of development.** Should a **sponsor or development team** come forward, development will resume immediately. For sponsorship or support inquiries, please contact the developer directly.
-
----
-
-<p align="center">
-  <img src="assets/img/banner_hero.svg" alt="BedWars — One plugin. Everything included." width="100%">
-</p>
-
-<h1 align="center">BedWars</h1>
-
-<p align="center"><strong>A complete, self-contained BedWars plugin for Minecraft 1.8.8.</strong></p>
-
-**Production-grade BedWars for Minecraft 1.8.8 (Spigot / Paper).**
-BedWars is a complete, self-contained game plugin written from scratch by a single developer — **not a fork, not a custom edit of any existing project**. The full game core, all 36+ built-in add-ons, the entire 257-cosmetic suite, the replay system and ranked access are all part of one original codebase. There is no add-on store and no paid extras — everything is contained within the single plugin.
-
----
-
-## Table of Contents
-
-- [Why BedWars?](#why-bedwars)
-- [Inside the Game — Every Menu](#inside-the-game--every-menu)
-- [Arena Setup Mode — Holograms Included](#arena-setup-mode--holograms-included)
-- [Core Features – Expanded](#core-features--expanded)
-- [Competitive Comparison](#competitive-comparison)
-- [Why Exclusively 1.8.8?](#why-exclusively-188)
-- [Performance That Holds](#performance-that-holds)
-- [Reliability & Fair Play](#reliability--fair-play)
-- [Ranked System (Full)](#ranked-system-full)
-- [Private Games](#private-games)
-- [Practice Arenas](#practice-arenas)
-- [Replay System](#replay-system)
-- [Cosmetics — 257 and Counting](#cosmetics--257-and-counting)
-- [36+ Built-in Add-ons — All Included](#36-built-in-add-ons--all-included)
-- [Commands & Permissions](#commands--permissions)
-- [Full Configuration — With Ready Defaults](#full-configuration--with-ready-defaults)
-- [Automatic Database Backup](#automatic-database-backup)
-- [Database & Storage](#database--storage)
-- [PlaceholderAPI — Complete Reference](#placeholderapi--complete-reference)
-- [Optional Integrations](#optional-integrations)
-- [BungeeCord, Proxy Plugin & Auto-Scale](#bungeecord-proxy-plugin--auto-scale)
-- [Developer API](#developer-api)
-- [The Official Repository](#the-official-repository)
-- [Frequently Asked Questions](#frequently-asked-questions)
-- [Support & Purchasing](#support--purchasing)
-- [Roadmap](#roadmap)
+**Demo server offline?** If the test server happens to be down, just open a DM with the developer and request a test loader for the plugin. You will receive a **1-day test loader** that grants access to the **beta build of BedWars — not the release version** — so you can still evaluate the plugin directly on your own server before buying.
 
 ---
 
 ## Why BedWars?
 
-BedWars is not a collection of loosely connected plugins held together by third-party dependencies. It is one complete solution built from the ground up for networks that cannot afford downtime, lag, or incomplete gameplay. Every mechanic below ships inside the single download.
+BedWars is not a collection of loosely connected plugins held together by third-party dependencies. It is one complete solution built from the ground up for networks that cannot afford downtime, lag, or incomplete gameplay. Every mechanic below ships inside the single download — and every one of them is included in the single price.
 
 ### One Reason to Exist — Quality
 BedWars was not written to fill a marketplace slot, and it is not engineered down to a price. **The only reason this plugin exists is Nerotek01's pursuit of quality in everything** — the refusal to ship a menu that could open cleaner, a generator that could tick smoother, or a setup flow that could guide better. That single standard is why the game core, all 36+ add-ons, the cosmetics suite, replays and ranked live in one original codebase instead of being stitched together from half-solutions, and why every screenshot in this README is a real capture rather than a mockup. Quality here is not a feature checked off a list; it is the reason the plugin was built at all — and it is the thing your players will feel within their first minute on the server.
 
 ### The Only Plugin That Truly Unifies Everything
-Every feature you need — deposit chests, generator splitting, a full competitive ranked system, a complete cosmetics suite, match replays, private games, dedicated practice arenas, quests and anti-AFK management — lives inside **one plugin**. You never install extra add-ons, you never configure separate modules, and you are never left debugging version conflicts between half a dozen plugins. BedWars ships with **36+ built-in add-ons** that share the same configuration system and the same player data. When you enable an add-on it works instantly; when you disable it, it consumes nothing. **And because every add-on is part of the plugin itself, there is no add-on store and nothing to unlock.**
+Every feature you need — deposit chests, generator splitting, a full competitive ranked system, a complete cosmetics suite, match replays, private games, dedicated practice arenas, quests and anti-AFK management — lives inside **one plugin**. You never install extra add-ons, you never pay for separate modules, and you are never left debugging version conflicts between half a dozen plugins. BedWars ships with **36+ built-in add-ons** that share the same configuration system and the same player data. When you enable an add-on it works instantly; when you disable it, it consumes nothing. **And because every add-on is part of the plugin itself, your single payment already covers all of them — there is no add-on store and nothing to unlock later with more money.**
 
 ### Original Code — Not a Fork, Not a Reskin
-BedWars is written from scratch, line by line, by the developer you talk to. It is **not a fork** of any open-source BedWars project, **not a custom edit** of another premium plugin, and **not a rebrand** of someone else's work. That matters in three very practical ways. First, every feature behaves the way it was designed to behave — there is no inherited legacy code fighting the new systems. Second, bugs are fixed at the root, because the person fixing them understands every line they touch. Third, you get honest answers about what the plugin can and cannot do, because there is no upstream project to hide behind.
+BedWars is written from scratch, line by line, by the developer you talk to. It is **not a fork** of any open-source BedWars project, **not a custom edit** of another premium plugin, and **not a rebrand** of someone else's work. That matters to you as a buyer in three very practical ways. First, every feature behaves the way it was designed to behave — there is no inherited legacy code fighting the new systems. Second, bugs are fixed at the root, because the person fixing them understands every line they touch. Third, you get honest answers about what the plugin can and cannot do, because there is no upstream project to hide behind.
 
 ### Built for Networks, Not Just Single Servers
-BedWars was designed for large, multi-server deployments from day one. It includes its own **BedWarsProxy** companion plugin that runs on BungeeCord or Velocity. The proxy handles lobby connections, global queues, matchmaking and automatic server scaling without external scripts. Whether you run one lobby or fifty game servers, every player gets the same fast, consistent experience, and every game server keeps a solid **20 TPS** because the game loop is protected by design.
+BedWars was designed for large, multi-server deployments from day one. It includes its own **BedWarsProxy** companion plugin that runs on BungeeCord or Velocity — included in the same purchase, with no separate fee. The proxy handles lobby connections, global queues, matchmaking and automatic server scaling without external scripts. Whether you run one lobby or fifty game servers, every player gets the same fast, consistent experience, and every game server keeps a solid **20 TPS** because the game loop is protected by design.
 
 ### Extreme Performance, Not an Afterthought
 Performance is treated as a first-class feature. Generators are processed on a smart schedule instead of being checked every tick. All database work happens in the background, so the game never stutters for a save. Map resets finish in milliseconds. Menus open instantly — even the cosmetics menu, with its hundreds of items. The scoreboard only updates when something actually changes. The result is a plugin that stays at **20 TPS under full load** — not just in benchmarks, but in real, peak-hour traffic.
 
 ### True Competitive Play with Native Ranked
-Unlike alternatives that bolt on a third-party ELO plugin, BedWars includes a full ranked system natively. It connects to a central ranked service, manages automated matchmaking, tracks ELO ratings across seasons, supports tournament NPCs, and exposes a complete set of placeholders for lobby displays. This is not a simplified add-on — it is a complete competitive infrastructure, and like everything else it is part of the plugin itself.
+Unlike alternatives that bolt on a third-party ELO plugin, BedWars includes a full ranked system natively. It connects to a central ranked service, manages automated matchmaking, tracks ELO ratings across seasons, supports tournament NPCs, and exposes a complete set of placeholders for lobby displays. This is not a simplified add-on — it is a complete competitive infrastructure, and like everything else it is included in the base price.
 
-### Free, Public Release
-The project is no longer sold. The latest compiled build is publicly available, free of charge, under the **Releases** section — covering every server you own, with no fees and no hidden costs.
+### Zero Recurring Costs, Truly Unlimited License
+One payment of **€29.00** grants a permanent license that covers **all servers you own** — whether you run a single lobby or a 50-server network. There are no monthly fees, no per-server charges, **no paid add-ons at any point**, and no hidden costs. All updates for the current major version are included free. The price you see is the last euro you will ever spend on this plugin.
 
 ### Direct Access to the Developer
-When your server has an issue at peak time, you do not file a ticket and wait. You speak directly to the person who built the plugin. However, note that active support is **no longer provided**, as development is currently suspended.
+When your server has an issue at peak time, you do not file a ticket and wait. You speak directly to the person who built the plugin. Support is available **24/7** through Discord or Bale, and every report is handled with the urgency a live network demands.
 
 ---
 
@@ -243,7 +174,7 @@ And the behavior ties it all together: **the holograms follow you** — they rep
 </p>
 
 ### Complete BedWars Mechanics
-Every core mechanic is implemented in full: destructible beds, resource generators with configurable timers and tiers, team-shared upgrades (sharpness, protection, haste, heal pool, base traps, dragon buffs and more), a fully customisable item shop, and special items such as fireballs, dream defenders, bed bugs, pop-up towers and bridge eggs. Scheduled match events — diamond and emerald generator tier-ups, the bed destruction countdown, and the ender dragon sudden-death phase — are all configurable through simple files with no hidden hard-coded behavior. None of these mechanics are "premium extras": the full game logic is part of the plugin.
+Every core mechanic is implemented in full: destructible beds, resource generators with configurable timers and tiers, team-shared upgrades (sharpness, protection, haste, heal pool, base traps, dragon buffs and more), a fully customisable item shop, and special items such as fireballs, dream defenders, bed bugs, pop-up towers and bridge eggs. Scheduled match events — diamond and emerald generator tier-ups, the bed destruction countdown, and the ender dragon sudden-death phase — are all configurable through simple files with no hidden hard-coded behavior. None of these mechanics are "premium extras": the full game logic is part of the one download and the one price.
 
 ### Flexible Game Modes
 Each arena can be configured for Solo, Doubles, Triples or Quads. Mode-specific behavior — team sizes, shop content, generator rates — is handled automatically, and multiple arenas can run different modes simultaneously on the same server. Switching an arena's mode is a single command, so you can react to what your players actually queue for instead of what you guessed last month.
@@ -254,7 +185,7 @@ Each arena can be configured for Solo, Doubles, Triples or Quads. Mode-specific 
 - **Auto-Scale** – the proxy signals your infrastructure to start or stop game servers based on player demand, with zero manual work.
 - **Shared** – a single arena instance shared across multiple servers (advanced setups).
 
-Each topology is a config value, not a different download. You install once and can migrate between setups as your network grows.
+Each topology is a config value, not a different download. You buy once and can migrate between setups as your network grows.
 
 ### Spectator System
 After elimination, players enter spectator mode with fly speed controls, night vision toggle and auto-teleport to active players. A dedicated **Teleporter GUI** lets spectators jump between alive players instantly — including a one-click random teleport — and spectators never interfere with the running match. Spectator chat is separated so eliminated players cannot relay enemy positions, and every spectator tool is paginated and lag-free even in full lobbies.
@@ -284,11 +215,11 @@ All plugin messages are fully multi-language, and each player selects their own 
 | Criteria | **BedWars** | BedWars1058 | MBedwars | ScreamingBedWars | Other "Premium" |
 |----------|-------------|-------------|----------|------------------|-----------------|
 | **Built-in add-ons** | 36+ (ranked, quests, cosmetics, replay, private games, practice, deposit, gen split, anti-AFK, …) | Requires separate JARs | ~10 | Limited | Usually 5-10, many paid separately |
-| **Extra payments for add-ons** | **None — everything is included in the plugin** | Common | Common | Rare | Frequent upsells |
+| **Extra payments for add-ons** | **None — everything is in the one price** | Common | Common | Rare | Frequent upsells |
 | **Native ranked system** | Full ELO, seasons, tournaments | Not available | Third-party | Not available | Rarely native |
 | **Replay system** | Built-in, automatic, with staff tools | Not available | Not available | Not available | Rarely available |
 | **Cosmetics** | 257 built-in across 11 categories | Paid add-ons | Partial | Not available | Often missing |
-| **Proxy plugin included** | Yes – BedWarsProxy ships with the plugin | Not included | Not included | Not included | Not included |
+| **Proxy plugin included** | Yes – BedWarsProxy ships with the purchase | Not included | Not included | Not included | Not included |
 | **Database engines** | MongoDB + Redis + SQLite (auto-fallback) | MySQL / SQLite | MySQL / SQLite | Flat file / MySQL | Usually MySQL only |
 | **TPS under full load** | Stable 20 TPS | Degrades noticeably | Degrades | Frequent drops | Often drops below 17 |
 | **Auto-scale / BungeeCord** | Native | Basic support | Basic support | Unstable | Varies, often unstable |
@@ -297,9 +228,9 @@ All plugin messages are fully multi-language, and each player selects their own 
 | **Map reset speed** | Instant | Slow file copy | Slow file copy | Slow file copy | Slow |
 | **Custom Quick Buy** | Persistent, per-player, built-in | Not available | Not available | Not available | Rarely available |
 | **Economy system** | Built-in token economy, no Vault | Vault required | Vault required | Vault required | Vault required |
-| **License model** | Free, public release | Per-server | Per-server | Per-server | Often recurring |
+| **License model** | Permanent, all servers + personal loader | Per-server | Per-server | Per-server | Often recurring |
 
-**Key takeaway:** BedWars is the option that delivers the full package — game logic, ranked system, replays, cosmetics, proxy integration — in a single plugin that covers every server you run.
+**Key takeaway:** BedWars is the option that delivers the full package — game logic, ranked system, replays, cosmetics, proxy integration and personal support — in a single purchase that covers every server you run and **every add-on you will ever enable**.
 
 ---
 
@@ -334,7 +265,7 @@ BedWars treats performance as a core feature, and every system is designed to pr
 - **Background database work** – every save, stat write and economy update happens off the game thread; gameplay never waits on storage.
 - **Smart menus** – cosmetics and shop menus open instantly, even with hundreds of heads, skins and items configured.
 - **Change-only updates** – scoreboards, holograms and health indicators refresh only when their data actually changes. Idle players cost nothing.
-- **Silent add-ons** – a disabled add-on consumes nothing. You only pay performance for the features you actually enable.
+- **Silent add-ons** – a disabled add-on consumes nothing. You only pay performance for the features you actually enable — never money for them.
 - **Safe under failure** – if the database slows down or drops a write under extreme load, the plugin protects the game first and logs the work for retry. Your TPS is never the sacrifice.
 
 ---
@@ -385,7 +316,7 @@ The native ranked mode transforms BedWars into a competitive, ELO-driven environ
 - **Holographic leaderboard** – a real-time top-players display synchronized across the network.
 - **Full placeholder support** – `%bedwars_ranked_elo%`, `%bedwars_ranked_wins%` and many more, everywhere placeholders work.
 
-The ranked system requires a valid API token and access to the ranked service backend. Because the project is currently suspended, ranked backend access is not guaranteed for new installations — the in-game ranked infrastructure remains functional for as long as the backend is reachable.
+The ranked system requires a valid API token and access to the ranked service backend. Setup assistance is provided with every purchase — and ranked access is part of the license, not a separate subscription.
 
 ---
 
@@ -399,7 +330,7 @@ Private Games lets any party owner spin up a **custom, invite-only match** on it
 - **Zero setup** – works out of the box on any existing arena; no extra maps to configure.
 - **Lifecycle safety** – private-game commands cannot be used inside a normal arena, and map-selector joins are never blocked by the private-games restriction.
 
-For your community this is a content machine: creators host custom games, players invite friends, and your server becomes the platform they run their events on.
+For your community this is a content machine: creators host custom games, players invite friends, and your server becomes the platform they run their events on — at no extra cost to you or them.
 
 ---
 
@@ -435,7 +366,7 @@ The replay system delivers studio-grade match recordings without any compromise 
 
 ## Cosmetics — 257 and Counting
 
-The cosmetics suite ships with **257 individual cosmetics across 11 categories**, every one of them selectable, previewable and tied to the rarity system. This is the exact count of what your players get on day one — all included in the plugin, with no cosmetic paywall or perk store:
+The cosmetics suite ships with **257 individual cosmetics across 11 categories**, every one of them selectable, previewable and tied to the rarity system. This is the exact count of what your players get on day one — all included in the single purchase, with no cosmetic paywall or perk store:
 
 | Category | Count | Examples |
 |----------|------:|----------|
@@ -458,7 +389,7 @@ Beyond the numbers, the suite is a complete framework: every cosmetic has a rari
 
 ## 36+ Built-in Add-ons — All Included
 
-Every add-on below ships inside the plugin. There is no add-on store, no per-module pricing, and no "pro version" — this table is the complete list of what you own the moment the plugin is installed. All add-ons are self-contained and toggled in `addons.yml`. When enabled they run at full capacity; when disabled they consume nothing.
+Every add-on below ships inside the plugin, and **every one of them is already covered by the single €29 payment**. There is no add-on store, no per-module pricing, and no "pro version" — this table is the complete list of what you own the moment your loader activates. All add-ons are self-contained and toggled in `addons.yml`. When enabled they run at full capacity; when disabled they consume nothing.
 
 | Add-on | Function |
 |--------|----------|
@@ -572,9 +503,9 @@ Main command: `/bw` (alias `/bedwars`)
 
 ## Full Configuration — With Ready Defaults
 
-**Everything in BedWars is 100% configurable.** Every item, price, message, menu title, cooldown, sound, reward and gameplay rule can be changed from the configuration files — the plugin is a complete engine, and you decide every visible detail of it. Nothing is hard-coded, nothing is locked away.
+**Everything in BedWars is 100% configurable.** Every item, price, message, menu title, cooldown, sound, reward and gameplay rule can be changed from the configuration files — the plugin you receive is a complete engine, and you decide every visible detail of it. Nothing is hard-coded, nothing is locked away.
 
-Every value is editable in the `plugins/BedWars/` directory. Nothing is locked away. **More importantly: you do not have to edit any of it to go live.** All of the important sections ship with complete, working default configurations — the shop (categories, prices, quick-buy layout), generators, levels, tokens, quests and messages all come pre-configured and match what was on the demo server. Install, start, and the server is playable; customize at your own pace from there.
+Every value is editable in the `plugins/BedWars/` directory. Nothing is locked away. **More importantly: you do not have to edit any of it to go live.** All of the important sections ship with complete, working default configurations — the shop (categories, prices, quick-buy layout), generators, levels, tokens, quests and messages all come pre-configured and match what you play on the demo server. Install, start, and the server is playable; customize at your own pace from there.
 
 | File | Purpose | Ships with default? |
 |------|---------|---------------------|
@@ -772,7 +703,7 @@ PlaceholderAPI is the **only required dependency**. Beyond that, BedWars detects
 
 ## BungeeCord, Proxy Plugin & Auto-Scale
 
-BedWars is designed for multi-server networks from the ground up. The plugin ships with **BedWarsProxy**, a dedicated companion plugin that runs on your BungeeCord or Velocity instance.
+BedWars is designed for multi-server networks from the ground up. The purchase includes **BedWarsProxy**, a dedicated companion plugin that runs on your BungeeCord or Velocity instance — included at no extra cost, like every other part of the plugin.
 
 **What BedWarsProxy handles:**
 - Lobby queue management and player distribution across game servers.
@@ -786,13 +717,13 @@ All synchronization is built in. You do not need external scripts, orchestrators
 
 ## Developer API
 
-BedWars exposes a full Java API for teams who want to build on top of it: join events, bed-break events, match lifecycle hooks, arena lookups, economy access and custom sub-commands — all documented and version-stable. If your network needs a custom integration (crates, battle passes, websites, Discord bots), the API gives you clean, supported entry points instead of fragile workarounds.
+BedWars exposes a full Java API for teams who want to build on top of it: join events, bed-break events, match lifecycle hooks, arena lookups, economy access and custom sub-commands — all documented and version-stable. If your network needs a custom integration (crates, battle passes, websites, Discord bots), the API gives you clean, supported entry points instead of fragile workarounds. API access and guidance are included with every purchase.
 
 ---
 
 ## The Official Repository
 
-BedWars is developed in the open on GitHub — with real commits, versioned releases and a full development history behind every download. The screenshot below is the **actual, live GitHub page of the source repository** (dark theme), so you can see with your own eyes what stands behind this plugin: a serious, maintained codebase — not a weekend script.
+BedWars is an actively developed product with a real home on GitHub — hundreds of commits, versioned releases and a full development history behind every download. The screenshot below is the **actual, live GitHub page of the source repository** (dark theme), so you can see with your own eyes what stands behind this plugin: a serious, maintained codebase — not a weekend script.
 
 <p align="center">
   <img src="assets/img/repo_home_dark.png" alt="BedWars — official source repository on GitHub (Nerotek01/Bed-Wars)" width="95%">
@@ -804,9 +735,9 @@ And because the repository is real, the code is real too. The image below is a *
   <img src="assets/img/code_sample.png" alt="Real excerpt of BedWars.java — clean, documented code" width="95%">
 </p>
 
-Documented edge cases, defensive guards, readable structure and honest comments — this is the standard the entire codebase follows, from the entry point down to the smallest add-on. It is exactly why BedWars could ship frequent updates without breaking servers.
+Documented edge cases, defensive guards, readable structure and honest comments — this is the standard the entire codebase follows, from the entry point down to the smallest add-on. It is exactly why BedWars can ship frequent updates without breaking servers.
 
-Development is currently on hold, but the public repository remains accessible. The compiled plugin itself is distributed as a **ready-to-run product build** under the **Releases** section; direct source access stays with the developer, which is what protects the investment: one accountable author, one codebase, no leaks, no resold copies floating around.
+As you can see, development moves fast — new builds, tests and release notes land continuously, and every released version is tagged. Buyers receive the plugin as a **personal loader** (the ready-to-run product build); direct source access stays with the developer, which is exactly what protects your investment: one accountable author, one codebase, no leaks, no resold copies floating around.
 
 <p align="center">
   <a href="https://github.com/Nerotek01/BedWars"><strong>Public releases & updates: github.com/Nerotek01/BedWars</strong></a>
@@ -816,13 +747,13 @@ Development is currently on hold, but the public repository remains accessible. 
 
 ## Frequently Asked Questions
 
-### General Questions
+### Pre-purchase Questions
 
 **Q: Is this a single plugin or do I need multiple downloads?**
-A: BedWars ships as a single plugin containing 36+ built-in add-ons. The companion BedWarsProxy plugin is also included for BungeeCord/Velocity proxies.
+A: BedWars ships as a single plugin containing 36+ built-in add-ons. You also receive the companion BedWarsProxy plugin for your BungeeCord/Velocity proxy — all included in the same purchase.
 
 **Q: Do I have to pay extra for any add-on, module or feature?**
-A: No. Everything is contained in the plugin: the game core, all 36+ add-ons, the full 257-cosmetic suite, the replay system, ranked access and the proxy plugin. There is no add-on store and no premium tier.
+A: **No — never.** The one payment covers 100% of the plugin: the game core, all 36+ add-ons, the full 257-cosmetic suite, the replay system, ranked access and the proxy plugin. There is no add-on store, no premium tier, no unlock fees, and no feature that will ever ask you for more money.
 
 **Q: Is this a fork or a custom edit of another BedWars plugin?**
 A: No. BedWars is an **original plugin written completely from scratch** by its developer — not a fork of any open-source project, not a modified version of another premium plugin, and not a rebrand. Every system was designed and implemented for this product specifically.
@@ -837,29 +768,44 @@ A: BedWars is currently built exclusively for 1.8.8. This single-version focus i
 A: No. BedWars uses a fully internal token economy. The only external dependency is PlaceholderAPI. Vault, Citizens, Parties and SlimeWorldManager are all optional and simply unlock extra conveniences when present.
 
 **Q: How does the license work?**
-A: No license is sold. The project has been suspended and the latest build is available free of charge under the **Releases** section.
+A: One payment of **€29.00** grants a permanent license that covers every server you own. There are no recurring fees, no per-server charges, and no hidden costs.
 
-**Q: Can I test the plugin?**
+**Q: Can I test the plugin before buying?**
 A: Yes. Connect to `mc.hypeland.org` and experience the full plugin on a live network — no registration, no whitelist.
 
-### Distribution & Delivery Questions
+### Delivery & Loader Questions
 
-**Q: Where do I get the plugin?**
-A: The compiled **JAR** is publicly available, free of charge, under the **Releases** section of this repository. Download it, drop it into your `plugins/` folder, and use it as-is.
+**Q: How do I buy the plugin?**
+A: Everything happens directly in DMs. Open a DM with the developer (Discord `Nerotek01` or Bale `Nerotek`), discuss your setup, complete the payment, and your **personal loader** is issued to you. See [Support & Purchasing](#support--purchasing) for the full walkthrough.
 
-**Q: Is there a loader, a license key, or a payment of any kind?**
-A: No. There is no price, no license key, no loader, and no payment of any kind. The project is released publicly for anyone to use.
+**Q: What exactly is the "personal loader"?**
+A: The loader is a small launcher build prepared **specifically for you** after your payment is confirmed. It is the key that activates the full BedWars suite on your servers. Each loader is issued to one buyer — it is your license, in executable form.
 
-**Q: Can I share the plugin with others?**
-A: Yes. The compiled JAR is a public release and may be freely downloaded and used by anyone.
+**Q: Which operating systems does the loader support?**
+A: **Linux and Windows.** The loader ships for both — Linux servers, which is what virtually all production Minecraft servers run, and Windows machines. Whether your network runs on a Linux VPS, a standard Minecraft host or a Windows box, you are fully covered. If you are unsure about your setup, just ask in the DM and it will be checked with you.
 
-**Q: Are there any restrictions on using the plugin?**
-A: The compiled JAR may be used freely. However, the source code remains the property of the developer and is not open-sourced at this time. Redistribution of the source, rebranding, or reselling the plugin as one's own work is not permitted.
+**Q: How is the loader protected?**
+A: The loader is strictly protected and bound to your purchase. It enforces real restrictions — including an **IP limit** — so it only works where it was issued to work. Bypassing or tampering with it is not possible in any practical way, and attempts are detected.
+
+**Q: What happens if someone tries to bypass or crack the loader?**
+A: The license is **permanently revoked — there is no way back**, for the original buyer too. Repeated bypass attempts from the same buyer can lead to a full **blacklist**: no future purchases, no replacements, no exceptions. This policy is what keeps the price at a flat €29 for everyone else.
+
+**Q: When do I receive my loader?**
+A: Usually within hours of payment confirmation, delivered directly inside your DM conversation. You also receive setup help until the plugin is running on your network.
+
+**Q: Can I share or resell my loader?**
+A: No. Loaders are bound to the buyer. A shared or resold loader is invalidated and the associated license is permanently revoked — including for the original buyer.
+
+**Q: What if I lose my loader or rebuild my infrastructure?**
+A: Just message the developer from the same DM. Your purchase is on record, and a replacement loader for the same license is re-issued — for example when your server IPs change.
+
+**Q: Where do I get the full technical details about the loader?**
+A: Complete explanations — setup, requirements, security behavior and the protection policy — are given **personally at purchase time**, directly in your DM conversation. Everything relevant to your infrastructure is covered before you pay.
 
 ### Technical Questions
 
 **Q: What Java version does my server need?**
-A: A modern Java runtime (Java 21+). Setup assistance for your start scripts may be limited due to the project being suspended.
+A: A modern Java runtime (Java 21+). Setup assistance for your start scripts is included with support.
 
 **Q: Does BedWars work on a shared server with other minigames?**
 A: Yes. Multi-Arena mode lets it coexist with other plugins on the same server instance.
@@ -871,37 +817,72 @@ A: Absolutely. One config change switches the engine, and all data is migrated a
 A: The included BedWarsProxy monitors player demand and signals your infrastructure to start or stop game servers. Parties stay together and ranked queues fill correctly across the whole network.
 
 **Q: What happens if my database gets corrupted?**
-A: Automatic background backups run on a configurable schedule. A complete restore is one file away.
+A: Automatic background backups run on a configurable schedule. A complete restore is one file away — and support helps you do it.
 
 ### Support
 
 **Q: How do I get help if something breaks?**
-A: Active support is **no longer provided**, as development is suspended. You may still contact the developer, but no official assistance is guaranteed.
+A: You have 24/7 direct access to the developer via Discord (`Nerotek01`) or Bale (`Nerotek`). No tickets, no forums, no canned replies.
 
 **Q: Are updates free?**
-A: No further updates are planned. The current build is the final public release for this version.
+A: All updates for the current major version are included with your permanent license — delivered through your loader, again with no extra payment.
 
 ---
 
 ## Support & Purchasing
 
-**This project is no longer sold.** As stated in the Project Notice above, development has been suspended indefinitely and commercial distribution has been discontinued.
+<p align="center">
+  <img src="assets/img/banner_purchase.png" alt="How to get BedWars — DM, demo, payment, personal loader" width="100%">
+</p>
 
-### How to Get the Plugin
-The latest compiled **JAR** is publicly available, free of charge, under the **Releases** section of this repository. Download it, drop it into your `plugins/` folder, and use it as-is.
+**BedWars** is a premium plugin sold exclusively by the developer — no marketplaces, no resellers, no license-key vending machines. The entire purchase is a short, personal process that happens in your DMs.
 
-### No Purchase, No License Fee
-There is no price, no license key, no loader, and no payment of any kind. The project is released publicly for anyone to use.
+### The Purchase Process — Step by Step
 
-### Sponsorship & Resumption
-If you are interested in **sponsoring this project** or joining a **development team** to resume it, please contact the developer directly. Sponsorship is the only path toward continued development.
+**Step 1 — Open a DM and contact the developer.**
+Message `Nerotek01` on Discord or `Nerotek` on Bale (for Iranian users). You are talking directly to the person who built the plugin. Ask about features, performance, your network architecture, licensing or anything else — you get straight answers, not sales scripts.
+
+**Step 2 — Test the live demo and confirm your setup.**
+Connect to `mc.hypeland.org` and experience ranked matchmaking, the full shop, generators, replays, cosmetics and every add-on exactly as your players would. Once you are satisfied, you and the developer confirm your license details together.
+
+**Step 3 — Complete the payment.**
+One payment of **€29.00**. Permanent license. Covers every server you own — from a single lobby to a 50-server network — **and every add-on the plugin contains**. No renewals, no per-server fees, no add-on charges, no hidden costs, and all updates for the current major version included free.
+
+**Step 4 — Receive your personal loader.**
+After your payment is confirmed, a **unique loader is prepared and issued for you personally**. The loader is the key to the plugin: run it once, and the complete BedWars suite — the game plugin, BedWarsProxy, all 36+ add-ons and ranked backend access — is activated for your network. Delivery happens directly in your DM, usually within hours.
+
+### The Personal Loader — Requirements & Security
+
+The loader is what makes a flat €29 price possible for everyone, so its rules are firm and applied the same way to every buyer:
+
+- **Linux & Windows.** The loader runs on both Linux game servers — the standard for production Minecraft hosting — and Windows machines. Whatever operating system your servers run, you are covered; if you are unsure, ask in the DM and your setup will be checked with you.
+- **Strictly protected.** Every loader is a unique, personal build with hard security restrictions — including an **IP limit** that binds it to the infrastructure it was issued for.
+- **Bypassing = permanent ban.** Any attempt to bypass, tamper with or reverse the loader's protection **permanently revokes the license. There is no way back** — no refund, no re-issue, no exceptions, even for the original buyer.
+- **Repeat attempts = blacklist.** Repeated bypass attempts can blacklist you completely: no future purchases, no replacements, no support.
+- **Full details at purchase.** Complete technical explanations — requirements, setup, and how the protection behaves in practice — are provided personally in your DMs when you buy, so there are zero surprises.
 
 ### Contacts
+
 - **Discord:** `Nerotek01`
 - **Bale (Iranian users):** `Nerotek`
+- **Demo server:** `mc.hypeland.org`
+- **Price:** **€29.00** — one-time payment, permanent license, all add-ons included.
 
-### Support
-Active support is **no longer provided**, as development is suspended. The community may still discuss the plugin, but no official assistance is guaranteed.
+### What You Receive
+- Your **personal loader** — a unique build issued only to you (Linux or Windows).
+- The complete BedWars game plugin.
+- The BedWarsProxy companion plugin.
+- **All 36+ add-ons — already paid for, nothing locked, nothing extra to buy.**
+- The full 257-cosmetic suite, replay system and ranked access.
+- **Ready default configurations for every important section** — the shop, generators, levels, quests and messages work out of the box.
+- Free updates for the current major version.
+- **24/7 priority support** via Discord or Bale.
+
+### Loader Policy
+Your loader is bound to you — keep it private. Each loader is issued to a single buyer and is the only way to run the plugin. Shared or resold loaders are invalidated and the license permanently revoked. Bypassing or tampering with the loader's protection is permanent: the license dies, it cannot be recovered, and repeated attempts blacklist the buyer entirely. If you lose your loader or rebuild your infrastructure, the developer re-issues it from your purchase record — your license itself never expires.
+
+### Support Promise
+When an issue arises on your live network, you do not file tickets and hope for a reply. You speak directly with the developer. Your uptime is our reputation.
 
 ---
 
@@ -911,18 +892,16 @@ Active support is **no longer provided**, as development is suspended. The commu
 - **Expanded API** – additional events, hooks and documentation for custom integrations.
 - **More cosmetics** – new items are added to the 257-cosmetic suite in every major update.
 
-*All roadmap items are deferred while development is suspended.*
-
 ---
 
 ## Beyond the Documentation
 
-This README is deliberately thorough — and it still covers only part of the surface. BedWars contains **many more sections, systems and small touches than any document can fully describe**: the parts you feel mid-game rather than read about, the admin conveniences that only reveal themselves while you configure your network, and dozens of details that were designed silently into the experience instead of being printed in a feature list. Text and screenshots can prove the plugin is real and complete — but they cannot let you *feel* it. **The only complete way to examine everything is to play it**: connect to the demo server and push every menu until you have found the corners no README mentions.
+This README is deliberately thorough — and it still covers only part of the surface. BedWars contains **many more sections, systems and small touches than any document can fully describe**: the parts you feel mid-game rather than read about, the admin conveniences that only reveal themselves while you configure your network, and dozens of details that were designed silently into the experience instead of being printed in a feature list. Text and screenshots can prove the plugin is real and complete — but they cannot let you *feel* it. **The only complete way to examine everything is to play it, and to own it**: connect to the demo server and push every menu until you have found the corners no README mentions — and when you want all of it on your own network, that is exactly what the single €29 purchase below hands you. The whole plugin. Nothing held back, nothing undocumented on purpose.
 
 ---
 
 <p align="center">
   <a href="https://mc.hypeland.org"><strong>Connect to the demo: mc.hypeland.org</strong></a><br><br>
-  <strong>Discord · Nerotek01</strong> &nbsp;|&nbsp; <strong>Bale · Nerotek</strong> &nbsp;|&nbsp; <strong>Free · Public Release · Development Suspended</strong><br>
+  <strong>Discord · Nerotek01</strong> &nbsp;|&nbsp; <strong>Bale · Nerotek</strong> &nbsp;|&nbsp; <strong>€29 · Permanent · Everything Included</strong><br>
   <sub>Product of Nerotek01</sub>
 </p>
