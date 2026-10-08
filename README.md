@@ -1,3 +1,62 @@
+<p align="center">
+  <img src="https://img.shields.io/badge/version-latest%20stable-blue?style=for-the-badge" alt="Version">
+  <img src="https://img.shields.io/badge/license-permanent%20all--servers-success?style=for-the-badge" alt="License">
+  <a href="https://discord.gg/YOUR_REAL_INVITE_CODE"><img src="https://img.shields.io/badge/support-24%2F7%20discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
+  <a href="https://mc.hypeland.org"><img src="https://img.shields.io/badge/demo-mc.hypeland.org-orange?style=for-the-badge" alt="Demo Server"></a>
+</p>
+
+<p align="center">
+  <img src="assets/img/banner_hero.svg" alt="BedWars — One plugin. Everything included." width="100%">
+</p>
+
+<h1 align="center">BedWars</h1>
+
+<p align="center"><strong>The last BedWars plugin you will ever need to purchase.</strong></p>
+
+**Production-grade BedWars for Minecraft 1.8.8 (Spigot / Paper).**
+BedWars is a complete, self-contained game plugin written from scratch by a single developer — **not a fork, not a custom edit of any existing project**. One purchase unlocks **everything**: the full game core, all 36+ built-in add-ons, the entire 257-cosmetic suite, the replay system and ranked access. There is no add-on store, no paid extras, and no feature behind a second payment — the single price already covers 100% of the plugin, forever.
+
+---
+
+## Table of Contents
+
+- [Test Server – Try Before You Buy](#test-server--try-before-you-buy)
+- [Why BedWars?](#why-bedwars)
+- [Inside the Game — Every Menu](#inside-the-game--every-menu)
+- [Arena Setup Mode — Holograms Included](#arena-setup-mode--holograms-included)
+- [Core Features – Expanded](#core-features--expanded)
+- [Competitive Comparison](#competitive-comparison)
+- [Why Exclusively 1.8.8?](#why-exclusively-188)
+- [Performance That Holds](#performance-that-holds)
+- [Reliability & Fair Play](#reliability--fair-play)
+- [Ranked System (Full)](#ranked-system-full)
+- [Private Games](#private-games)
+- [Practice Arenas](#practice-arenas)
+- [Replay System](#replay-system)
+- [Cosmetics — 257 and Counting](#cosmetics--257-and-counting)
+- [36+ Built-in Add-ons — All Included](#36-built-in-add-ons--all-included)
+- [Commands & Permissions](#commands--permissions)
+- [Full Configuration — With Ready Defaults](#full-configuration--with-ready-defaults)
+- [Automatic Database Backup](#automatic-database-backup)
+- [Database & Storage](#database--storage)
+- [PlaceholderAPI — Complete Reference](#placeholderapi--complete-reference)
+- [Optional Integrations](#optional-integrations)
+- [BungeeCord, Proxy Plugin & Auto-Scale](#bungeecord-proxy-plugin--auto-scale)
+- [Developer API](#developer-api)
+- [The Official Repository](#the-official-repository)
+- [Frequently Asked Questions](#frequently-asked-questions)
+- [Support & Purchasing](#support--purchasing)
+- [Roadmap](#roadmap)
+
+---
+
+## Test Server – Try Before You Buy
+
+A live, fully functional demo network is available so you can evaluate BedWars before making any commitment.
+
+'''
+IP: mc.hypeland.org
+'''
 
 The test server runs the latest stable build with every add-on enabled. You can experience ranked matchmaking, the full shop, generators, team upgrades, replays, cosmetics, quests and every other system exactly as your players would. **No registration, no whitelist — connect and play immediately.** The shop you play on the demo is the same default shop that ships inside the download, which is exactly the point: the plugin arrives already playable, and the demo simply proves it. If a feature you care about is not visible on the demo, ask about it in DMs and you will be shown where to test it.
 
